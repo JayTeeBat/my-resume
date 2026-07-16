@@ -1,15 +1,24 @@
 # my-resume
 
+### 📄 [Read or download my CV → jayteebat.github.io/my-resume](https://jayteebat.github.io/my-resume/)
+
 My CV as data. [`resume.json`](resume.json) is the single source of truth — a standard
 [JSON Resume](https://jsonresume.org/) document — and this toolchain renders it to styled PDF and
-HTML.
+HTML. Every push to `main` rebuilds and republishes the page above, so that link is always current.
+
+## Working on it locally
 
 ```sh
 uv sync
 uv run playwright install chromium   # one-time, ~150MB
 
+uv run resume serve                  # preview at localhost:8000, reloads as you edit
 uv run resume build                  # -> dist/resume-{full,short}.{pdf,html}
 ```
+
+`serve` is the one to use while writing or restyling: leave it running, edit
+[`resume.json`](resume.json) or `themes/classic/style.css`, and the browser reloads itself. Add
+`-v short` to preview the one-pager. Reach for `build` when you want the actual PDF in `dist/`.
 
 ## Commands
 
@@ -19,9 +28,11 @@ uv run resume build                  # -> dist/resume-{full,short}.{pdf,html}
 | `uv run resume variants` | List the variants defined in `variants.toml` |
 | `uv run resume build` | Render every variant to `dist/` |
 | `uv run resume build -v short -f pdf` | Render one variant, one format |
+| `uv run resume site` | Every variant **plus** the `index.html` landing page — what CI publishes |
 | `uv run resume serve` | Browser preview, live-reloads on edit |
 
-`serve` is the one to use while restyling: edit `themes/classic/style.css` and the page reloads.
+To see exactly what the published site will look like, `uv run resume site` and open
+`dist/index.html`.
 
 ## How it fits together
 
@@ -72,10 +83,18 @@ need an `x-highlights` extension.
   `jsonschema` ignores unless asked; those are exactly the fields where a typo is invisible on the
   page but costly in life.
 
-## CI
+## CI and publishing
 
-Every push validates `resume.json`, runs the tests, and builds all variants, uploading `dist/` as a
-workflow artifact — so there is always a fresh PDF to download, and a broken resume fails loudly.
+Every push validates `resume.json`, runs the tests and builds the site, so a broken resume fails
+loudly on any branch. Pushes to `main` additionally deploy to **GitHub Pages** at
+[jayteebat.github.io/my-resume](https://jayteebat.github.io/my-resume/) — a stable public URL that
+needs no GitHub login, which is what you actually share with people. `dist/` is still uploaded as a
+workflow artifact on every branch, for checking a PR's output before it merges.
+
+The landing page is `site/index.html.j2`. Card order follows `variants.toml`, so reordering that file
+reorders the page.
+
+> **One-time setup:** Settings → Pages → Source: **GitHub Actions**. Without it the deploy job fails.
 
 ## Tests
 
