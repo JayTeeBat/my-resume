@@ -1,0 +1,19 @@
+# Variant definitions.
+#
+# Each [section] declares one output cut, built from the single resume.json.
+# `include` lists the x-tags an entry needs to survive into this variant.
+#
+# Filtering rule:
+#   - an entry with NO "x-tags" key is ALWAYS included (untagged == core content)
+#   - an entry WITH "x-tags" survives only if one of its tags is in `include`
+#   - include = ["*"] includes everything
+#
+# So you only tag entries you want to *conditionally* drop.
+
+[full]
+description = "Complete CV, every entry"
+include = ["*"]
+
+[short]
+description = "One-page highlights, older and niche entries dropped"
+include = []
