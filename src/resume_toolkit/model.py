@@ -34,7 +34,11 @@ def validate(resume: dict, schema_path: Path = SCHEMA_JSON) -> list[str]:
     is miserable.
     """
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
-    validator = Draft7Validator(schema)
+    # FORMAT_CHECKER is opt-in: jsonschema treats `format` as a pure annotation
+    # otherwise, which would let a malformed email or a dead profile URL through
+    # silently. The schema declares `format` on 11 fields and those are exactly
+    # the ones where a typo is invisible on the page but costly in practice.
+    validator = Draft7Validator(schema, format_checker=Draft7Validator.FORMAT_CHECKER)
     return [
         f"{_json_path(error)}: {error.message}"
         for error in sorted(validator.iter_errors(resume), key=lambda e: list(e.absolute_path))

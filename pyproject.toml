@@ -9,7 +9,9 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "jinja2>=3.1.4",
-    "jsonschema>=4.23.0",
+    # [format] pulls the validators that make `format: uri` / `format: email`
+    # actually enforceable rather than decorative.
+    "jsonschema[format]>=4.23.0",
     "playwright>=1.49.0",
     "typer>=0.15.1",
 ]
@@ -20,6 +22,8 @@ resume = "resume_toolkit.cli:app"
 [dependency-groups]
 dev = [
     "pytest>=8.3.4",
+    # Test-only: used to assert the built PDF's page geometry and text layer.
+    "pypdf>=5.1.0",
 ]
 
 [build-system]
@@ -28,3 +32,6 @@ build-backend = "uv_build"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "slow: drives a real Chromium; deselect with -m 'not slow'",
+]

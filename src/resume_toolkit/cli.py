@@ -33,7 +33,8 @@ def _load_or_exit(path: Path = RESUME_JSON) -> dict:
     except ValidationFailed as exc:
         typer.echo(f"{err}: {path.name} does not satisfy the JSON Resume schema\n")
         for problem in exc.errors:
-            typer.echo(f"  · {problem}")
+            # ASCII deliberately: a Windows cp1252 console mangles "·" to "?".
+            typer.echo(f"  - {problem}")
         typer.echo(f"\n{len(exc.errors)} violation(s).")
         raise typer.Exit(1)
 
