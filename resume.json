@@ -2,86 +2,252 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "PLACEHOLDER — replace from LinkedIn export",
+    "label": "10+ years in Energy Storage System development",
     "email": "jacques.thomazo@gmail.com",
-    "summary": "Placeholder summary. This file is a scaffold so the render pipeline can be built and verified before real content lands; replace every field here from the LinkedIn data export.",
+    "summary": "Relying on a multidisciplinary profile with a broad range of knowledge and a detail oriented mindset, I have a particular taste for tackling challenging technical problems. Basing myself on a strong analytics skillset in various maths, physics and chemistry fields, I thrive on pushing the boundaries of my work.",
     "location": {
-      "city": "",
+      "postalCode": "86000",
+      "city": "Poitiers",
+      "region": "Nouvelle-Aquitaine",
       "countryCode": "FR"
     },
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "PLACEHOLDER",
-        "url": "https://www.linkedin.com/in/PLACEHOLDER/"
+        "username": "jacques-thomazo-battery",
+        "url": "https://www.linkedin.com/in/jacques-thomazo-battery/"
       }
     ]
   },
   "work": [
     {
-      "name": "Example Company",
-      "position": "Senior Engineer",
-      "url": "https://example.com",
-      "startDate": "2022-01",
-      "summary": "Placeholder role, kept so the theme can be styled against realistic shapes.",
+      "name": "Forsee Power",
+      "position": "Senior Battery Data Scientist",
+      "location": "Poitiers, France",
+      "startDate": "2024-05",
       "highlights": [
-        "Led a placeholder initiative that reduced placeholder latency by 40%.",
-        "Built a placeholder pipeline processing 10M placeholder events per day."
+        "Define and build the technical stack behind the company internal telemetry solution and platform."
       ]
     },
     {
-      "name": "Earlier Example Company",
-      "position": "Engineer",
-      "startDate": "2019-03",
-      "endDate": "2021-12",
-      "summary": "An older role, tagged so it is dropped from the one-page variant.",
+      "name": "Forsee Power",
+      "position": "Technical Lead — Battery System Development",
+      "location": "Chasseneuil-du-Poitou, Nouvelle-Aquitaine, France",
+      "startDate": "2020-11",
+      "endDate": "2024-05",
       "highlights": [
-        "Delivered a placeholder service used by placeholder teams."
+        "Developed a new concept of modular battery systems for railway applications.",
+        "Delivered in-house manufactured prototype packs for a key railway project.",
+        "Co-developed a combined Fuel Cell and Battery Systems solution in partnership with Ballard.",
+        "Built a hybrid Fuel-Cell Battery System model to explore optimised Energy Management Strategies (Matlab/Simulink/Simscape, Git).",
+        "Led development of the Next Generation Battery Platform based on high energy density cells.",
+        "Proposed updated SOH estimation and prediction algorithm specifications for field application."
+      ]
+    },
+    {
+      "name": "McLaren Applied",
+      "position": "Principal Engineer — Battery Systems",
+      "location": "Woking, United Kingdom",
+      "startDate": "2019-08",
+      "endDate": "2020-08",
+      "highlights": [
+        "Technical lead on a top tier, high performance racing EV battery concept."
+      ]
+    },
+    {
+      "name": "ARRIVAL",
+      "position": "Functional Safety Manager",
+      "location": "London, United Kingdom",
+      "startDate": "2018-08",
+      "endDate": "2019-07",
+      "highlights": [
+        "Functional safety across HV battery, steer-by-wire and brake-by-wire products."
+      ]
+    },
+    {
+      "name": "ARRIVAL",
+      "position": "Lead Battery Engineer",
+      "location": "London, United Kingdom",
+      "startDate": "2018-01",
+      "endDate": "2018-08",
+      "highlights": [
+        "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation, and manufacturing process.",
+        "Spanned electrical system design rules, electronics architecture and integration, thermal and cooling technologies, and functional safety."
+      ],
+      "x-tags": ["full"]
+    },
+    {
+      "name": "Vantage Power",
+      "position": "Senior Battery Engineer — Technical Specialist",
+      "location": "Greenford, Greater London, United Kingdom",
+      "startDate": "2017-07",
+      "endDate": "2017-12",
+      "summary": "Implemented a cell-level long term test bench.",
+      "highlights": [
+        "Specified and sourced test equipment, secondary components and bench setup.",
+        "Assembled the bench, ran the risk assessment, and validated the setup for measurement accuracy and repeatability.",
+        "Refined the cell test setup, kicked off long term testing, and communicated findings.",
+        "Automated analysis of large data files (Excel & Matlab)."
+      ],
+      "x-tags": ["full"]
+    },
+    {
+      "name": "Vantage Power",
+      "position": "Battery Engineer",
+      "location": "London, United Kingdom",
+      "startDate": "2015-07",
+      "endDate": "2017-06",
+      "highlights": [
+        "ESS electrical specification, power and current profile analysis.",
+        "HV component sizing, selection and integration.",
+        "Designed and manufactured small batches of 3D printed parts in house (FDM).",
+        "Implemented and improved the module production process.",
+        "Cooling system simulation and performance analysis."
+      ],
+      "x-tags": ["full"]
+    },
+    {
+      "name": "Renault",
+      "position": "Li-ion Battery Specialist Engineer",
+      "location": "Guyancourt, France",
+      "startDate": "2011-04",
+      "endDate": "2015-06",
+      "highlights": [
+        "Built and led battery safety validation for hybrid and electric vehicles.",
+        "Developed product knowledge through simulation and testing.",
+        "Positioned validation against the state of the art in standards and regulations.",
+        "Acted as the internal technical authority on battery safety."
+      ]
+    },
+    {
+      "name": "EDF R&D — IRDEP",
+      "position": "Research Intern",
+      "location": "Chatou, France",
+      "startDate": "2010-03",
+      "endDate": "2010-08",
+      "summary": "Synthesis and characterisation of the zinc-oxide front layer of CIGS thin-film photovoltaic cells.",
+      "highlights": [
+        "Electrochemical synthesis in aqueous solution.",
+        "Characterisation of the resulting layers (Hall effect, electrochemical impedance, four-point resistivity, Schottky-diode impedance).",
+        "Characterisation of the completed cells."
+      ],
+      "x-tags": ["full"]
+    },
+    {
+      "name": "LANXESS — Ion Exchange Resins",
+      "position": "Engineering Intern",
+      "location": "Leverkusen, Germany",
+      "startDate": "2009-04",
+      "endDate": "2009-08",
+      "summary": "Design, sizing and development of a laboratory production rig for monodisperse beads.",
+      "highlights": [
+        "Studied microfluidic production approaches.",
+        "Sized the system and ran lab tests with microfluidic chips.",
+        "Implemented the continuous-flow process steps downstream of the chip."
+      ],
+      "x-tags": ["full"]
+    },
+    {
+      "name": "Chimie ParisTech — LCMCP",
+      "position": "Laboratory Intern",
+      "location": "Paris, France",
+      "startDate": "2008-11",
+      "endDate": "2008-11",
+      "summary": "Research on non-linear optical materials (YAB) at the Laboratoire de Chimie de la Matière Condensée de Paris.",
+      "highlights": [
+        "Solid-state materials synthesis.",
+        "Materials characterisation (microscopy, XRD, DSC, TGA).",
+        "Laser testing."
+      ],
+      "x-tags": ["full"]
+    },
+    {
+      "name": "Hitex",
+      "position": "Industrial Placement",
+      "location": "Vannes, France",
+      "startDate": "2008-07",
+      "endDate": "2008-07",
+      "summary": "Optimisation of an industrial-scale extraction process.",
+      "highlights": [
+        "Worked autonomously on a batch process across double-shift operation (extraction, decantation, filtration, evaporative concentration, drying).",
+        "Proposed process improvements."
       ],
       "x-tags": ["full"]
     }
   ],
   "education": [
     {
-      "institution": "Example University",
-      "url": "https://example.edu",
-      "area": "Computer Science",
-      "studyType": "MSc",
-      "startDate": "2014-09",
-      "endDate": "2019-06"
+      "institution": "École Nationale Supérieure de Chimie de Paris (Chimie ParisTech)",
+      "area": "Renewable Energies, Chemistry, Electrochemistry, Physical Chemistry",
+      "studyType": "Master of Science",
+      "startDate": "2007",
+      "endDate": "2010"
+    },
+    {
+      "institution": "Lycée Louis Barthou",
+      "area": "Mathematics, Physics and Chemistry",
+      "studyType": "Undergraduate (CPGE)",
+      "startDate": "2005",
+      "endDate": "2007",
+      "x-tags": ["full"]
     }
   ],
   "skills": [
     {
-      "name": "Languages",
-      "keywords": ["Python", "TypeScript", "SQL"]
+      "name": "Battery Systems",
+      "keywords": [
+        "Energy Storage Systems",
+        "HV & LV battery architecture",
+        "Modular battery systems",
+        "High energy density cells",
+        "Fuel cell / battery hybrids",
+        "Cell testing"
+      ]
     },
     {
-      "name": "Infrastructure",
-      "keywords": ["Docker", "Kubernetes", "GitHub Actions"]
+      "name": "Modelling & Data",
+      "keywords": [
+        "Matlab",
+        "Simulink",
+        "Simscape",
+        "SOH estimation & prediction",
+        "Energy management strategies",
+        "Large dataset analysis"
+      ]
     },
     {
-      "name": "Niche Tooling",
-      "keywords": ["Placeholder"],
-      "x-tags": ["full"]
+      "name": "Software & Platform",
+      "keywords": ["Python", "FastAPI", "Docker", "IoT telemetry", "Git"]
+    },
+    {
+      "name": "Safety & Product Development",
+      "keywords": [
+        "Functional safety",
+        "Battery safety validation",
+        "Risk assessment",
+        "Requirements & design reviews",
+        "Testing & validation",
+        "Manufacturing process"
+      ]
     }
   ],
   "languages": [
     {
       "language": "French",
-      "fluency": "Native speaker"
+      "fluency": "Native or bilingual"
     },
     {
       "language": "English",
-      "fluency": "Professional working proficiency"
+      "fluency": "Full professional"
+    },
+    {
+      "language": "German",
+      "fluency": "Professional working"
     }
   ],
-  "projects": [
+  "publications": [
     {
-      "name": "my-resume",
-      "description": "This toolchain: a schema-compliant JSON Resume rendered to styled PDF and HTML.",
-      "url": "https://github.com/JayTeeBat/my-resume",
-      "keywords": ["Python", "Jinja2", "Playwright"],
+      "name": "A Partnership between Renault and French First Responders to Ensure Safe Intervention on Crash or Fire-Damaged Electrical Vehicles",
       "x-tags": ["full"]
     }
   ],
