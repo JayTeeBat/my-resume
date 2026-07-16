@@ -36,12 +36,10 @@
       "startDate": "2020-11",
       "endDate": "2024-05",
       "highlights": [
-        "Developed a new concept of modular battery systems for railway applications.",
-        "Delivered in-house manufactured prototype packs for a key railway project.",
-        "Co-developed a combined Fuel Cell and Battery Systems solution in partnership with Ballard.",
+        "Developed updated SOH estimation and prediction algorithm specifications for embedded SW application.",
         "Built a hybrid Fuel-Cell Battery System model to explore optimised Energy Management Strategies (Matlab/Simulink/Simscape, Git).",
-        "Led development of the Next Generation Battery Platform based on high energy density cells.",
-        "Proposed updated SOH estimation and prediction algorithm specifications for field application."
+        "Led development of the Next Generation high cell integration density Battery Platform.",
+        "Delivered in-house manufactured prototype packs for a key railway project."
       ]
     },
     {
