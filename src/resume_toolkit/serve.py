@@ -15,6 +15,7 @@ from .model import ValidationFailed, load_resume
 from .paths import RESUME_JSON
 from .render import UnknownTheme, render_html, theme_dir
 from .variants import Variant, apply_variant
+from .version import build_stamp
 
 
 class PortInUse(Exception):
@@ -70,7 +71,12 @@ def serve_preview(variant: Variant, *, theme: str = "classic", port: int = 8000)
         except (OSError, ValueError) as exc:
             return _error_page(f"could not read resume.json:\n\n{exc}")
         try:
-            html = render_html(apply_variant(resume, variant), theme=theme)
+            html = render_html(
+                apply_variant(resume, variant),
+                theme=theme,
+                variant=variant.name,
+                stamp=build_stamp(),
+            )
         except Exception as exc:  # noqa: BLE001 - show it in the page, don't kill the server
             return _error_page(f"{type(exc).__name__}: {exc}")
         return html.replace("</body>", _RELOAD_SCRIPT + "</body>")
