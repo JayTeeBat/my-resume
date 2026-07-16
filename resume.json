@@ -89,6 +89,7 @@
       "position": "Senior Battery Data Scientist",
       "location": "Poitiers, France",
       "startDate": "2024-05",
+      "summary": "Build an IoT pipeline and data platform",
       "highlights": [
         "Define and build the technical stack behind the company internal telemetry solution and platform."
       ]
@@ -115,7 +116,7 @@
       "summary": "Technical lead on a top tier, high performance racing EV battery concept.",
       "highlights": [
         "Simulated and optimized battery system sizing for tender specifications requirements",
-        "Coordinated multidisciplinary technical optimization workflow"
+        "Defined, tracked and analyzed results of a cell performance test plan"
       ]
     },
     {
@@ -134,9 +135,8 @@
       "location": "London, United Kingdom",
       "startDate": "2018-01",
       "endDate": "2018-08",
+      "summary": "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation",
       "highlights": [
-        "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation, and manufacturing process.",
-        "Spanned electrical system design rules, electronics architecture and integration, thermal and cooling technologies, and functional safety."
       ]
     },
     {
@@ -145,7 +145,9 @@
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2017-07",
       "endDate": "2017-12",
-      "summary": "Cell-level long term test bench implementation, from specifications through to continuous data monitoring pipelines."
+      "summary": "Cell-level long term test bench implementation, from specifications through to continuous data monitoring pipelines.",
+      "highlights": [
+      ]
     },
     {
       "name": "Vantage Power",
@@ -153,7 +155,9 @@
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2015-07",
       "endDate": "2017-06",
-      "summary": "Multidisciplinary battery engineer, tackling from HV components sizing and selection to small batch battery production through 3D prototyping and Cooling System simulation"
+      "summary": "Multidisciplinary battery engineer, tackling from HV components sizing and selection to small batch battery production through 3D prototyping and Cooling System simulation",
+      "highlights": [
+      ]
     },
     {
       "name": "Renault",
@@ -161,7 +165,9 @@
       "location": "Guyancourt, France",
       "startDate": "2011-04",
       "endDate": "2015-06",
-      "summary": "Built, led and owned battery safety validation for hybrid and electric vehicles battery systems"
+      "summary": "Built, led and owned battery safety validation for hybrid and electric vehicles battery systems",
+      "highlights": [
+      ]
     },
     {
       "name": "EDF R&D — IRDEP",
@@ -253,8 +259,6 @@
     }
   ],
   "meta": {
-    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
-    "version": "v1.0.0",
-    "lastModified": "2026-07-16T00:00:00"
+    "canonical": "https://jayteebat.github.io/my-resume/"
   }
 }
