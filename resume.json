@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Jacques Thomazo",
+    "label": "PLACEHOLDER — replace from LinkedIn export",
+    "email": "jacques.thomazo@gmail.com",
+    "summary": "Placeholder summary. This file is a scaffold so the render pipeline can be built and verified before real content lands; replace every field here from the LinkedIn data export.",
+    "location": {
+      "city": "",
+      "countryCode": "FR"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "PLACEHOLDER",
+        "url": "https://www.linkedin.com/in/PLACEHOLDER/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Example Company",
+      "position": "Senior Engineer",
+      "url": "https://example.com",
+      "startDate": "2022-01",
+      "summary": "Placeholder role, kept so the theme can be styled against realistic shapes.",
+      "highlights": [
+        "Led a placeholder initiative that reduced placeholder latency by 40%.",
+        "Built a placeholder pipeline processing 10M placeholder events per day."
+      ]
+    },
+    {
+      "name": "Earlier Example Company",
+      "position": "Engineer",
+      "startDate": "2019-03",
+      "endDate": "2021-12",
+      "summary": "An older role, tagged so it is dropped from the one-page variant.",
+      "highlights": [
+        "Delivered a placeholder service used by placeholder teams."
+      ],
+      "x-tags": ["full"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Example University",
+      "url": "https://example.edu",
+      "area": "Computer Science",
+      "studyType": "MSc",
+      "startDate": "2014-09",
+      "endDate": "2019-06"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["Python", "TypeScript", "SQL"]
+    },
+    {
+      "name": "Infrastructure",
+      "keywords": ["Docker", "Kubernetes", "GitHub Actions"]
+    },
+    {
+      "name": "Niche Tooling",
+      "keywords": ["Placeholder"],
+      "x-tags": ["full"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Professional working proficiency"
+    }
+  ],
+  "projects": [
+    {
+      "name": "my-resume",
+      "description": "This toolchain: a schema-compliant JSON Resume rendered to styled PDF and HTML.",
+      "url": "https://github.com/JayTeeBat/my-resume",
+      "keywords": ["Python", "Jinja2", "Playwright"],
+      "x-tags": ["full"]
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+    "version": "v1.0.0",
+    "lastModified": "2026-07-16T00:00:00"
+  }
+}
