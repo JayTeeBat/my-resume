@@ -194,8 +194,41 @@
   ],
   "skills": [
     {
-      "name": "Top Skills",
-      "keywords": ["Docker", "FastAPI", "Internet of Things (IoT)"]
+      "name": "Battery Systems",
+      "keywords": [
+        "Energy Storage Systems",
+        "HV & LV battery architecture",
+        "Modular battery systems",
+        "High energy density cells",
+        "Fuel cell / battery hybrids",
+        "Cell testing"
+      ]
+    },
+    {
+      "name": "Modelling & Data",
+      "keywords": [
+        "Matlab",
+        "Simulink",
+        "Simscape",
+        "SOH estimation & prediction",
+        "Energy management strategies",
+        "Large dataset analysis"
+      ]
+    },
+    {
+      "name": "Software & Platform",
+      "keywords": ["Python", "FastAPI", "Docker", "IoT telemetry", "Git"]
+    },
+    {
+      "name": "Safety & Product Development",
+      "keywords": [
+        "Functional safety",
+        "Battery safety validation",
+        "Risk assessment",
+        "Requirements & design reviews",
+        "Testing & validation",
+        "Manufacturing process"
+      ]
     }
   ],
   "languages": [
