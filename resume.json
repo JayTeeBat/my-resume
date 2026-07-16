@@ -2,18 +2,20 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "PLACEHOLDER — replace from LinkedIn export",
+    "label": "10+ years in Energy Storage System development",
     "email": "jacques.thomazo@gmail.com",
-    "summary": "Placeholder summary. This file is a scaffold so the render pipeline can be built and verified before real content lands; replace every field here from the LinkedIn data export.",
+    "summary": "Relying on a multidisciplinary profile with a broad range of knowledge and a detail oriented mindset, I have a particular taste for tackling challenging technical problems. Basing myself on a strong analytics skillset in various maths, physics and chemistry fields, I thrive on pushing the boundaries of my work.",
     "location": {
-      "city": "",
+      "postalCode": "86000",
+      "city": "Poitiers",
+      "region": "Nouvelle-Aquitaine",
       "countryCode": "FR"
     },
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "PLACEHOLDER",
-        "url": "https://www.linkedin.com/in/PLACEHOLDER/"
+        "username": "jacques-thomazo-battery",
+        "url": "https://www.linkedin.com/in/jacques-thomazo-battery/"
       }
     ]
   },
