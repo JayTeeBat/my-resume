@@ -16,6 +16,11 @@ from .paths import RESUME_JSON
 from .render import UnknownTheme, render_html, theme_dir
 from .variants import Variant, apply_variant
 
+
+class PortInUse(Exception):
+    pass
+
+
 # Polled by the injected script; a changed value triggers location.reload().
 _RELOAD_SCRIPT = """
 <script>
@@ -88,8 +93,22 @@ def serve_preview(variant: Variant, *, theme: str = "classic", port: int = 8000)
         def log_message(self, *args) -> None:
             pass  # the poll would otherwise spam a line every 500ms
 
+    class Server(ThreadingHTTPServer):
+        # HTTPServer defaults this to 1. On Windows, SO_REUSEADDR lets a second
+        # socket bind a port that is already taken rather than refusing: both
+        # then listen, the incumbent keeps answering, and the preview silently
+        # serves whatever else is on the port. Refuse instead, so a busy port is
+        # a clear error rather than a confusing 404 from someone else's app.
+        allow_reuse_address = False
+
     url = f"http://127.0.0.1:{port}/"
-    server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    try:
+        server = Server(("127.0.0.1", port), Handler)
+    except OSError as exc:
+        raise PortInUse(
+            f"port {port} is already in use, so the preview cannot start.\n"
+            f"  Try a different one:  resume serve --port {port + 1}"
+        ) from exc
     print(f"preview: {url}  (variant: {variant.name}, theme: {theme})")
     print("watching resume.json and themes/ — edit and the page reloads. Ctrl+C to stop.")
     webbrowser.open(url)
