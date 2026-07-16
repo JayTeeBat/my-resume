@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "10+ years in Energy Storage System development",
+    "label": "Lead Battery Systems Engineer - Backend Services Developer - 15+ years engineering Battery Systems through simulation and data",
     "email": "jacques.thomazo@gmail.com",
-    "summary": "Relying on a multidisciplinary profile with a broad range of knowledge and a detail oriented mindset, I have a particular taste for tackling challenging technical problems. Basing myself on a strong analytics skillset in various maths, physics and chemistry fields, I thrive on pushing the boundaries of my work.",
+    "summary": "Relying on a multidisciplinary profile with a broad range of knowledge and a detail oriented mindset, I have a particular taste for tackling challenging technical problems. Basing myself on a strong analytics skillset in various maths, physics and chemistry fields, I thrive on pushing the boundaries of my work. From batteries to monitoring platform, I span the full development lifecycle of batteries.",
     "location": {
       "postalCode": "86000",
       "city": "Poitiers",
@@ -21,41 +21,66 @@
   },
   "skills": [
     {
-      "name": "Battery Systems",
+      "name": "Battery Systems sizing",
+      "level": "Expert",
       "keywords": [
-        "Energy Storage Systems",
-        "HV & LV battery architecture",
-        "Modular battery systems",
-        "High energy density cells",
-        "Fuel cell / battery hybrids",
-        "Cell testing"
+        "Requirements analysis",
+        "Duty-cycle interpretation",
+        "Ragone analysis",  
+        "Cell selection",
+        "Series/Parallel topology definition",
+        "Matlab/Simulink/Python"
       ]
     },
     {
-      "name": "Modelling & Data",
+      "name": "Battery Systems modelling",
+      "level": "Expert",
       "keywords": [
-        "Matlab",
-        "Simulink",
-        "Simscape",
         "SOH estimation & prediction",
         "Energy management strategies",
-        "Large dataset analysis"
+        "Power/Energy Performance simulation",
+        "Matlab/Simulink/Simscape/Python"
       ]
     },
     {
-      "name": "Software & Platform",
-      "keywords": ["Python", "FastAPI", "Docker", "IoT telemetry", "Git"]
+      "name": "Software architecture",
+      "level": "Advanced",
+      "keywords": ["Multi-repo toolchain", "Component boundaries", "Versioning", "Dependency management", "Schema evolution",  "Compatibility management"]
     },
     {
-      "name": "Safety & Product Development",
-      "keywords": [
-        "Functional safety",
-        "Battery safety validation",
-        "Risk assessment",
-        "Requirements & design reviews",
-        "Testing & validation",
-        "Manufacturing process"
-      ]
+      "name": "Software Development",
+      "level": "Advanced",
+      "keywords": ["Linux", "Python", "FastAPI", "Docker", "Git", "Github/Gitlab", "CI/CD"]
+    },
+    {
+      "name": "Software Quality",
+      "level": "Advanced",
+      "keywords": ["Formatting (ruff)", "Static analysis (ruff)", "Type checking (ty)", "testing (pytest)", "pre-commit", "CI gates"]
+    },
+    {
+      "name": "Software - Backend development",
+      "level": "Intermediate",
+      "keywords": ["FastAPI", "Pydantic", "OpenAPI", "REST", "WebSockets", "retry and failure handling"]
+    },
+    {
+      "name": "Software - Service delivery",
+      "level": "Intermediate",
+      "keywords": ["Project packaging", "Versioning", "Dependencies locking", "Docker/Docker compose", "CI/CD"]
+    },
+    {
+      "name": "Embedded Systems Diagnostics",
+      "level": "Advanced",
+      "keywords": ["CAN", "ISO-TP", "UDS", "OBD2", "J1939", "DID/DTC"]
+    },
+    {
+      "name": "IoT",
+      "level": "Intermediate",
+      "keywords": ["Gateway configuration", "Telemetry pipeline", "External API integration"]
+    },
+    {
+      "name": "Data modelling & platform",
+      "level": "Intermediate",
+      "keywords": ["Pydantic", "MongoDB"]
     }
   ],
   "work": [
@@ -87,8 +112,10 @@
       "location": "Woking, United Kingdom",
       "startDate": "2019-08",
       "endDate": "2020-08",
+      "summary": "Technical lead on a top tier, high performance racing EV battery concept.",
       "highlights": [
-        "Technical lead on a top tier, high performance racing EV battery concept."
+        "Simulated and optimized battery system sizing for tender specifications requirements",
+        "Coordinated multidisciplinary technical optimization workflow"
       ]
     },
     {
@@ -97,8 +124,8 @@
       "location": "London, United Kingdom",
       "startDate": "2018-08",
       "endDate": "2019-07",
+      "summary": "Lead functional safety analysis and implementation across HV battery, steer-by-wire and brake-by-wire products.",
       "highlights": [
-        "Functional safety across HV battery, steer-by-wire and brake-by-wire products."
       ]
     },
     {
@@ -110,8 +137,7 @@
       "highlights": [
         "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation, and manufacturing process.",
         "Spanned electrical system design rules, electronics architecture and integration, thermal and cooling technologies, and functional safety."
-      ],
-      "x-tags": ["full"]
+      ]
     },
     {
       "name": "Vantage Power",
@@ -119,29 +145,15 @@
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2017-07",
       "endDate": "2017-12",
-      "summary": "Implemented a cell-level long term test bench.",
-      "highlights": [
-        "Specified and sourced test equipment, secondary components and bench setup.",
-        "Assembled the bench, ran the risk assessment, and validated the setup for measurement accuracy and repeatability.",
-        "Refined the cell test setup, kicked off long term testing, and communicated findings.",
-        "Automated analysis of large data files (Excel & Matlab)."
-      ],
-      "x-tags": ["full"]
+      "summary": "Cell-level long term test bench implementation, from specifications through to continuous data monitoring pipelines."
     },
     {
       "name": "Vantage Power",
       "position": "Battery Engineer",
-      "location": "London, United Kingdom",
+      "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2015-07",
       "endDate": "2017-06",
-      "highlights": [
-        "ESS electrical specification, power and current profile analysis.",
-        "HV component sizing, selection and integration.",
-        "Designed and manufactured small batches of 3D printed parts in house (FDM).",
-        "Implemented and improved the module production process.",
-        "Cooling system simulation and performance analysis."
-      ],
-      "x-tags": ["full"]
+      "summary": "Multidisciplinary battery engineer, tackling from HV components sizing and selection to small batch battery production through 3D prototyping and Cooling System simulation"
     },
     {
       "name": "Renault",
@@ -149,12 +161,7 @@
       "location": "Guyancourt, France",
       "startDate": "2011-04",
       "endDate": "2015-06",
-      "highlights": [
-        "Built and led battery safety validation for hybrid and electric vehicles.",
-        "Developed product knowledge through simulation and testing.",
-        "Positioned validation against the state of the art in standards and regulations.",
-        "Acted as the internal technical authority on battery safety."
-      ]
+      "summary": "Built, led and owned battery safety validation for hybrid and electric vehicles battery systems"
     },
     {
       "name": "EDF R&D — IRDEP",
@@ -215,7 +222,7 @@
   "education": [
     {
       "institution": "École Nationale Supérieure de Chimie de Paris (Chimie ParisTech)",
-      "area": "Renewable Energies, Chemistry, Electrochemistry, Physical Chemistry",
+      "area": "Renewable Energies, Chemistry, Electrochemistry, Physical Chemistry, Semiconductors",
       "studyType": "Master of Science",
       "startDate": "2007",
       "endDate": "2010"
@@ -232,15 +239,11 @@
   "languages": [
     {
       "language": "French",
-      "fluency": "Native or bilingual"
+      "fluency": "Native"
     },
     {
       "language": "English",
-      "fluency": "Full professional"
-    },
-    {
-      "language": "German",
-      "fluency": "Professional working"
+      "fluency": "Fluent (5 years in the UK)"
     }
   ],
   "publications": [
