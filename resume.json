@@ -91,7 +91,11 @@
       "startDate": "2024-05",
       "summary": "Build an IoT pipeline and data platform",
       "highlights": [
-        "Define and build the technical stack behind the company internal telemetry solution and platform."
+        "Define the architecture and technical stack of the internal telemetry platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
+        "Build the backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for an unreliable field network.",
+        "Specify diagnostic acquisition over CAN (UDS, J1939, OBD2, DID/DTC) and gateway configuration, turning raw fleet signals into a queryable battery dataset.",
+        "Set the team's software quality bar and enforce it in CI: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
+        "Bridge battery engineering and software, translating SOH estimation and ageing analysis needs into platform capabilities."
       ]
     },
     {
