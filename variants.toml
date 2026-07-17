@@ -9,6 +9,11 @@
 #   - include = ["*"] includes everything
 #
 # So you only tag entries you want to *conditionally* drop.
+#
+# `publish` controls what `resume site` puts on the public GitHub Pages page.
+# It defaults to false, so a new cut — e.g. a CV tailored to one employer — is
+# never published by accident. Only variants with publish = true go public.
+# `resume build` ignores this flag: you can always build any variant locally.
 
 [full]
 description = "Complete CV, every entry"
@@ -17,3 +22,4 @@ include = ["*"]
 [short]
 description = "One-page highlights, older and niche entries dropped"
 include = []
+publish = true
