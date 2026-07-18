@@ -4,13 +4,22 @@
 
 My CV as data. [`resume.json`](resume.json) is the single source of truth — a standard
 [JSON Resume](https://jsonresume.org/) document — and this toolchain renders it to styled PDF and
-HTML, plus a machine-readable JSON of the same cut. Every push to `main` rebuilds and republishes
-the page above, so that link is always current.
+HTML, plus machine-readable JSON and paste-ready Markdown of the same cut. Every push to `main`
+rebuilds and republishes the page above, so that link is always current.
 
 The published JSON is not a copy of `resume.json`: it is the *variant-filtered* document — the same
 entries and bullets the published PDF shows, with the variant machinery (`x-tags`, `x-highlights`)
 stripped and build provenance stamped into `meta`. A parser and a reader can never disagree about
-what the CV says.
+what the CV says. The same goes for the Markdown, which exists for the places styled output cannot
+go: ATS web forms, plain-text email, LLM prompts.
+
+Besides the variant artifacts, the published site carries three discovery files:
+[`index.html`](site/index.html.j2) (the human front door, with OpenGraph link previews and
+schema.org Person markup for search engines),
+[`/resume.json`](https://jayteebat.github.io/my-resume/resume.json) (the guessable canonical
+machine address — an alias of the primary published cut), and
+[`/llms.txt`](https://jayteebat.github.io/my-resume/llms.txt) (the note an AI agent reads first,
+steering it to the canonical JSON instead of scraping the styled page).
 
 ## Working on it locally
 
@@ -19,7 +28,7 @@ uv sync
 uv run playwright install chromium   # one-time, ~150MB
 
 uv run resume serve                  # preview at localhost:8000, reloads as you edit
-uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,json}
+uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,json,md}
 ```
 
 `serve` is the one to use while writing or restyling: leave it running, edit
