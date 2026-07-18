@@ -50,7 +50,7 @@
     {
       "name": "Software Development",
       "level": "Advanced",
-      "keywords": ["Linux", "Python", "FastAPI", "Docker", "Git", "Github/Gitlab", "CI/CD"]
+      "keywords": ["Linux", "Python", "FastAPI", "Docker", "Git", "GitHub/GitLab", "CI/CD"]
     },
     {
       "name": "Software Quality",
