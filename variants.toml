@@ -20,6 +20,6 @@ description = "Complete CV, every entry"
 include = ["*"]
 
 [short]
-description = "One-page highlights, older and niche entries dropped"
+description = "Two-page highlights, older and niche entries dropped"
 include = []
 publish = true

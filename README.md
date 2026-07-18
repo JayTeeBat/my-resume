@@ -18,7 +18,7 @@ uv run resume build                  # -> dist/resume-{full,short}.{pdf,html}
 
 `serve` is the one to use while writing or restyling: leave it running, edit
 [`resume.json`](resume.json) or `themes/classic/style.css`, and the browser reloads itself. Add
-`-v short` to preview the one-pager. Reach for `build` when you want the actual PDF in `dist/`.
+`-v short` to preview the short cut. Reach for `build` when you want the actual PDF in `dist/`.
 
 ## Commands
 
@@ -47,7 +47,7 @@ resume.json ──validate (schema)──> apply variant (x-tags) ──> Jinja2
 - **Content** lives in `resume.json`. Nothing else should carry CV facts.
 - **Styling** lives in `themes/classic/style.css`. The template carries structure only, so restyling
   never means touching HTML. The tokens at the top of the stylesheet (`--size-base`, `--leading`,
-  `--section-gap`) are the fastest way to fit content onto one page.
+  `--section-gap`) are the fastest way to fit content into the page budget.
 - **Cuts** live in `variants.toml`.
 
 ## Variants
@@ -67,9 +67,20 @@ This works because the JSON Resume schema sets `additionalProperties: true` thro
 along inside a document that still validates as a standard JSON Resume and stays readable by every
 other tool in the ecosystem. `x-tags` is stripped before rendering, so themes never see it.
 
-*Known limitation:* `work[].highlights` is an array of plain strings per the schema, so individual
-bullets can't be tagged — variant filtering is per-entry. Trimming bullets for the short cut would
-need an `x-highlights` extension.
+Bullets are the one place the schema forbids that trick — `work[].highlights` items are plain
+strings, so a tag can't ride inside one. The `x-highlights` extension covers it from the entry
+level: a mapping from a substring of a bullet to that bullet's tags.
+
+```json
+{
+  "highlights": ["Shipped X.", "Led Y."],
+  "x-highlights": { "Led Y": ["full"] }
+}
+```
+
+The substring must match exactly **one** bullet; the build fails loudly if an edit to the bullet
+breaks the match, because a rule that silently stopped matching would silently republish the
+bullet everywhere. Like `x-tags`, `x-highlights` is stripped before rendering.
 
 ## Why these choices
 
