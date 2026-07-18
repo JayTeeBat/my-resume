@@ -92,6 +92,7 @@
       "summary": "Build an IoT pipeline and data platform.",
       "highlights": [
         "Implement a remote diagnostic reporting service for telemetry-equipped vehicles, cutting a report from 2 days & €1,000 to 200 seconds & €0.50.",
+        "Lead a 6 people cross-functional managers team to implement a company-wide resources SharePoint service (100+ resources).",
         "Define the architecture and technical stack of the internal telemetry platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
         "Build the backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for an unreliable field network.",
         "Specify diagnostic acquisition over CAN (UDS, J1939, OBD2, DID/DTC) and gateway configuration across a fleet of 100 vehicles (8 customers, 7 products, 2 generations), turning raw fleet signals into a queryable battery dataset.",
@@ -129,7 +130,7 @@
       "location": "London, United Kingdom",
       "startDate": "2018-08",
       "endDate": "2019-07",
-      "summary": "Led ISO 26262 functional safety analysis and implementation (PRA, HARA, FMEA) across HV battery (ASIL C), steer-by-wire and brake-by-wire products (both ASIL D).",
+      "summary": "Led ISO 26262 functional safety analysis and implementation (HARA, FMEA) across HV battery (ASIL C), steer-by-wire and brake-by-wire products (both ASIL D).",
       "highlights": [
       ]
     },
