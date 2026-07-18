@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "Lead Battery Systems Engineer - Backend Services Developer - 15+ years engineering Battery Systems through simulation and data",
+    "label": "Battery Systems Technical Lead - Backend Services Developer - 15+ years engineering Battery Systems through simulation and data",
     "email": "jacques.thomazo@gmail.com",
-    "summary": "Relying on a multidisciplinary profile with a broad range of knowledge and a detail oriented mindset, I have a particular taste for tackling challenging technical problems. Basing myself on a strong analytics skillset in various maths, physics and chemistry fields, I thrive on pushing the boundaries of my work. From batteries to monitoring platform, I span the full development lifecycle of batteries.",
+    "summary": "Battery systems engineer turned platform builder: 15 years across cell selection, pack design & validation, system sizing and modelling, now building the telemetry and diagnostics platform that turns fleet data into battery engineering decisions.",
     "location": {
       "postalCode": "86000",
       "city": "Poitiers",
@@ -89,13 +89,13 @@
       "position": "Senior Battery Data Scientist",
       "location": "Poitiers, France",
       "startDate": "2024-05",
-      "summary": "Build an IoT pipeline and data platform",
+      "summary": "Build an IoT pipeline and data platform.",
       "highlights": [
+        "Implement a remote diagnostic reporting service for telemetry-equipped vehicles, cutting a report from 2 days & €1,000 to 200 seconds & €0.50.",
         "Define the architecture and technical stack of the internal telemetry platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
         "Build the backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for an unreliable field network.",
-        "Specify diagnostic acquisition over CAN (UDS, J1939, OBD2, DID/DTC) and gateway configuration, turning raw fleet signals into a queryable battery dataset.",
-        "Set the team's software quality bar and enforce it in CI: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
-        "Bridge battery engineering and software, translating SOH estimation and ageing analysis needs into platform capabilities."
+        "Specify diagnostic acquisition over CAN (UDS, J1939, OBD2, DID/DTC) and gateway configuration across a fleet of 100 vehicles (8 customers, 7 products, 2 generations), turning raw fleet signals into a queryable battery dataset.",
+        "Set the team's software quality bar and enforce it in CI: ruff formatting and static analysis, ty type checking, pytest, pre-commit."
       ]
     },
     {
@@ -105,10 +105,10 @@
       "startDate": "2020-11",
       "endDate": "2024-05",
       "highlights": [
-        "Developed updated SOH estimation and prediction algorithm specifications for embedded SW application.",
+        "Reworked SOH estimation and prediction algorithms for the embedded application, bringing accuracy to ±3%.",
         "Built a hybrid Fuel-Cell Battery System model to explore optimised Energy Management Strategies (Matlab/Simulink/Simscape, Git).",
-        "Led development of the Next Generation high cell integration density Battery Platform.",
-        "Delivered in-house manufactured prototype packs for a key railway project."
+        "Led development of the Next Generation high cell integration density Battery Platform (Cell-to-pack mass ratio >80%).",
+        "Delivered in-house manufactured prototype packs (5 units, 17kWh/800V/LTO) for a key railway project."
       ]
     },
     {
@@ -119,8 +119,8 @@
       "endDate": "2020-08",
       "summary": "Technical lead on a top tier, high performance racing EV battery concept.",
       "highlights": [
-        "Simulated and optimized battery system sizing for tender specifications requirements",
-        "Defined, tracked and analyzed results of a cell performance test plan"
+        "Simulated and optimised battery system sizing for tender specifications requirements - 43kWh/600kW/284kg/220L/800V.",
+        "Defined, tracked and analysed results of a cell performance test plan."
       ]
     },
     {
@@ -129,7 +129,7 @@
       "location": "London, United Kingdom",
       "startDate": "2018-08",
       "endDate": "2019-07",
-      "summary": "Lead functional safety analysis and implementation across HV battery, steer-by-wire and brake-by-wire products.",
+      "summary": "Led ISO 26262 functional safety analysis and implementation (PRA, HARA, FMEA) across HV battery (ASIL C), steer-by-wire and brake-by-wire products (both ASIL D).",
       "highlights": [
       ]
     },
@@ -139,17 +139,17 @@
       "location": "London, United Kingdom",
       "startDate": "2018-01",
       "endDate": "2018-08",
-      "summary": "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation",
+      "summary": "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation. Modular 2kWh/400V architecture.",
       "highlights": [
       ]
     },
     {
       "name": "Vantage Power",
-      "position": "Senior Battery Engineer — Technical Specialist",
+      "position": "Senior Battery Engineer",
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2017-07",
       "endDate": "2017-12",
-      "summary": "Cell-level long term test bench implementation, from specifications through to continuous data monitoring pipelines.",
+      "summary": "Implemented a long-term (6 months) cell-level test bench (0-5V & 25A/channel × 16 channels) for performance and durability testing, from specifications through to continuous data monitoring pipelines.",
       "highlights": [
       ]
     },
@@ -159,7 +159,7 @@
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2015-07",
       "endDate": "2017-06",
-      "summary": "Multidisciplinary battery engineer, tackling from HV components sizing and selection to small batch battery production through 3D prototyping and Cooling System simulation",
+      "summary": "Multidisciplinary battery engineer, tackling from HV components sizing (600V architecture) and selection to small batch battery production (4 × 15kWh battery systems) through 3D prototyping (10-batch PDU enclosure parts, PETG) and Cooling System simulation (dual 15kWh pack system, immersion cooling).",
       "highlights": [
       ]
     },
@@ -169,7 +169,7 @@
       "location": "Guyancourt, France",
       "startDate": "2011-04",
       "endDate": "2015-06",
-      "summary": "Built, led and owned battery safety validation for hybrid and electric vehicles battery systems",
+      "summary": "Built, led and owned battery safety validation (mechanical, thermal, electrical, etc.) for hybrid and electric vehicles battery systems, from 48 to 400V - Projects: Twizy, Fluence, Kangoo, Zoe Gen 1 & 2, 48V LTO mild-hybrid battery.",
       "highlights": [
       ]
     },
