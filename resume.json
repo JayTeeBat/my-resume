@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "Battery Systems Technical Lead - Backend Services Developer - 15+ years engineering Battery Systems through simulation and data",
+    "label": "Battery Systems Technical Lead · Backend & Data Platform Developer · 15+ years from cell chemistry to fleet data",
     "email": "jacques.thomazo@gmail.com",
-    "summary": "Battery systems engineer turned platform builder: 15 years across cell selection, pack design & validation, system sizing and modelling, now building the telemetry and diagnostics platform that turns fleet data into battery engineering decisions.",
+    "summary": "Battery systems engineer turned platform builder: 15 years across cell selection, pack design & validation, system sizing & modelling, now building the telemetry and diagnostics platform that turns fleet data into battery engineering decisions.",
     "location": {
       "postalCode": "86000",
       "city": "Poitiers",
@@ -22,11 +22,10 @@
   "skills": [
     {
       "name": "Battery Systems sizing",
-      "level": "Expert",
       "keywords": [
         "Requirements analysis",
         "Duty-cycle interpretation",
-        "Ragone analysis",  
+        "Ragone analysis",
         "Cell selection",
         "Series/Parallel topology definition",
         "Matlab/Simulink/Python"
@@ -34,53 +33,28 @@
     },
     {
       "name": "Battery Systems modelling",
-      "level": "Expert",
       "keywords": [
         "SOH estimation & prediction",
         "Energy management strategies",
-        "Power/Energy Performance simulation",
+        "Power/Energy performance simulation",
         "Matlab/Simulink/Simscape/Python"
       ]
     },
     {
-      "name": "Software architecture",
-      "level": "Advanced",
-      "keywords": ["Multi-repo toolchain", "Component boundaries", "Versioning", "Dependency management", "Schema evolution",  "Compatibility management"]
+      "name": "Backend & data platform",
+      "keywords": ["Python", "FastAPI", "Pydantic", "REST & WebSocket APIs", "OpenAPI", "MongoDB", "Docker", "Linux"]
     },
     {
-      "name": "Software Development",
-      "level": "Advanced",
-      "keywords": ["Linux", "Python", "FastAPI", "Docker", "Git", "GitHub/GitLab", "CI/CD"]
+      "name": "Software architecture, quality & delivery",
+      "keywords": ["Multi-repo component boundaries", "Versioning & schema evolution", "Dependency locking & packaging", "ruff", "ty", "pytest", "pre-commit", "CI/CD gates"]
     },
     {
-      "name": "Software Quality",
-      "level": "Advanced",
-      "keywords": ["Formatting (ruff)", "Static analysis (ruff)", "Type checking (ty)", "testing (pytest)", "pre-commit", "CI gates"]
+      "name": "Vehicle diagnostics & IoT",
+      "keywords": ["CAN", "ISO-TP", "UDS", "OBD2", "J1939", "DID/DTC", "Gateway configuration", "Telemetry pipelines"]
     },
     {
-      "name": "Software - Backend development",
-      "level": "Intermediate",
-      "keywords": ["FastAPI", "Pydantic", "OpenAPI", "REST", "WebSockets", "retry and failure handling"]
-    },
-    {
-      "name": "Software - Service delivery",
-      "level": "Intermediate",
-      "keywords": ["Project packaging", "Versioning", "Dependencies locking", "Docker/Docker compose", "CI/CD"]
-    },
-    {
-      "name": "Embedded Systems Diagnostics",
-      "level": "Advanced",
-      "keywords": ["CAN", "ISO-TP", "UDS", "OBD2", "J1939", "DID/DTC"]
-    },
-    {
-      "name": "IoT",
-      "level": "Intermediate",
-      "keywords": ["Gateway configuration", "Telemetry pipeline", "External API integration"]
-    },
-    {
-      "name": "Data modelling & platform",
-      "level": "Intermediate",
-      "keywords": ["Pydantic", "MongoDB"]
+      "name": "AI-assisted engineering",
+      "keywords": ["Agentic CLI workflows (Claude Code & ChatGPT Codex)", "Subagent orchestration", "Spec-driven prompting", "AGENTS.md rule systems", "AI code review & CI gating"]
     }
   ],
   "work": [
@@ -89,15 +63,19 @@
       "position": "Senior Battery Data Scientist",
       "location": "Poitiers, France",
       "startDate": "2024-05",
-      "summary": "Build an IoT pipeline and data platform.",
+      "summary": "Build end-to-end an IoT telemetry service and data platform.",
       "highlights": [
-        "Implement a remote diagnostic reporting service for telemetry-equipped vehicles, cutting a report from 2 days & €1,000 to 200 seconds & €0.50.",
-        "Lead a 6 people cross-functional managers team to implement a company-wide resources SharePoint service (100+ resources).",
-        "Define the architecture and technical stack of the internal telemetry platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
-        "Build the backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for an unreliable field network.",
-        "Specify diagnostic acquisition over CAN (UDS, J1939, OBD2, DID/DTC) and gateway configuration across a fleet of 100 vehicles (8 customers, 7 products, 2 generations), turning raw fleet signals into a queryable battery dataset.",
-        "Set the team's software quality bar and enforce it in CI: ruff formatting and static analysis, ty type checking, pytest, pre-commit."
-      ]
+        "Implement a remote diagnostic reporting service for telemetry-equipped vehicles, cutting report generation from 2 days & €1,000 down to 200 seconds & €0.50.",
+        "Build the IoT backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for external API requests.",
+        "Lead a cross-functional team of 5 managers, with 19 department ambassadors to implement a 100+ strong company-wide resources SharePoint service.",
+        "Specify diagnostic strategy over CAN (UDS, J1939, OBD2, DID/DTC) and configure gateways across a fleet of 100 vehicles (8 customers, 7 products, 2 generations).",
+        "Define the architecture and technical stack of the IoT toolchain platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
+        "Set the team's software quality bar and enforce it in CI: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
+        "Run an AI agent-based development workflow (CLI agents/subagents, spec-driven prompting, global/local AGENTS.md rule system) behind the CI quality gates above — the leverage that lets me deliver the full platform as its main developer, in a team of two."
+      ],
+      "x-highlights": {
+        "SharePoint": ["full", "lead"]
+      }
     },
     {
       "name": "Forsee Power",
@@ -120,7 +98,7 @@
       "endDate": "2020-08",
       "summary": "Technical lead on a top tier, high performance racing EV battery concept.",
       "highlights": [
-        "Simulated and optimised battery system sizing for tender specifications requirements - 43kWh/600kW/284kg/220L/800V.",
+        "Simulated and optimised battery system sizing against tender requirements — 43kWh/600kW/284kg/220L/800V.",
         "Defined, tracked and analysed results of a cell performance test plan."
       ]
     },
@@ -170,7 +148,7 @@
       "location": "Guyancourt, France",
       "startDate": "2011-04",
       "endDate": "2015-06",
-      "summary": "Built, led and owned battery safety validation (mechanical, thermal, electrical, etc.) for hybrid and electric vehicles battery systems, from 48 to 400V - Projects: Twizy, Fluence, Kangoo, Zoe Gen 1 & 2, 48V LTO mild-hybrid battery.",
+      "summary": "Built, led and owned battery safety validation (mechanical, thermal, electrical) for hybrid and electric vehicles battery systems, from 48 to 400V — Projects: Twizy, Fluence, Kangoo, Zoe Gen 1 & 2, 48V LTO mild-hybrid battery.",
       "highlights": [
       ]
     },
@@ -264,6 +242,7 @@
     }
   ],
   "meta": {
-    "canonical": "https://jayteebat.github.io/my-resume/"
+    "canonical": "https://jayteebat.github.io/my-resume/",
+    "source": "https://github.com/JayTeeBat/my-resume"
   }
 }
