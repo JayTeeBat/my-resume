@@ -63,15 +63,15 @@
       "position": "Senior Battery Data Scientist",
       "location": "Poitiers, France",
       "startDate": "2024-05",
-      "summary": "Build end-to-end an IoT telemetry service and data platform.",
+      "summary": "Build an IoT telemetry service and data platform end-to-end.",
       "highlights": [
         "Implement a remote diagnostic reporting service for telemetry-equipped vehicles, cutting report generation from 2 days & €1,000 down to 200 seconds & €0.50.",
         "Build the IoT backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for external API requests.",
         "Lead a cross-functional team of 5 managers, with 19 department ambassadors to implement a 100+ strong company-wide resources SharePoint service.",
         "Specify diagnostic strategy over CAN (UDS, J1939, OBD2, DID/DTC) and configure gateways across a fleet of 100 vehicles (8 customers, 7 products, 2 generations).",
         "Define the architecture and technical stack of the IoT toolchain platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
-        "Set the team's software quality bar and enforce it in CI: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
-        "Run an AI agent-based development workflow (CLI agents/subagents, spec-driven prompting, global/local AGENTS.md rule system) behind the CI quality gates above — the leverage that lets me deliver the full platform as its main developer, in a team of two."
+        "Set the team's CI enforced software quality bar: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
+        "Run an AI agent-based development workflow (CLI agents/subagents) behind the CI quality gates above — the leverage that lets me deliver the full platform as its main developer, in a team of two."
       ],
       "x-highlights": {
         "SharePoint": ["full", "lead"]
