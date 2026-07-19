@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "Battery Systems Technical Lead · Backend & Data Platform Developer · 15+ years from cell chemistry to fleet data",
+    "label": "Battery Systems & Data Platform Technical Lead",
     "email": "jacques.thomazo@gmail.com",
-    "summary": "Battery systems and data platform engineer — 15+ years from cell chemistry to connected-fleet diagnostics. \\\nI design and build the telemetry, diagnostic and engineering-data systems that turn vehicle data into battery decisions.",
+    "summary": "15+ years of experience from cell chemistry to connected-fleet diagnostics. I design and build the telemetry, diagnostic and engineering-data systems that turn vehicle data into battery decisions.",
     "location": {
       "postalCode": "86000",
       "city": "Poitiers",
@@ -16,62 +16,59 @@
         "network": "LinkedIn",
         "username": "jacques-thomazo-battery",
         "url": "https://www.linkedin.com/in/jacques-thomazo-battery/"
+      },
+      {
+        "network": "GitHub",
+        "username": "JayTeeBat",
+        "url": "https://github.com/JayTeeBat"
       }
     ]
   },
   "skills": [
     {
-      "name": "Battery Systems sizing",
+      "name": "Battery system design",
       "keywords": [
-        "Requirements analysis",
-        "Duty-cycle interpretation",
+        "Requirements & duty-cycle analysis",
+        "System sizing",
         "Ragone analysis",
         "Cell selection",
-        "Series/Parallel topology definition",
-        "Matlab/Simulink/Python"
+        "Series/parallel architecture"
       ]
     },
     {
-      "name": "Battery Systems modelling",
+      "name": "Battery modelling & analytics",
       "keywords": [
         "SOH estimation & prediction",
         "Energy management strategies",
-        "Power/Energy performance simulation",
-        "Matlab/Simulink/Simscape/Python"
+        "Power/energy simulation",
+        "MATLAB/Simulink/Simscape",
+        "Python"
       ]
     },
     {
-      "name": "Backend & data platform",
-      "keywords": ["Python", "FastAPI", "Pydantic", "REST & WebSocket APIs", "OpenAPI", "MongoDB", "Docker", "Linux"]
-    },
-    {
-      "name": "Software architecture, quality & delivery",
-      "keywords": ["Multi-repo component boundaries", "Versioning & schema evolution", "Dependency locking & packaging", "ruff", "ty", "pytest", "pre-commit", "CI/CD gates"]
-    },
-    {
       "name": "Vehicle diagnostics & IoT",
-      "keywords": ["CAN", "ISO-TP", "UDS", "OBD2", "J1939", "DID/DTC", "Gateway configuration", "Telemetry pipelines"]
+      "keywords": ["CAN", "ISO-TP", "UDS", "OBD-II", "J1939", "DID/DTC", "Gateway configuration", "Telemetry pipelines"]
     },
     {
-      "name": "AI-assisted engineering",
-      "keywords": ["Agentic CLI workflows (Claude Code & ChatGPT Codex)", "Subagent orchestration", "Spec-driven prompting", "AGENTS.md rule systems", "AI code review & CI gating"]
+      "name": "Backend platforms & software delivery",
+      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Versioned schemas", "Testing & CI/CD"]
     }
   ],
   "work": [
     {
       "name": "Forsee Power",
       "position": "Senior Battery Data Scientist",
-      "location": "Poitiers, France",
+      "location": "Chasseneuil-du-Poitou, Nouvelle-Aquitaine, France",
       "startDate": "2024-05",
       "summary": "Build an IoT telemetry service and data platform end-to-end.",
       "highlights": [
-        "Implement a remote diagnostic reporting service for telemetry-equipped vehicles, cutting report generation from 2 days & €1,000 down to 200 seconds & €0.50.",
+        "Implement remote diagnostic reporting as a service for telemetry-equipped vehicles, cutting report generation from 1 day & €1,000 down to 200 seconds & €0.50.",
         "Build the IoT backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for external API requests.",
-        "Lead a cross-functional team of 5 managers, with 19 department ambassadors to implement a 100+ strong company-wide resources SharePoint service.",
-        "Specify diagnostic strategy over CAN (UDS, J1939, OBD2, DID/DTC) and configure gateways across a fleet of 100 vehicles (8 customers, 7 products, 2 generations).",
+        "Lead a cross-functional team of 5 managers and 19 departmental ambassadors to implement a company-wide SharePoint service containing 100+ resources.",
+        "Specify diagnostic strategy over CAN (UDS, J1939, OBD-II, DID/DTC) and configure gateways across a fleet of 100 vehicles (8 customers, 7 products, 2 generations).",
         "Define the architecture and technical stack of the IoT toolchain platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
-        "Set the team's CI enforced software quality bar: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
-        "Run an AI agent-based development workflow (CLI agents/subagents) behind the CI quality gates above — the leverage that lets me deliver the full platform as its main developer, in a team of two."
+        "Set the team's CI-enforced software quality bar: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
+        "Run an AI agent-based development workflow (CLI agents/subagents) behind the CI quality gates above — the leverage that lets me deliver the full platform as its primary developer in a two-person team."
       ],
       "x-highlights": {
         "SharePoint": ["full", "lead"]
@@ -85,9 +82,9 @@
       "endDate": "2024-05",
       "highlights": [
         "Reworked SOH estimation and prediction algorithms for the embedded application, bringing accuracy to ±3%.",
-        "Built a hybrid Fuel-Cell Battery System model to explore optimised Energy Management Strategies (Matlab/Simulink/Simscape, Git).",
-        "Led development of the Next Generation high cell integration density Battery Platform (Cell-to-pack mass ratio >80%).",
-        "Delivered in-house manufactured prototype packs (5 units, 17kWh/800V/LTO) for a key railway project."
+        "Built a hybrid fuel-cell battery system model to explore optimised energy management strategies (MATLAB/Simulink/Simscape, Git).",
+        "Led development of a next-generation, high-cell-integration-density battery platform (cell-to-pack mass ratio >80%).",
+        "Delivered five in-house manufactured prototype packs (17 kWh, 800 V, LTO) for a key railway project."
       ]
     },
     {
@@ -96,9 +93,9 @@
       "location": "Woking, United Kingdom",
       "startDate": "2019-08",
       "endDate": "2020-08",
-      "summary": "Technical lead on a top tier, high performance racing EV battery concept.",
+      "summary": "Technical lead on a top-tier, high-performance racing EV battery concept.",
       "highlights": [
-        "Simulated and optimised battery system sizing against tender requirements — 43kWh/600kW/284kg/220L/800V.",
+        "Simulated and optimised battery system sizing against tender requirements — 43 kWh, 600 kW, 284 kg, 220 L, 800 V.",
         "Defined, tracked and analysed results of a cell performance test plan."
       ]
     },
@@ -118,7 +115,7 @@
       "location": "London, United Kingdom",
       "startDate": "2018-01",
       "endDate": "2018-08",
-      "summary": "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation. Modular 2kWh/400V architecture.",
+      "summary": "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation. Modular 2 kWh, 400 V architecture.",
       "highlights": [
       ]
     },
@@ -128,7 +125,7 @@
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2017-07",
       "endDate": "2017-12",
-      "summary": "Implemented a long-term (6 months) cell-level test bench (0-5V & 25A/channel × 16 channels) for performance and durability testing, from specifications through to continuous data monitoring pipelines.",
+      "summary": "Implemented a long-term (6 months) cell-level test bench (0–5 V and 25 A/channel × 16 channels) for performance and durability testing, from specifications through to continuous data monitoring pipelines.",
       "highlights": [
       ]
     },
@@ -138,7 +135,7 @@
       "location": "Greenford, Greater London, United Kingdom",
       "startDate": "2015-07",
       "endDate": "2017-06",
-      "summary": "Multidisciplinary battery engineer, tackling from HV components sizing (600V architecture) and selection to small batch battery production (4 × 15kWh battery systems) through 3D prototyping (10-batch PDU enclosure parts, PETG) and Cooling System simulation (dual 15kWh pack system, immersion cooling).",
+      "summary": "Multidisciplinary battery engineer working across HV component sizing and selection (600 V architecture), small-batch production (4 × 15 kWh battery systems), 3D prototyping (10-part batch of PETG PDU enclosures) and cooling-system simulation (dual 15 kWh pack system, immersion cooling).",
       "highlights": [
       ]
     },
@@ -148,7 +145,7 @@
       "location": "Guyancourt, France",
       "startDate": "2011-04",
       "endDate": "2015-06",
-      "summary": "Built, led and owned battery safety validation (mechanical, thermal, electrical) for hybrid and electric vehicles battery systems, from 48 to 400V — Projects: Twizy, Fluence, Kangoo, Zoe Gen 1 & 2, 48V LTO mild-hybrid battery.",
+      "summary": "Built, led and owned battery safety validation (mechanical, thermal, electrical) for hybrid and electric vehicle battery systems, from 48 to 400 V — projects: Twizy, Fluence, Kangoo, ZOE Gen 1 & 2, 48 V LTO mild-hybrid battery.",
       "highlights": [
       ]
     },
@@ -158,10 +155,10 @@
       "location": "Chatou, France",
       "startDate": "2010-03",
       "endDate": "2010-08",
-      "summary": "Synthesis and characterisation of the zinc-oxide front layer of CIGS thin-film photovoltaic cells.",
+      "summary": "Synthesis and characterisation of the zinc oxide front layer of CIGS thin-film photovoltaic cells.",
       "highlights": [
         "Electrochemical synthesis in aqueous solution.",
-        "Characterisation of the resulting layers (Hall effect, electrochemical impedance, four-point resistivity, Schottky-diode impedance).",
+        "Characterisation of the resulting layers (Hall effect, electrochemical impedance, four-point resistivity, Schottky diode impedance).",
         "Characterisation of the completed cells."
       ],
       "x-tags": ["full"]
@@ -211,8 +208,8 @@
   "education": [
     {
       "institution": "École Nationale Supérieure de Chimie de Paris (Chimie ParisTech)",
-      "area": "Renewable Energies, Chemistry, Electrochemistry, Physical Chemistry, Semiconductors",
-      "studyType": "Master of Science",
+      "area": "Renewable Energy, Chemistry, Electrochemistry, Physical Chemistry and Semiconductors",
+      "studyType": "French Engineering Diploma (Diplôme d’Ingénieur)",
       "startDate": "2007",
       "endDate": "2010"
     },
