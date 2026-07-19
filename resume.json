@@ -62,13 +62,11 @@
       "startDate": "2024-05",
       "summary": "Build an IoT telemetry service and data platform end-to-end.",
       "highlights": [
-        "Implement remote diagnostic reporting as a service for telemetry-equipped vehicles, cutting report generation from 1 day & €1,000 down to 200 seconds & €0.50.",
-        "Build the IoT backend services in Python and FastAPI — REST and WebSocket APIs, Pydantic models published as OpenAPI, MongoDB persistence, and retry and failure handling for external API requests.",
-        "Lead a cross-functional team of 5 managers and 19 departmental ambassadors to implement a company-wide SharePoint service containing 100+ resources.",
-        "Specify diagnostic strategy over CAN (UDS, J1939, OBD-II, DID/DTC) and configure gateways across a fleet of 100 vehicles (8 customers, 7 products, 2 generations).",
-        "Define the architecture and technical stack of the IoT toolchain platform: component boundaries across a multi-repo toolchain, with versioning and schema evolution rules that keep services compatible as the data model changes.",
-        "Set the team's CI-enforced software quality bar: ruff formatting and static analysis, ty type checking, pytest, pre-commit.",
-        "Run an AI agent-based development workflow (CLI agents/subagents) behind the CI quality gates above — the leverage that lets me deliver the full platform as its primary developer in a two-person team."
+        "Automate remote diagnostic reporting for telemetry-equipped vehicles, cutting per-report turnaround from 1 day to 200 seconds and cost from €1,000 to €0.50.",
+        "Build the IoT backend in Python and FastAPI: REST and WebSocket APIs, Pydantic/OpenAPI models, MongoDB persistence, and resilient external API integrations.",
+        "Define CAN diagnostic strategy (UDS, J1939, OBD-II, DID/DTC) and configure gateways for 100 vehicles across 8 customers, 7 products and 2 generations.",
+        "Architect and deliver a versioned, multi-repository IoT platform as the primary developer in a two-person team, using CI-gated AI workflows to preserve service compatibility and software quality.",
+        "Lead a cross-functional team of 5 managers and 19 departmental ambassadors to implement a company-wide SharePoint service containing 100+ resources."
       ],
       "x-highlights": {
         "SharePoint": ["full", "lead"]
