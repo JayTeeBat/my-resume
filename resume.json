@@ -79,9 +79,9 @@
       "startDate": "2020-11",
       "endDate": "2024-05",
       "highlights": [
-        "Reworked SOH estimation and prediction algorithms for the embedded application, bringing accuracy to ±3%.",
+        "Reworked SOH estimation and prediction algorithms for the embedded application, bringing accuracy to ±3 %.",
         "Built a hybrid fuel-cell battery system model to explore optimised energy management strategies (MATLAB/Simulink/Simscape, Git).",
-        "Led development of a next-generation, high-cell-integration-density battery platform (cell-to-pack mass ratio >80%).",
+        "Led development of a next-generation, high-cell-integration-density battery platform (cell-to-pack mass ratio >80 %).",
         "Delivered five in-house manufactured prototype packs (17 kWh, 800 V, LTO) for a key railway project."
       ]
     },
