@@ -100,7 +100,7 @@ def serve_preview(
             self.end_headers()
             self.wfile.write(body)
 
-        def log_message(self, *args) -> None:
+        def log_message(self, format: str, *args: object) -> None:
             pass  # the poll would otherwise spam a line every 500ms
 
     class Server(ThreadingHTTPServer):

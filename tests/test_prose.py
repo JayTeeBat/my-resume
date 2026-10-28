@@ -4,7 +4,8 @@ test_validate proves the document is well-formed; these tests gate the
 writing itself. Every rule here is a mechanical check that a review pass
 once fixed by hand: terminal punctuation, UK spelling, typography, tense
 drift between current and past roles, verb-led bullets, unit spacing, and
-unquantified entries on the published cut. Judgment calls (is this bullet vague?) stay with humans;
+unquantified entries on the published cut. Judgment calls (is this bullet vague?)
+stay with humans;
 nothing in this file should ever need interpretation to stay green.
 
 The rules are data-driven: extend the gate by extending the lists below.
@@ -403,7 +404,8 @@ def test_tense_matches_the_role(resume) -> None:
                     Violation(
                         where,
                         text,
-                        f'"{word}" is past tense — the current role reads in the present',
+                        f'"{word}" is past tense — the current '
+                        f"role reads in the present",
                     )
                 )
             elif not current and present and not past:
@@ -435,7 +437,8 @@ def test_highlights_open_with_a_verb(resume) -> None:
                     Violation(
                         f"$.work[{i}].highlights[{j}]  ({entry_label(entry)})",
                         text,
-                        f'"{word}" is not a recognised verb — open with a verb in the {tense}',
+                        f'"{word}" is not a recognised verb — open '
+                        f"with a verb in the {tense}",
                     )
                 )
     fail_with("highlight is a noun fragment", violations)
@@ -448,7 +451,8 @@ def test_published_entries_are_quantified(resume) -> None:
         Violation(
             f"$.work[{i}]  ({entry_label(entry)})",
             entry.get("summary", "(no summary)"),
-            "add at least one concrete figure (scale, spec, cost, accuracy…) or tag the entry out of the published cut",
+            "add at least one concrete figure (scale, spec, cost, "
+            "accuracy…) or tag the entry out of the published cut",
         )
         for i, entry in enumerate(cut["work"])
         if not any(
@@ -492,7 +496,8 @@ def test_published_variant_stays_within_two_pages(resume, tmp_path) -> None:
         pytest.skip("Chromium not installed; run `playwright install chromium`")
     pages = len(PdfReader(written[0].path).pages)
     assert pages <= 2, (
-        f"the published '{PUBLISHED_VARIANT}' cut renders to {pages} pages; the budget is 2 — "
+        f"the published '{PUBLISHED_VARIANT}' cut renders to "
+        f"{pages} pages; the budget is 2 — "
         "trim or tag entries out of the cut (x-tags), or tighten the theme's "
         "spacing tokens (--size-base, --leading, --section-gap)"
     )
@@ -514,7 +519,8 @@ def test_work_prose_length_limits(resume) -> None:
                     Violation(
                         where,
                         text,
-                        f"write exactly {SUMMARY_SENTENCES} sentence (found {sentences} sentence endings)",
+                        f"write exactly {SUMMARY_SENTENCES} "
+                        f"sentence (found {sentences} sentence endings)",
                     )
                 )
         hard_min, hard_max = (1, SUMMARY_HARD_MAX) if summary else HIGHLIGHT_HARD_RANGE
@@ -524,14 +530,16 @@ def test_work_prose_length_limits(resume) -> None:
                 Violation(
                     where,
                     text,
-                    f"rewrite within {hard_min}–{hard_max} words (hard limit; found {words})",
+                    f"rewrite within {hard_min}–{hard_max} words "
+                    f"(hard limit; found {words})",
                 )
             )
         elif not soft_min <= words <= soft_max:
             violation = Violation(
                 where,
                 text,
-                f"aim for {soft_min}–{soft_max} words (found {words}), or justify keeping this wording",
+                f"aim for {soft_min}–{soft_max} words (found "
+                f"{words}), or justify keeping this wording",
             )
             warnings.warn(violation.render(), ProseSoftLimitWarning, stacklevel=2)
     fail_with("work prose exceeds hard limits", violations)
@@ -558,7 +566,8 @@ def test_published_contact_fits_one_line(resume, tmp_path, media) -> None:
             page.goto(written[0].path.as_uri(), wait_until="load")
             page.evaluate("() => document.fonts.ready")
             items = page.locator(".contact li").evaluate_all(
-                "items => items.map(item => ({text: item.innerText, top: item.getBoundingClientRect().top}))"
+                "items => items.map(item => "
+                "({text: item.innerText, top: item.getBoundingClientRect().top}))"
             )
         finally:
             browser.close()
@@ -567,7 +576,8 @@ def test_published_contact_fits_one_line(resume, tmp_path, media) -> None:
             Violation(
                 f".contact li ({media}): " + "; ".join(item["text"] for item in items),
                 "top offsets: " + ", ".join(str(item["top"]) for item in items),
-                "shorten or drop one contact item so every item shares the same top offset",
+                "shorten or drop one contact item so every item "
+                "shares the same top offset",
             )
         ]
         if len({item["top"] for item in items}) > 1

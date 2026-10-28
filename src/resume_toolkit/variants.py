@@ -115,7 +115,8 @@ def _filter_highlights(entry: dict, variant: Variant) -> dict:
     for pattern, tags in rules.items():
         matches = [i for i, h in enumerate(highlights) if pattern in h]
         if len(matches) != 1:
-            where = f"{entry.get('name', '?')} — {entry.get('position', entry.get('title', '?'))}"
+            position = entry.get("position", entry.get("title", "?"))
+            where = f"{entry.get('name', '?')} — {position}"
             raise BadHighlightPattern(
                 f"x-highlights pattern {pattern!r} in {where!r} matches "
                 f"{len(matches)} bullets; it must match exactly one — "

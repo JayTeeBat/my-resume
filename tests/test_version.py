@@ -47,6 +47,7 @@ def test_uncommitted_edits_are_marked_and_dated_today(monkeypatch) -> None:
 
     stamp = build_stamp()
 
+    assert stamp is not None
     assert stamp.dirty is True
     assert stamp.modified == date.today().isoformat()
     assert stamp.version.endswith("-dirty")

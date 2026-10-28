@@ -185,7 +185,8 @@ def build_site(
     variants = [v for v in load_variants().values() if v.publish]
     if not variants:
         raise ValueError(
-            "no publishable variants: mark at least one with `publish = true` in variants.toml"
+            "no publishable variants: mark at least one with "
+            "`publish = true` in variants.toml"
         )
 
     written: list[Artifact] = []

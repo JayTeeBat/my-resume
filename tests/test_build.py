@@ -49,9 +49,9 @@ def test_short_variant_drops_tagged_entries(resume, tmp_path) -> None:
         if w.get("x-tags") and not (set(w["x-tags"]) & short.include)
     ]
     kept = [w for w in resume["work"] if not w.get("x-tags")]
-    assert dropped and kept, (
-        "resume.json must have both tagged and untagged work to test this"
-    )
+    assert dropped, "resume.json must have both tagged and untagged work to test this"
+
+    assert kept, "resume.json must have untagged work to test this"
 
     full_html = build_variant(
         resume, get_variant("full"), formats=("html",), out_dir=tmp_path
@@ -120,7 +120,8 @@ def test_json_build_is_a_valid_json_resume_with_provenance(resume, tmp_path) -> 
     assert validate(data) == []
     # In a git checkout the stamp always exists; only a tarball build may omit it.
     meta = data.get("meta") or {}
-    assert "version" in meta and "lastModified" in meta
+    assert "version" in meta
+    assert "lastModified" in meta
 
 
 def test_markdown_build_writes_the_variant_cut(resume, tmp_path) -> None:

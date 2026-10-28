@@ -14,6 +14,7 @@ import re
 from itertools import combinations, pairwise
 
 import pytest
+from test_prose import Violation, entry_label, fail_with
 
 from resume_toolkit.model import load_resume
 from resume_toolkit.variants import (
@@ -23,7 +24,6 @@ from resume_toolkit.variants import (
     WILDCARD,
     load_variants,
 )
-from test_prose import Violation, entry_label, fail_with
 
 # --- rule data ---------------------------------------------------------------
 
@@ -142,7 +142,8 @@ def test_tags_name_a_real_variant(resume) -> None:
                 Violation(
                     f"{where}  ({label})",
                     tag,
-                    f'remove "{tag}", or define it in variants.toml — known tags: {known_list}',
+                    f'remove "{tag}", or define it in '
+                    f"variants.toml — known tags: {known_list}",
                 )
                 for where, tags in tagged
                 for tag in tags
@@ -157,7 +158,8 @@ def test_work_is_reverse_chronological(resume) -> None:
         Violation(
             f"$.work[{j}]  ({entry_label(later)})",
             span(later),
-            f"move it above $.work[{i}] ({entry_label(earlier)}, {span(earlier)}) — newest role first",
+            f"move it above $.work[{i}] ({entry_label(earlier)}, "
+            f"{span(earlier)}) — newest role first",
         )
         for (i, earlier), (j, later) in pairwise(work)
         if month_index(later["startDate"]) > month_index(earlier["startDate"])
@@ -215,7 +217,8 @@ def test_career_gaps_are_accounted_for(resume) -> None:
             continue
         violations.append(
             Violation(
-                f"$.work[{j}] → $.work[{i}]  ({entry_label(older)} → {entry_label(newer)})",
+                f"$.work[{j}] → $.work[{i}]  ({entry_label(older)} "
+                f"→ {entry_label(newer)})",
                 f"{older['endDate']} → {newer['startDate']}",
                 f"{gap}-month gap (limit {MAX_GAP_MONTHS}) — add a role covering it, "
                 f"or add {key!r} to GAP_ALLOWLIST with the reason",
@@ -225,7 +228,8 @@ def test_career_gaps_are_accounted_for(resume) -> None:
         Violation(
             f"GAP_ALLOWLIST[{key!r}]",
             reason,
-            f"no gap over {MAX_GAP_MONTHS} months is bounded by these dates any more — remove the entry",
+            f"no gap over {MAX_GAP_MONTHS} months is bounded by "
+            f"these dates any more — remove the entry",
         )
         for key, reason in GAP_ALLOWLIST.items()
         if key not in used
@@ -295,7 +299,8 @@ def test_all_dates_use_year_month(resume) -> None:
                         Violation(
                             where,
                             str(value),
-                            "write YYYY-MM with a valid month (01–12), using owner-confirmed dates",
+                            "write YYYY-MM with a valid month "
+                            "(01–12), using owner-confirmed dates",
                         )
                     )
                 walk(value, where)
