@@ -47,6 +47,8 @@ uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,jso
 | Command | Does |
 |---|---|
 | `uv run resume validate` | Check `resume.json` against the schema |
+| `uv run resume check` | Check prose, structure and layout using `resume-checks.toml` |
+| `uv run resume check --fast` | Check without Chromium; `--strict` also fails on warnings |
 | `uv run resume variants` | List the variants defined in `variants.toml` |
 | `uv run resume build` | Render every variant to `dist/` |
 | `uv run resume build -v short -f pdf` | Render one variant, one format |
@@ -71,6 +73,7 @@ resume.json ──validate (schema)──> apply variant (x-tags) ──> Jinja2
   never means touching HTML. The tokens at the top of the stylesheet (`--size-base`, `--leading`,
   `--section-gap`) are the fastest way to fit content into the page budget.
 - **Cuts** live in `variants.toml`.
+- **Quality policy** lives in `resume-checks.toml`; see [rule defaults and configuration](docs/checks.md).
 
 ### Variants
 
@@ -148,9 +151,9 @@ uv run pytest -m 'not slow'   # skip the ones that drive a real browser
 uv tool install pre-commit && pre-commit install
 ```
 
-The hook runs the prose and structure gates when `resume.json`, `variants.toml` or `tests/`
-change. It shows soft-limit warnings and skips the Chromium page-budget and contact-line tests;
-the full suite still checks those in CI.
+The hook runs `resume check --fast` when content, policy, toolkit, templates or tests
+change. It reports soft-limit warnings and skips Chromium; CI runs the full
+`resume check` command on the CV as well as fixture-based toolkit tests.
 
 The standard hooks also check formatting, lint, types, Markdown, file hygiene,
 secrets, and repository compliance. Run `uv run pre-commit run --all-files`

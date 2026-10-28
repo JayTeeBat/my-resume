@@ -1,0 +1,40 @@
+# Editorial policy for this CV. Rule defaults: docs/checks.md.
+enabled = [
+  "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
+  "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
+  "tags", "chronology", "overlaps", "gaps", "skills", "required_fields",
+  "dates", "codespell", "page_budget", "header",
+]
+spelling = "en-GB"
+published_variant = "short"
+page_budget = 2
+print_content_width = 688
+screen_width = 1280
+max_gap_months = 3
+# Python is used differently in modelling and backend, kept in both by owner decision.
+shared_skill_keywords = ["Python"]
+date_format = "YYYY-MM"
+summary_sentences = 1
+summary_soft_max = 25
+summary_hard_max = 30
+highlight_soft_range = [10, 30]
+# Owner decision: retain short internship bullets, with soft warnings.
+highlight_hard_range = [3, 40]
+location_pattern = '[^,\s][^,]*, [^,\s][^,]*'
+codespell_ignore_words = ["forsee", "woking", "chatou", "utiliz"]
+
+[proper_names]
+Github = "GitHub"
+Gitlab = "GitLab"
+Linkedin = "LinkedIn"
+Mongodb = "MongoDB"
+Fastapi = "FastAPI"
+
+[required_fields]
+education = ["institution", "studyType", "area", "startDate", "endDate"]
+publications = ["name", "publisher", "releaseDate", "url"]
+
+[gap_allowlist]
+# EDF R&D — IRDEP (ends 2010-08) → Renault (starts 2011-04), 7 months.
+# Pending the owner's decision on how to account for it (issue #18).
+"2010-08..2011-04" = "EDF R&D — IRDEP → Renault"
