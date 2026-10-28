@@ -63,9 +63,6 @@ jobs:
       - name: Test
         run: uv run pytest
 
-      - name: Build package
-        run: uv build
-
       - name: Build the site
         run: uv run resume site
 
@@ -81,6 +78,10 @@ jobs:
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: dist/
+
+      # Build distributions after site uploads so packages never enter Pages.
+      - name: Build package
+        run: uv build
 
   deploy:
     needs: quality
