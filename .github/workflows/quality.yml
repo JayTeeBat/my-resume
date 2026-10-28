@@ -1,9 +1,13 @@
 name: Quality
 
+# PRs into main run the gates (and upload the preview artifact); a push to
+# main runs them once more on the merged result and deploys Pages. Feature
+# branch pushes are not a trigger: their PR already runs the same job.
 on:
   push:
-    branches: ["**"]
+    branches: ["main"]
   pull_request:
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
