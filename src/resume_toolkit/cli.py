@@ -53,8 +53,10 @@ def validate(
 def list_variants() -> None:
     """List the variants defined in variants.toml."""
     for variant in load_variants().values():
-        tags = "everything" if variant.includes_everything else (
-            ", ".join(sorted(variant.include)) or "untagged entries only"
+        tags = (
+            "everything"
+            if variant.includes_everything
+            else (", ".join(sorted(variant.include)) or "untagged entries only")
         )
         name = typer.style(variant.name, bold=True)
         typer.echo(f"{name}\n    {variant.description}\n    includes: {tags}")
@@ -66,12 +68,16 @@ def build(
         str | None,
         typer.Option("--variant", "-v", help="Variant to build. Default: all of them."),
     ] = None,
-    theme: Annotated[str, typer.Option("--theme", "-t", help="Theme directory name.")] = "classic",
+    theme: Annotated[
+        str, typer.Option("--theme", "-t", help="Theme directory name.")
+    ] = "classic",
     fmt: Annotated[
         str,
         typer.Option("--format", "-f", help="pdf, html, json, md, or all."),
     ] = "all",
-    out: Annotated[Path, typer.Option("--out", "-o", help="Output directory.")] = DIST_DIR,
+    out: Annotated[
+        Path, typer.Option("--out", "-o", help="Output directory.")
+    ] = DIST_DIR,
 ) -> None:
     """Render resume.json to dist/."""
     if fmt not in {"pdf", "html", "json", "md", "all"}:
@@ -105,8 +111,12 @@ def build(
 
 @app.command()
 def site(
-    theme: Annotated[str, typer.Option("--theme", "-t", help="Theme directory name.")] = "classic",
-    out: Annotated[Path, typer.Option("--out", "-o", help="Output directory.")] = DIST_DIR,
+    theme: Annotated[
+        str, typer.Option("--theme", "-t", help="Theme directory name.")
+    ] = "classic",
+    out: Annotated[
+        Path, typer.Option("--out", "-o", help="Output directory.")
+    ] = DIST_DIR,
 ) -> None:
     # ASCII deliberately, as in _load_or_exit: a Windows cp1252 console mangles
     # "-" typed as an em-dash into "?" when typer prints this help text.

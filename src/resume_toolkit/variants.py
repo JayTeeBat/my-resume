@@ -85,7 +85,9 @@ def get_variant(name: str, path: Path = VARIANTS_TOML) -> Variant:
     variants = load_variants(path)
     if name not in variants:
         known = ", ".join(sorted(variants)) or "(none defined)"
-        raise UnknownVariant(f"unknown variant {name!r}; variants.toml defines: {known}")
+        raise UnknownVariant(
+            f"unknown variant {name!r}; variants.toml defines: {known}"
+        )
     return variants[name]
 
 
