@@ -1,5 +1,0 @@
-[full]
-include = ["*"]
-[short]
-include = []
-publish = true

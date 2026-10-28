@@ -5,10 +5,13 @@
 ## Overview
 
 My CV, maintained as code. A single [JSON Resume](https://jsonresume.org/) file,
-[`resume.json`](resume.json), renders to HTML, PDF, JSON and Markdown. Every change
-is checked in CI for structure, style and length, then published automatically.
+[`resume.json`](resume.json), renders to HTML, PDF, JSON and Markdown with
+[resume-toolkit](https://github.com/JayTeeBat/resume-toolkit). Every change is
+checked in CI for structure, style and length, then published automatically.
 
 ## Install
+
+Requires Python 3.13+ and [uv](https://docs.astral.sh/uv/).
 
 ```sh
 uv sync
@@ -25,13 +28,12 @@ uv run resume check    # run the content checks
 
 ## Development
 
-Toolchain internals (variants, theme, CI, design choices) are in
-[docs/development.md](docs/development.md); content-check rules are in
-[docs/checks.md](docs/checks.md); contributor and agent rules are in
-[AGENTS.md](AGENTS.md). The repository follows
-[repo-standard-kit v2.0.0](https://github.com/FP-DevTools/repo-standard-kit/tree/v2.0.0).
+Editing, checks, publishing and toolkit upgrades are in
+[docs/development.md](docs/development.md); contributor and agent rules are in
+[AGENTS.md](AGENTS.md). Rendering and check rules are documented in the
+[resume-toolkit docs](https://github.com/JayTeeBat/resume-toolkit/tree/v0.1.0/docs).
 
 ## License
 
-Code: [MIT](LICENSE). CV content (`resume.json` and everything rendered from it):
-© Jacques Thomazo, all rights reserved. Bundled fonts keep their own OFL license.
+CV content (`resume.json` and everything rendered from it): © Jacques Thomazo,
+all rights reserved. Repository configuration and workflow files: [MIT](LICENSE).
