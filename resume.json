@@ -4,9 +4,9 @@
     "name": "Jacques Thomazo",
     "label": "Battery Systems & Data Platform Technical Lead",
     "email": "jacques.thomazo@gmail.com",
+    "url": "https://jayteebat.github.io/my-resume/",
     "summary": "15+ years of experience from cell chemistry to connected-fleet diagnostics. I design and build the telemetry, diagnostic and engineering-data systems that turn vehicle data into battery decisions.",
     "location": {
-      "postalCode": "86000",
       "city": "Poitiers",
       "region": "Nouvelle-Aquitaine",
       "countryCode": "FR"
@@ -46,12 +46,16 @@
       ]
     },
     {
+      "name": "Functional safety",
+      "keywords": ["ISO 26262", "HARA", "FMEA", "ASIL C/D"]
+    },
+    {
       "name": "Vehicle diagnostics & IoT",
       "keywords": ["CAN", "ISO-TP", "UDS", "OBD-II", "J1939", "DID/DTC", "Gateway configuration", "Telemetry pipelines"]
     },
     {
       "name": "Backend platforms & software delivery",
-      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Versioned schemas", "Testing & CI/CD"]
+      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Git", "Versioned schemas", "Testing & CI/CD", "AI-assisted development (CI-gated)"]
     }
   ],
   "work": [
