@@ -44,7 +44,6 @@ repos:
       - id: detect-secrets
         name: detect secrets
         entry: uv run detect-secrets-hook
-        args: ["--baseline", ".secrets.baseline"]
         language: system
         types: [text]
       - id: check-added-large-files
