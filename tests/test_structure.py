@@ -40,7 +40,7 @@ MAX_GAP_MONTHS = 3
 # gap fails the gate, so this list cannot rot.
 GAP_ALLOWLIST = {
     # EDF R&D — IRDEP (ends 2010-08) → Renault (starts 2011-04), 7 months.
-    # Pending the owner's decision on how to account for it (issue #16).
+    # Pending the owner's decision on how to account for it (issue #18).
     ("2010-08", "2011-04"): "EDF R&D — IRDEP → Renault",
 }
 
