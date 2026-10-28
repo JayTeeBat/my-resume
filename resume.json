@@ -58,7 +58,7 @@
     {
       "name": "Forsee Power",
       "position": "Senior Battery Data Scientist",
-      "location": "Chasseneuil-du-Poitou, Nouvelle-Aquitaine, France",
+      "location": "Chasseneuil-du-Poitou, France",
       "startDate": "2024-05",
       "summary": "Build an IoT telemetry service and data platform end-to-end.",
       "highlights": [
@@ -69,13 +69,13 @@
         "Lead a cross-functional team of 5 managers and 19 departmental ambassadors to implement a company-wide SharePoint service containing 100+ resources."
       ],
       "x-highlights": {
-        "SharePoint": ["full", "lead"]
+        "SharePoint": ["full"]
       }
     },
     {
       "name": "Forsee Power",
       "position": "Technical Lead — Battery System Development",
-      "location": "Chasseneuil-du-Poitou, Nouvelle-Aquitaine, France",
+      "location": "Chasseneuil-du-Poitou, France",
       "startDate": "2020-11",
       "endDate": "2024-05",
       "highlights": [
@@ -103,8 +103,10 @@
       "location": "London, United Kingdom",
       "startDate": "2018-08",
       "endDate": "2019-07",
-      "summary": "Led ISO 26262 functional safety analysis and implementation (HARA, FMEA) across HV battery (ASIL C), steer-by-wire and brake-by-wire products (both ASIL D).",
+      "summary": "ISO 26262 functional safety across HV battery, steer-by-wire and brake-by-wire products.",
       "highlights": [
+        "Led functional safety analysis (HARA, FMEA) for the HV battery (ASIL C) and the steer-by-wire and brake-by-wire products (both ASIL D).",
+        "Led functional safety implementation across all three products."
       ]
     },
     {
@@ -113,28 +115,35 @@
       "location": "London, United Kingdom",
       "startDate": "2018-01",
       "endDate": "2018-08",
-      "summary": "Owned the development lifecycle for HV & LV batteries, PCBs and electrical systems: requirements, concepts, design reviews, testing and validation. Modular 2 kWh, 400 V architecture.",
+      "summary": "Development lifecycle owner for HV & LV batteries, PCBs and electrical systems.",
       "highlights": [
+        "Owned requirements, concepts and design reviews for a modular 2 kWh, 400 V architecture.",
+        "Owned testing and validation across the same systems."
       ]
     },
     {
       "name": "Vantage Power",
       "position": "Senior Battery Engineer",
-      "location": "Greenford, Greater London, United Kingdom",
+      "location": "Greenford, United Kingdom",
       "startDate": "2017-07",
       "endDate": "2017-12",
-      "summary": "Implemented a long-term (6 months) cell-level test bench (0–5 V and 25 A/channel × 16 channels) for performance and durability testing, from specifications through to continuous data monitoring pipelines.",
+      "summary": "Cell-level test bench for performance and durability testing.",
       "highlights": [
+        "Implemented a long-term (6 months) cell-level test bench (0–5 V and 25 A/channel × 16 channels), from specifications onwards.",
+        "Built the bench's continuous data monitoring pipelines."
       ]
     },
     {
       "name": "Vantage Power",
       "position": "Battery Engineer",
-      "location": "Greenford, Greater London, United Kingdom",
+      "location": "Greenford, United Kingdom",
       "startDate": "2015-07",
       "endDate": "2017-06",
-      "summary": "Multidisciplinary battery engineer working across HV component sizing and selection (600 V architecture), small-batch production (4 × 15 kWh battery systems), 3D prototyping (10-part batch of PETG PDU enclosures) and cooling-system simulation (dual 15 kWh pack system, immersion cooling).",
+      "summary": "Multidisciplinary battery engineer across HV components, production, prototyping and simulation.",
       "highlights": [
+        "Sized and selected HV components for a 600 V architecture.",
+        "Produced a small batch of 4 × 15 kWh battery systems and 3D-prototyped a 10-part batch of PETG PDU enclosures.",
+        "Simulated immersion cooling for a dual 15 kWh pack system."
       ]
     },
     {
@@ -143,8 +152,10 @@
       "location": "Guyancourt, France",
       "startDate": "2011-04",
       "endDate": "2015-06",
-      "summary": "Built, led and owned battery safety validation (mechanical, thermal, electrical) for hybrid and electric vehicle battery systems, from 48 to 400 V — projects: Twizy, Fluence, Kangoo, ZOE Gen 1 & 2, 48 V LTO mild-hybrid battery.",
+      "summary": "Battery safety validation for hybrid and electric vehicle battery systems, from 48 to 400 V.",
       "highlights": [
+        "Built, led and owned mechanical, thermal and electrical battery safety validation.",
+        "Validated the battery systems of Twizy, Fluence, Kangoo, ZOE Gen 1 & 2 and a 48 V LTO mild-hybrid battery."
       ]
     },
     {
@@ -155,9 +166,9 @@
       "endDate": "2010-08",
       "summary": "Synthesis and characterisation of the zinc oxide front layer of CIGS thin-film photovoltaic cells.",
       "highlights": [
-        "Electrochemical synthesis in aqueous solution.",
-        "Characterisation of the resulting layers (Hall effect, electrochemical impedance, four-point resistivity, Schottky diode impedance).",
-        "Characterisation of the completed cells."
+        "Synthesised the layer electrochemically in aqueous solution.",
+        "Characterised the resulting layers (Hall effect, electrochemical impedance, four-point resistivity, Schottky diode impedance).",
+        "Characterised the completed cells."
       ],
       "x-tags": ["full"]
     },
@@ -183,9 +194,9 @@
       "endDate": "2008-11",
       "summary": "Research on non-linear optical materials (YAB) at the Laboratoire de Chimie de la Matière Condensée de Paris.",
       "highlights": [
-        "Solid-state materials synthesis.",
-        "Materials characterisation (microscopy, XRD, DSC, TGA).",
-        "Laser testing."
+        "Synthesised solid-state materials.",
+        "Characterised the materials (microscopy, XRD, DSC, TGA).",
+        "Ran laser tests."
       ],
       "x-tags": ["full"]
     },

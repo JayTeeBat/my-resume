@@ -128,3 +128,12 @@ reorders the page.
 uv run pytest              # all
 uv run pytest -m 'not slow'   # skip the ones that drive a real browser
 ```
+
+## Pre-commit
+
+```sh
+uv tool install pre-commit && pre-commit install
+```
+
+The hook runs the prose and structure gates when `resume.json`, `variants.toml` or `tests/`
+change. It skips the Chromium page-budget test; the full suite still checks that in CI.
