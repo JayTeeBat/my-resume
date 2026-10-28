@@ -1,13 +1,13 @@
 name: Quality
 
-# PRs into main run the gates (and upload the preview artifact); a push to
-# main runs them once more on the merged result and deploys Pages. Feature
-# branch pushes are not a trigger: their PR already runs the same job.
+# Triggers match repo-standard-kit's quality workflow (push to main, every
+# pull request). workflow_dispatch is a deliberate addition: it re-runs the
+# gates and redeploys Pages from the Actions tab without a commit.
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
