@@ -223,15 +223,15 @@
       "institution": "École Nationale Supérieure de Chimie de Paris (Chimie ParisTech)",
       "area": "Renewable Energy, Chemistry, Electrochemistry, Physical Chemistry and Semiconductors",
       "studyType": "French Engineering Diploma (Diplôme d’Ingénieur)",
-      "startDate": "2007",
-      "endDate": "2010"
+      "startDate": "2007-09",
+      "endDate": "2010-06"
     },
     {
       "institution": "Lycée Louis Barthou",
       "area": "Mathematics, Physics and Chemistry",
       "studyType": "Undergraduate (CPGE)",
-      "startDate": "2005",
-      "endDate": "2007",
+      "startDate": "2005-09",
+      "endDate": "2007-06",
       "x-tags": ["full"]
     }
   ],
@@ -248,6 +248,9 @@
   "publications": [
     {
       "name": "A Partnership between Renault and French First Responders to Ensure Safe Intervention on Crash or Fire-Damaged Electrical Vehicles",
+      "publisher": "Enhanced Safety of Vehicles (ESV) 2015 Congress",
+      "releaseDate": "2015-06",
+      "url": "https://www.researchgate.net/publication/303763799_A_PARTNERSHIP_BETWEEN_RENAULT_AND_FRENCH_FIRST_RESPONDERS_TO_ENSURE_SAFE_INTERVENTION_ON_CRASH_OR_FIRE-DAMAGED_ELECTRICAL_VEHICLES",
       "x-tags": ["full"]
     }
   ],
