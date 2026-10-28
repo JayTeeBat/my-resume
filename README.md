@@ -1,6 +1,8 @@
 # my-resume
 
-### 📄 [Read or download my CV → jayteebat.github.io/my-resume](https://jayteebat.github.io/my-resume/)
+📄 [Read or download my CV → jayteebat.github.io/my-resume](https://jayteebat.github.io/my-resume/)
+
+## Overview
 
 My CV as data. [`resume.json`](resume.json) is the single source of truth — a standard
 [JSON Resume](https://jsonresume.org/) document — and this toolchain renders it to styled PDF and
@@ -21,12 +23,17 @@ machine address — an alias of the primary published cut), and
 [`/llms.txt`](https://jayteebat.github.io/my-resume/llms.txt) (the note an AI agent reads first,
 steering it to the canonical JSON instead of scraping the styled page).
 
-## Working on it locally
+## Install
 
 ```sh
 uv sync
 uv run playwright install chromium   # one-time, ~150MB
 
+```
+
+## Usage
+
+```sh
 uv run resume serve                  # preview at localhost:8000, reloads as you edit
 uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,json,md}
 ```
@@ -35,7 +42,7 @@ uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,jso
 [`resume.json`](resume.json) or `themes/classic/style.css`, and the browser reloads itself. Add
 `-v short` to preview the short cut. Reach for `build` when you want the actual PDF in `dist/`.
 
-## Commands
+### Commands
 
 | Command | Does |
 |---|---|
@@ -49,9 +56,9 @@ uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,jso
 To see exactly what the published site will look like, `uv run resume site` and open
 `dist/index.html`.
 
-## How it fits together
+### How it fits together
 
-```
+```text
 resume.json ──validate (schema)──> apply variant (x-tags) ──> Jinja2 + theme ──> HTML
                                                                                   │
                                                                      Chromium print-to-PDF
@@ -65,7 +72,7 @@ resume.json ──validate (schema)──> apply variant (x-tags) ──> Jinja2
   `--section-gap`) are the fastest way to fit content into the page budget.
 - **Cuts** live in `variants.toml`.
 
-## Variants
+### Variants
 
 One `resume.json`, several cuts of it. Tag any entry with `x-tags`:
 
@@ -97,7 +104,13 @@ The substring must match exactly **one** bullet; the build fails loudly if an ed
 breaks the match, because a rule that silently stopped matching would silently republish the
 bullet everywhere. Like `x-tags`, `x-highlights` is stripped before rendering.
 
-## Why these choices
+## Development
+
+This repository follows [repo-standard-kit v2.0.0](https://github.com/FP-DevTools/repo-standard-kit/tree/v2.0.0),
+using the `python-single` profile. See [AGENTS.md](AGENTS.md) for the exact gate chain
+and contributor responsibilities.
+
+### Why these choices
 
 - **Chromium, not WeasyPrint.** WeasyPrint needs MSYS2 + Pango installed by hand on Windows, which
   breaks clone-and-go. Playwright vendors its own browser.
@@ -109,7 +122,7 @@ bullet everywhere. Like `x-tags`, `x-highlights` is stripped before rendering.
   `jsonschema` ignores unless asked; those are exactly the fields where a typo is invisible on the
   page but costly in life.
 
-## CI and publishing
+### CI and publishing
 
 Every push validates `resume.json`, runs the tests and builds the site, so a broken resume fails
 loudly on any branch. Pushes to `main` additionally deploy to **GitHub Pages** at
@@ -122,14 +135,14 @@ reorders the page.
 
 > **One-time setup:** Settings → Pages → Source: **GitHub Actions**. Without it the deploy job fails.
 
-## Tests
+### Tests
 
 ```sh
 uv run pytest              # all
 uv run pytest -m 'not slow'   # skip the ones that drive a real browser
 ```
 
-## Pre-commit
+### Pre-commit
 
 ```sh
 uv tool install pre-commit && pre-commit install
@@ -138,3 +151,14 @@ uv tool install pre-commit && pre-commit install
 The hook runs the prose and structure gates when `resume.json`, `variants.toml` or `tests/`
 change. It shows soft-limit warnings and skips the Chromium page-budget and contact-line tests;
 the full suite still checks those in CI.
+
+The standard hooks also check formatting, lint, types, Markdown, file hygiene,
+secrets, and repository compliance. Run `uv run pre-commit run --all-files`
+to check the whole repository.
+
+## License
+
+The code is MIT licensed; see [LICENSE](LICENSE). CV content in `resume.json`
+and every rendered output derived from it (HTML, PDF, JSON, Markdown, and the
+published site) is © Jacques Thomazo, all rights reserved, and excluded from
+the MIT grant. Bundled fonts retain their own OFL license.
