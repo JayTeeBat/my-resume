@@ -140,12 +140,12 @@
   </header>
 
   {# One macro for both layouts, so the buttons cannot drift apart: each is
-     labelled by its file type alone, and the tooltip says what it is for. #}
+     labelled by its file type alone. #}
   {% macro actions(c) -%}
-  <a class="btn primary" href="{{ c.html }}" title="The CV as a web page">HTML</a>
-      <a class="btn" href="{{ c.pdf }}" target="_blank" rel="noopener" title="Print-ready PDF, same cut as the web page">PDF</a>
-      <a class="btn" href="{{ c.json }}" title="Machine-readable JSON Resume, same cut as the PDF">JSON</a>
-      <a class="btn" href="{{ c.md }}" title="Paste-ready Markdown, same cut as the PDF">Markdown</a>
+  <a class="btn primary" href="{{ c.html }}">HTML</a>
+      <a class="btn" href="{{ c.pdf }}" target="_blank" rel="noopener">PDF</a>
+      <a class="btn" href="{{ c.json }}">JSON</a>
+      <a class="btn" href="{{ c.md }}">Markdown</a>
       <span class="size">PDF · {{ c.size }}</span>
   {%- endmacro %}
 
