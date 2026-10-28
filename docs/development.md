@@ -121,11 +121,14 @@ and contributor responsibilities.
 
 ## CI and publishing
 
-Every push validates `resume.json`, runs the tests and builds the site, so a broken resume fails
-loudly on any branch. Pushes to `main` additionally deploy to **GitHub Pages** at
+Every pull request validates `resume.json`, runs the tests and builds the site, so a broken resume
+fails before it can merge; `quality` and `compliance` are required checks. `dist/` is uploaded as a
+workflow artifact on each PR run, for checking a PR's output before it merges. Pushes to `main` run
+the same job once more on the merged result and deploy to **GitHub Pages** at
 [jayteebat.github.io/my-resume](https://jayteebat.github.io/my-resume/) — a stable public URL that
-needs no GitHub login, which is what you actually share with people. `dist/` is still uploaded as a
-workflow artifact on every branch, for checking a PR's output before it merges.
+needs no GitHub login, which is what you actually share with people. Pushing a feature branch
+without a PR runs nothing. The triggers match repo-standard-kit's quality workflow, plus
+`workflow_dispatch` for re-running the gates and redeploying Pages by hand from the Actions tab.
 
 The landing page is `site/index.html.j2`. Card order follows `variants.toml`, so reordering that file
 reorders the page.
