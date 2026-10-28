@@ -51,11 +51,11 @@
     },
     {
       "name": "Vehicle diagnostics & IoT",
-      "keywords": ["CAN", "ISO-TP", "UDS", "OBD-II", "J1939", "DID/DTC", "Gateway configuration", "Telemetry pipelines"]
+      "keywords": ["CAN", "ISO-TP", "UDS", "OBD-II", "J1939", "Gateway configuration", "Telemetry pipelines"]
     },
     {
       "name": "Backend platforms & software delivery",
-      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Git", "Versioned schemas", "Testing & CI/CD", "AI-assisted development (CI-gated)"]
+      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Git", "Testing & CI/CD", "AI-assisted development (CI-gated)"]
     }
   ],
   "work": [
