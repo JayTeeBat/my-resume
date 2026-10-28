@@ -1,60 +1,28 @@
 [project]
-name = "resume-toolkit"
-version = "0.1.0"
-description = "Toolchain to validate a JSON Resume and render it to styled PDF/HTML"
+name = "my-resume"
+version = "0.0.0"
+description = "Jacques Thomazo's CV as JSON Resume content, rendered by resume-toolkit"
 readme = "README.md"
 authors = [
     { name = "Jacques Thomazo", email = "jacques.thomazo@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "jinja2>=3.1.4",
-    # [format] pulls the validators that make `format: uri` / `format: email`
-    # actually enforceable rather than decorative.
-    "jsonschema[format]>=4.23.0",
-    "playwright>=1.49.0",
-    "typer>=0.15.1",
-    "pypdf>=5.1.0",
-    "codespell>=2.4.3",
+    "resume-toolkit @ git+https://github.com/JayTeeBat/resume-toolkit@v0.1.0",
 ]
-
-[project.scripts]
-resume = "resume_toolkit.cli:app"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.4",
     "detect-secrets>=1.5.0",
     "pre-commit>=4.0.0",
     "pre-commit-hooks>=5.0.0",
     "pymarkdownlnt>=0.9.39",
-    "ruff>=0.6.0",
-    "ty>=0.0.1a16",
 ]
 
-[build-system]
-requires = ["uv_build>=0.10.9,<0.11.0"]
-build-backend = "uv_build"
+[tool.uv]
+# Content only: nothing here is built or installed as a package.
+package = false
 
 [tool.codespell]
-# Vendored/generated content is not ours to spell-check.
-skip = "./.git,./.venv,./dist,./schema,./themes/classic/fonts,./uv.lock"
-
-[tool.repo-standard]
-profile = "python-single"
-standard = "2"
-
-[tool.ruff]
-line-length = 88
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "B", "UP", "PT"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-markers = [
-    "slow: drives a real Chromium; deselect with -m 'not slow'",
-]
-
-[tool.ty.src]
-include = ["src", "tests"]
+# Generated or vendored files are not ours to spell-check.
+skip = "./.git,./.venv,./dist,./uv.lock"
