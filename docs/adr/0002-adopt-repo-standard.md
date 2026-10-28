@@ -2,7 +2,8 @@
 
 ## Status
 
-Accepted for this adoption.
+Superseded by [ADR 0004](0004-content-only-repository.md) after the toolkit
+extraction. Kept as the record of the original adoption.
 
 ## Context
 
@@ -11,7 +12,7 @@ lacks a shared contract for formatting, typing, file hygiene, and compliance.
 
 ## Decision
 
-Adopt [repo-standard-kit v2.0.0](https://github.com/FP-DevTools/repo-standard-kit/tree/v2.0.0)
+Adopt [repo-standard-kit v2.0.0](https://github.com/JayTeeBat/repo-standard-kit/tree/v2.0.0)
 with the `python-single` profile and standard major `2`. Pin checker invocations
 to this release so upstream changes cannot silently select a newer policy.
 Use the documented direct `uvx` compliance workflow with `--strict`, retaining

@@ -1,4 +1,21 @@
-MIT License (code only)
+This repository contains two kinds of material under two different terms.
+
+1. CV content: all rights reserved
+
+The CV content in resume.json, and every output rendered or derived from it,
+including HTML, PDF, JSON, Markdown and the published GitHub Pages site, is
+Copyright (c) 2026 Jacques Thomazo. All rights reserved. No permission to
+copy, modify, publish or otherwise reuse this content is granted, and the MIT
+License below does not apply to it. Third-party fonts embedded in those
+outputs keep their own license (section 3).
+
+2. Repository configuration and workflow files: MIT License
+
+Every other file in this repository, including variants.toml,
+resume-checks.toml, pyproject.toml, uv.lock, .pre-commit-config.yaml, the
+files under .github/ and the documentation, is licensed as follows.
+
+MIT License
 
 Copyright (c) 2026 Jacques Thomazo
 
@@ -20,12 +37,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-CV content exclusion
+3. Third-party software
 
-The CV content in resume.json and every rendered output derived from it,
-including HTML, PDF, JSON, Markdown, and the published site, is
-© Jacques Thomazo, all rights reserved. This content is not part of the
-Software covered by the MIT grant above, and no permission to reuse that
-content is granted by this license.
-
-Third-party materials, including bundled fonts, retain their own licenses.
+resume-toolkit and the other dependencies installed by uv are not part of this
+repository and keep their own licenses. This includes the Source Sans 3 fonts
+that resume-toolkit embeds in rendered outputs, which are under the SIL Open
+Font License.

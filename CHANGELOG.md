@@ -17,3 +17,17 @@
 - Rename the build workflow to quality, add standard gates, and pin actions
   while preserving Chromium tests, artifacts, and main-only Pages deployment.
 - Format and lint Python code without changing CV rendering behavior.
+- Depend on resume-toolkit v0.1.0 from its git tag as a non-package uv project.
+- Quality workflow drops Python lint, type, test and package steps, keeps
+  hygiene hooks, validation, the full content check, the site artifact and
+  main-only Pages deploy, and pins every action to its latest release.
+- Rewrite the development guide, README and AGENTS.md for the content-only
+  setup; LICENSE separates reserved CV content from MIT configuration.
+
+### Removed
+
+- Toolkit code, theme, site template, schema, tests and their docs, now in
+  [resume-toolkit](https://github.com/JayTeeBat/resume-toolkit).
+- Compliance workflow, `repo-check` hook and `[tool.repo-standard]`: the
+  repository is content only and fits no repo-standard-kit profile
+  (ADR 0004).

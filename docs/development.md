@@ -1,157 +1,58 @@
 # Development
 
-How the toolchain behind [the CV](../README.md) works, and how to work on it.
+How to edit, check and publish [the CV](../README.md). Rendering, themes, the
+schema and the check rules belong to
+[resume-toolkit](https://github.com/JayTeeBat/resume-toolkit); its
+[development guide][toolkit-dev] covers commands, variants and design choices.
 
-## Setup
+## Editing the CV
 
-```sh
-uv sync
-uv run playwright install chromium   # one-time, ~150MB
-```
+[`resume.json`](../resume.json) holds every CV fact.
+[`variants.toml`](../variants.toml) selects the cuts; only `publish = true`
+variants reach the public site. Tag entries with `x-tags` or `x-highlights`
+as described in the toolkit's [variants section][toolkit-variants].
 
-## Working on the CV
-
-```sh
-uv run resume serve                  # preview at localhost:8000, reloads as you edit
-uv run resume build                  # -> dist/resume-{full,short}.{pdf,html,json,md}
-```
-
-`serve` is the one to use while writing or restyling: leave it running, edit
-[`resume.json`](../resume.json) or `themes/classic/style.css`, and the browser reloads itself. Add
-`-v short` to preview the short cut. Reach for `build` when you want the actual PDF in `dist/`.
-
-## Commands
-
-| Command | Does |
-|---|---|
-| `uv run resume validate` | Check `resume.json` against the schema |
-| `uv run resume check` | Check prose, structure and layout using `resume-checks.toml` |
-| `uv run resume check --fast` | Check without Chromium; `--strict` also fails on warnings |
-| `uv run resume variants` | List the variants defined in `variants.toml` |
-| `uv run resume build` | Render every variant to `dist/` |
-| `uv run resume build -v short -f pdf` | Render one variant, one format |
-| `uv run resume site` | Every variant **plus** the `index.html` landing page — what CI publishes |
-| `uv run resume serve` | Browser preview, live-reloads on edit |
-
-To see exactly what the published site will look like, `uv run resume site` and open
-`dist/index.html`.
-
-## How it fits together
-
-```text
-resume.json ──validate (schema)──> apply variant (x-tags) ──> Jinja2 + theme ──> HTML
-                                                                                  │
-                                                                     Chromium print-to-PDF
-                                                                                  ↓
-                                                                        dist/resume-*.pdf
-```
-
-- **Content** lives in `resume.json`. Nothing else should carry CV facts.
-- **Styling** lives in `themes/classic/style.css`. The template carries structure only, so restyling
-  never means touching HTML. The tokens at the top of the stylesheet (`--size-base`, `--leading`,
-  `--section-gap`) are the fastest way to fit content into the page budget.
-- **Cuts** live in `variants.toml`.
-- **Quality policy** lives in `resume-checks.toml`; see [rule defaults and configuration](checks.md).
-
-## Variants
-
-One `resume.json`, several cuts of it. Tag any entry with `x-tags`:
-
-```json
-{ "name": "ACME Corp", "position": "Engineer", "x-tags": ["full"] }
-```
-
-- An entry with **no** `x-tags` is in **every** variant — so you only tag what you want to
-  conditionally drop.
-- A tagged entry survives only where one of its tags is in that variant's `include` list.
-- `include = ["*"]` takes everything.
-
-This works because the JSON Resume schema sets `additionalProperties: true` throughout: the tags ride
-along inside a document that still validates as a standard JSON Resume and stays readable by every
-other tool in the ecosystem. `x-tags` is stripped before rendering, so themes never see it.
-
-Bullets are the one place the schema forbids that trick — `work[].highlights` items are plain
-strings, so a tag can't ride inside one. The `x-highlights` extension covers it from the entry
-level: a mapping from a substring of a bullet to that bullet's tags.
-
-```json
-{
-  "highlights": ["Shipped X.", "Led Y."],
-  "x-highlights": { "Led Y": ["full"] }
-}
-```
-
-The substring must match exactly **one** bullet; the build fails loudly if an edit to the bullet
-breaks the match, because a rule that silently stopped matching would silently republish the
-bullet everywhere. Like `x-tags`, `x-highlights` is stripped before rendering.
-
-## What gets published
-
-The published JSON is not a copy of `resume.json`: it is the *variant-filtered* document — the same
-entries and bullets the published PDF shows, with the variant machinery (`x-tags`, `x-highlights`)
-stripped and build provenance stamped into `meta`. A parser and a reader can never disagree about
-what the CV says. The same goes for the Markdown, which exists for the places styled output cannot
-go: ATS web forms, plain-text email, LLM prompts.
-
-Besides the variant artifacts, the published site carries three discovery files:
-[`index.html`](../site/index.html.j2) (the human front door, with OpenGraph link previews and
-schema.org Person markup for search engines),
-[`/resume.json`](https://jayteebat.github.io/my-resume/resume.json) (the guessable canonical
-machine address — an alias of the primary published cut), and
-[`/llms.txt`](https://jayteebat.github.io/my-resume/llms.txt) (the note an AI agent reads first,
-steering it to the canonical JSON instead of scraping the styled page).
-
-## Contributing
-
-This repository follows [repo-standard-kit v2.0.0](https://github.com/FP-DevTools/repo-standard-kit/tree/v2.0.0),
-using the `python-single` profile. See [AGENTS.md](../AGENTS.md) for the exact gate chain
-and contributor responsibilities.
-
-## Why these choices
-
-- **Chromium, not WeasyPrint.** WeasyPrint needs MSYS2 + Pango installed by hand on Windows, which
-  breaks clone-and-go. Playwright vendors its own browser.
-- **Fonts are bundled** (`themes/classic/fonts/`, Source Sans 3, OFL). Relying on system fonts means
-  different metrics — and so different pagination — between a local Windows build and Linux CI.
-- **The schema is vendored and pinned** (`schema/`), so validation is hermetic and offline. See
-  [`schema/SOURCE.md`](../schema/SOURCE.md) for provenance and how to refresh it.
-- **Format checking is on.** The schema declares `format` on 11 fields (`email` and 10 `uri`s), which
-  `jsonschema` ignores unless asked; those are exactly the fields where a typo is invisible on the
-  page but costly in life.
-
-## CI and publishing
-
-Every pull request validates `resume.json`, runs the tests and builds the site, so a broken resume
-fails before it can merge; `quality` and `compliance` are required checks. `dist/` is uploaded as a
-workflow artifact on each PR run, for checking a PR's output before it merges. Pushes to `main` run
-the same job once more on the merged result and deploy to **GitHub Pages** at
-[jayteebat.github.io/my-resume](https://jayteebat.github.io/my-resume/) — a stable public URL that
-needs no GitHub login, which is what you actually share with people. Pushing a feature branch
-without a PR runs nothing. The triggers match repo-standard-kit's quality workflow, plus
-`workflow_dispatch` for re-running the gates and redeploying Pages by hand from the Actions tab.
-
-The landing page is `site/index.html.j2`. Card order follows `variants.toml`, so reordering that file
-reorders the page.
-
-> **One-time setup:** Settings → Pages → Source: **GitHub Actions**. Without it the deploy job fails.
-
-## Tests
+## Content checks
 
 ```sh
-uv run pytest              # all
-uv run pytest -m 'not slow'   # skip the ones that drive a real browser
+uv run resume validate        # schema
+uv run resume check --fast    # prose and structure, no Chromium
+uv run resume check           # also page budget and contact header
 ```
 
-## Pre-commit
+[`resume-checks.toml`](../resume-checks.toml) is this CV's editorial policy:
+enabled rules, limits and owner decisions such as the gap allowlist. Rule
+defaults and every key are documented in the toolkit's [checks
+reference][toolkit-checks]. Hard violations fail CI. Soft warnings are
+reported and need a justification in the pull request. The pre-commit hook
+runs the fast check when content or policy changes.
+
+## Previewing
 
 ```sh
-uv tool install pre-commit && pre-commit install
+uv run resume serve           # live preview at localhost:8000; -v short for the short cut
+uv run resume site            # build exactly what Pages publishes into dist/
 ```
 
-The hook runs `resume check --fast` when content, policy, toolkit, templates or tests
-change. It reports soft-limit warnings and skips Chromium; CI runs the full
-`resume check` command on the CV as well as fixture-based toolkit tests.
+## Publishing
 
-The standard hooks also check formatting, lint, types, Markdown, file hygiene,
-secrets, and repository compliance. Run `uv run pre-commit run --all-files`
-to check the whole repository.
+The `quality` workflow runs on every pull request and on `main`. It runs the
+hygiene hooks, validation, the full check and the site build, then uploads
+`dist/` as the `resume` artifact. Only `main` deploys to
+[GitHub Pages](https://jayteebat.github.io/my-resume/). The checkout keeps
+full history because the colophon dates the CV from the last commit that
+touched `resume.json`.
+
+## Upgrading the toolkit
+
+1. Bump the tag in the `resume-toolkit` dependency in
+   [`pyproject.toml`](../pyproject.toml), and in the toolkit documentation
+   links (`git grep` the old tag).
+2. Run `uv lock` and `uv sync`.
+3. Run `uv run resume check` and compare the soft warnings with the previous
+   tag; explain any new ones in the pull request.
+4. Run `uv run resume site` and review the rendered PDF before merging.
+
+[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/development.md
+[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/development.md#variants
+[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/checks.md

@@ -2,22 +2,24 @@
 
 ## Repository Purpose
 
-Validate and render Jacques Thomazo’s JSON Resume as HTML, PDF, JSON, Markdown,
-and a GitHub Pages site.
+Hold Jacques Thomazo’s CV as JSON Resume content and publish it as HTML, PDF,
+JSON, Markdown and a GitHub Pages site, rendered and checked by
+[resume-toolkit].
 
 ## Repository Context
 
-- Repository name: `my-resume`; Python package: `resume-toolkit`
-- Primary language(s): `Python`
-- Runtime/build system: `uv` with `uv_build` in `pyproject.toml`
-- Repository type: CV-as-code CLI and static site
-- Standards source: [repo-standard-kit] — quality gates derive from its
-  [quality-gates spec][quality-gates]; review this repository against it
-  periodically for standards drift
+- Repository name: `my-resume`; content only, no package code
+- Content format: JSON Resume (`resume.json`) with TOML configuration
+- Runtime/build system: `uv`, non-package project in `pyproject.toml` that
+  depends on [resume-toolkit] at a pinned git tag
+- Repository type: CV content and static site publishing
+- Toolkit: rendering, themes, the schema, check rules and their tests live in
+  [resume-toolkit]; change them there, not here
+- Standards: hygiene subset of [repo-standard-kit]; see
+  [ADR 0004](docs/adr/0004-content-only-repository.md)
 - Key directories:
-  - `src/`: production package code
-  - `tests/`: automated tests
   - `docs/`: durable repository knowledge
+  - `.github/`: the quality and Pages workflow, Dependabot, PR template
 
 ## Human And Agent Responsibilities
 
@@ -42,14 +44,14 @@ Humans own:
 Agents own:
 
 - implementation within documented repository boundaries
-- tests, regression coverage, and local verification
+- running the content checks and local verification
 - documentation updates tied to behavior changes
-- CV rendering templates and development tooling maintenance
+- workflow, dependency and toolkit-version maintenance
 - surfacing risks, missing decisions, and unclear contracts
 
 ### Shared Expectations
 
-- Keep code, tests, and docs aligned
+- Keep content, configuration, and docs aligned
 - Prefer small, reviewable changes
 - Make operational boundaries explicit
 - Do not rely on undocumented local knowledge
@@ -59,7 +61,8 @@ Agents own:
 Agents must not:
 
 - bypass documented quality gates
-- weaken typing or test expectations without explicit instruction
+- weaken or disable content checks without explicit instruction
+- invent, embellish, or infer CV facts
 - make security, release, or breaking-change decisions alone
 - modify out-of-scope systems without explicit approval
 
@@ -89,14 +92,13 @@ High precision, repeatability, and determinism mean:
 - State assumptions explicitly where the repository does not settle a choice
 - The same task on the same input should reach the same result on a second run
 
-The levels are policy values, not prose: `repo-check` reports drift from them
-and `repo-adopt` restores them.
+The levels are policy values from [repo-standard-kit]; keep them unchanged.
 
 ## Single Source Of Truth
 
 `resume.json` is the only home for CV facts. Never invent CV facts; ask the owner
 when dates, claims, or wording need factual confirmation. `variants.toml` selects
-cuts, and templates must not duplicate personal content.
+cuts and `resume-checks.toml` holds editorial policy; neither carries CV facts.
 
 Anything stated twice drifts, and the copy that drifts is the one nobody is
 reading when it matters. Before writing, look for what already exists and
@@ -159,75 +161,55 @@ Use trunk-based development with pull requests.
 ## Quality Gates
 
 Install Chromium once with `uv run playwright install chromium`.
-Build all published outputs with `uv run resume site`; preview edits with
-`uv run resume serve` (or `-v short`). Validate data with `uv run resume validate`.
-Run `uv run resume check` for full CV quality gates (`--fast` skips Chromium).
+Preview edits with `uv run resume serve` (or `-v short`); build what Pages
+publishes with `uv run resume site`.
 
 Run from repo root:
 
 1. `uv sync --locked`
 2. `uv run pre-commit run --all-files`
-3. `uv run pytest`
-4. `uv build`
+3. `uv run resume validate`
+4. `uv run resume check`
+
+`resume check` applies the rules from [resume-toolkit] with the policy in
+`resume-checks.toml`; `--fast` skips Chromium and runs in pre-commit, CI runs
+the full check. Hard violations fail. Soft warnings must not grow without a
+justification in the pull request. Never auto-fix or silence a finding by
+editing CV facts; ask the owner.
 
 The quality job's effective permissions must be exactly `contents: read`, and
-every remote action or reusable workflow must be pinned to a full 40-character
-commit SHA. Keep version comments and GitHub Actions Dependabot configuration
-so those pins remain maintainable.
+every remote action must be pinned to a full 40-character commit SHA. Keep
+version comments and GitHub Actions Dependabot configuration so those pins
+remain maintainable.
 
-Branch protection must require the separate `quality` and `compliance` status
-checks. Quality executes the gate chain; compliance independently checks the
-repository against the standard. Keep these canonical names so the same
-ruleset applies to every adopting repository.
-
-## Coding Standards
-
-- Type all production function signatures
-- Minimize `Any` and justify it when required
-- Keep I/O boundaries explicit
-- Separate side effects from business logic
-- Separate durable logic from scripts
-- Preserve public interface stability by default
-
-## Testing Policy
-
-- `resume check` enforces CV gates from `resume-checks.toml`; tests use fictional fixtures
-- Run the full suite, including Chromium page-budget and contact-header tests
-- Logic changes require unit tests
-- Boundary changes require integration tests
-- Bug fixes require regression tests
+Branch protection must require the `quality` status check.
 
 ## Documentation Rules
 
-- Keep `README.md` lean and visitor-facing; put toolchain detail in
-  `docs/development.md`, and update whichever one a setup or usage change
-  affects
+- Keep `README.md` lean and visitor-facing; put editing, checks, publishing
+  and upgrade detail in `docs/development.md`
+- Link to the [resume-toolkit] docs for toolkit behavior instead of restating it
 - Update `AGENTS.md` when operating rules change
-- Add ADRs for significant architecture decisions
-- Keep the `repo-standard-kit` reference in `README.md` and `AGENTS.md`
-  current, and check this repository against it periodically
+- Add ADRs for significant repository decisions
 
 ## Repository Layout
 
-- `src/`: production package code
-- `tests/`: automated tests
-- `docs/`: durable project knowledge
 - `resume.json`: all CV facts
 - `variants.toml`: variant selection and publishing configuration
-- `resume-checks.toml`: CV quality policy; defaults in [docs/checks.md](docs/checks.md)
-- `schema/`: pinned JSON Resume schema
-- `themes/classic/`: rendering templates, CSS, and bundled fonts
-- `site/`: landing-page template
+- `resume-checks.toml`: CV quality policy; rule defaults in the toolkit docs
+- `docs/`: durable project knowledge
 - `dist/`: generated outputs; never commit
 
 ## Change Control Notes
 
-Preserve schema validation, variant semantics, output formats, and public CLI
-commands. Keep the full-history checkout: the colophon dates content from git.
+Preserve variant semantics and the published outputs. Upgrade the toolkit by
+bumping its tag as described in `docs/development.md`, and compare soft
+warnings and the rendered site before and after. Keep the full-history
+checkout: the colophon dates content from git.
 Only `main` deploys Pages; all branches upload preview artifacts. Open PRs against
 `main`, or explicitly name and link the parent PR when stacking. Never merge
 without owner authorization. Changes to CV facts require owner confirmation.
 The MIT grant excludes CV content and its derived outputs; see [LICENSE](LICENSE).
 
-[repo-standard-kit]: https://github.com/FP-DevTools/repo-standard-kit/tree/v2.0.0
-[quality-gates]: https://github.com/FP-DevTools/repo-standard-kit/blob/v2.0.0/docs/quality-gates.md
+[repo-standard-kit]: https://github.com/JayTeeBat/repo-standard-kit/tree/v2.0.0
+[resume-toolkit]: https://github.com/JayTeeBat/resume-toolkit
