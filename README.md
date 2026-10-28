@@ -136,4 +136,5 @@ uv tool install pre-commit && pre-commit install
 ```
 
 The hook runs the prose and structure gates when `resume.json`, `variants.toml` or `tests/`
-change. It skips the Chromium page-budget test; the full suite still checks that in CI.
+change. It shows soft-limit warnings and skips the Chromium page-budget and contact-line tests;
+the full suite still checks those in CI.
