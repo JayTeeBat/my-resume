@@ -4,6 +4,9 @@
 
 ### Added
 
+- Publish three cuts: `one-page` (new, primary), `2-page` and `full`. The
+  one-page cut is selected with `x-tags`/`x-highlights` only (tag `2-page`).
+
 - Config-driven `resume check` with actionable text/JSON diagnostics, fast and
   strict modes, and fixture-based rule tests ahead of toolkit extraction.
 
@@ -13,6 +16,12 @@
   with CV content and derived outputs reserved to Jacques Thomazo.
 
 ### Changed
+
+- Rename the published `short` cut to `2-page`; `resume-short.*` URLs no
+  longer exist after deploy.
+- Depend on resume-toolkit 0.2.0: per-variant page budgets, the
+  `page_breaks` check, running PDF footer with page numbers, full profile
+  addresses and a "Skills" heading.
 
 - Rename the build workflow to quality, add standard gates, and pin actions
   while preserving Chromium tests, artifacts, and main-only Pages deployment.
