@@ -47,7 +47,8 @@
     },
     {
       "name": "Functional safety",
-      "keywords": ["ISO 26262", "HARA", "FMEA", "ASIL C/D"]
+      "keywords": ["ISO 26262", "HARA", "FMEA", "ASIL C/D"],
+      "x-tags": ["2-page"]
     },
     {
       "name": "Vehicle diagnostics & IoT",
@@ -73,6 +74,8 @@
         "Lead a cross-functional team of 5 managers and 19 departmental ambassadors to implement a company-wide SharePoint service containing 100+ resources."
       ],
       "x-highlights": {
+        "Build the IoT backend": ["2-page"],
+        "Architect and deliver": ["2-page"],
         "SharePoint": ["full"]
       }
     },
@@ -87,7 +90,12 @@
         "Built a hybrid fuel-cell battery system model to explore optimised energy management strategies (MATLAB/Simulink/Simscape, Git).",
         "Led development of a next-generation, high-cell-integration-density battery platform (cell-to-pack mass ratio >80 %).",
         "Delivered five in-house manufactured prototype packs (17 kWh, 800 V, LTO) for a key railway project."
-      ]
+      ],
+      "x-highlights": {
+        "hybrid fuel-cell": ["2-page"],
+        "next-generation": ["2-page"],
+        "Delivered five": ["2-page"]
+      }
     },
     {
       "name": "McLaren Applied",
@@ -99,7 +107,10 @@
       "highlights": [
         "Simulated and optimised battery system sizing against tender requirements — 43 kWh, 600 kW, 284 kg, 220 L, 800 V.",
         "Defined, tracked and analysed results of a cell performance test plan."
-      ]
+      ],
+      "x-highlights": {
+        "cell performance test plan": ["2-page"]
+      }
     },
     {
       "name": "ARRIVAL",
@@ -111,7 +122,11 @@
       "highlights": [
         "Led functional safety analysis (HARA, FMEA) for the HV battery (ASIL C) and the steer-by-wire and brake-by-wire products (both ASIL D).",
         "Led functional safety implementation across all three products."
-      ]
+      ],
+      "x-highlights": {
+        "Led functional safety analysis": ["2-page"],
+        "implementation across": ["2-page"]
+      }
     },
     {
       "name": "ARRIVAL",
@@ -123,7 +138,11 @@
       "highlights": [
         "Owned requirements, concepts and design reviews for a modular 2 kWh, 400 V architecture.",
         "Owned testing and validation across the same systems."
-      ]
+      ],
+      "x-highlights": {
+        "Owned requirements": ["2-page"],
+        "Owned testing and validation": ["2-page"]
+      }
     },
     {
       "name": "Vantage Power",
@@ -135,7 +154,11 @@
       "highlights": [
         "Implemented a long-term (6 months) cell-level test bench (0–5 V and 25 A/channel × 16 channels), from specifications onwards.",
         "Built the bench's continuous data monitoring pipelines."
-      ]
+      ],
+      "x-highlights": {
+        "Implemented a long-term": ["2-page"],
+        "continuous data monitoring": ["2-page"]
+      }
     },
     {
       "name": "Vantage Power",
@@ -148,7 +171,12 @@
         "Sized and selected HV components for a 600 V architecture.",
         "Produced a small batch of 4 × 15 kWh battery systems and 3D-prototyped a 10-part batch of PETG PDU enclosures.",
         "Simulated immersion cooling for a dual 15 kWh pack system."
-      ]
+      ],
+      "x-highlights": {
+        "Sized and selected": ["2-page"],
+        "small batch": ["2-page"],
+        "immersion cooling": ["2-page"]
+      }
     },
     {
       "name": "Renault",
@@ -160,7 +188,11 @@
       "highlights": [
         "Built, led and owned mechanical, thermal and electrical battery safety validation.",
         "Validated the battery systems of Twizy, Fluence, Kangoo, ZOE Gen 1 & 2 and a 48 V LTO mild-hybrid battery."
-      ]
+      ],
+      "x-highlights": {
+        "Built, led and owned": ["2-page"],
+        "Validated the battery": ["2-page"]
+      }
     },
     {
       "name": "EDF R&D — IRDEP",
@@ -224,7 +256,8 @@
       "area": "Renewable Energy, Chemistry, Electrochemistry, Physical Chemistry and Semiconductors",
       "studyType": "French Engineering Diploma (Diplôme d’Ingénieur)",
       "startDate": "2007-09",
-      "endDate": "2010-06"
+      "endDate": "2010-06",
+      "x-tags": ["2-page"]
     },
     {
       "institution": "Lycée Louis Barthou",
@@ -238,11 +271,13 @@
   "languages": [
     {
       "language": "French",
-      "fluency": "Native"
+      "fluency": "Native",
+      "x-tags": ["2-page"]
     },
     {
       "language": "English",
-      "fluency": "Fluent (5 years in the UK)"
+      "fluency": "Fluent (5 years in the UK)",
+      "x-tags": ["2-page"]
     }
   ],
   "publications": [

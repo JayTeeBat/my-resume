@@ -1,14 +1,15 @@
 # Editorial policy for this CV. Rule defaults:
-# https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/checks.md
+# https://github.com/JayTeeBat/resume-toolkit/blob/v0.2.0/docs/checks.md
 enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
   "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
   "tags", "chronology", "overlaps", "gaps", "skills", "required_fields",
-  "dates", "codespell", "page_budget", "header",
+  "dates", "codespell", "page_budget", "header", "page_breaks",
 ]
 spelling = "en-GB"
-published_variant = "short"
-page_budget = 2
+# Variant rules (quantified, page_budget, header, page_breaks) check every
+# published cut: one-page, 2-page and full. The complete CV has no page budget.
+page_budget = { "one-page" = 1, "2-page" = 2 }
 print_content_width = 688
 screen_width = 1280
 max_gap_months = 3
@@ -39,3 +40,10 @@ publications = ["name", "publisher", "releaseDate", "url"]
 # EDF R&D — IRDEP (ends 2010-08) → Renault (starts 2011-04), 7 months.
 # Pending the owner's decision on how to account for it (issue #18).
 "2010-08..2011-04" = "EDF R&D — IRDEP → Renault"
+
+[variant_exemptions]
+# Owner decision: the one-page cut shows ARRIVAL (Lead Battery Engineer) and
+# Vantage Power by title, dates and summary only, and the complete cut keeps the
+# internships; neither carries a figure. The 2-page cut stays fully quantified.
+one-page = ["quantified"]
+full = ["quantified"]
