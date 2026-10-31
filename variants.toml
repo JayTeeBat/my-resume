@@ -22,6 +22,11 @@
 # Tags in use: "full" marks entries only the complete CV keeps; "2-page" marks
 # entries the two-page cut keeps but the one-page cut drops.
 
+[2-page]
+description = "Two-page CV, older and niche entries dropped"
+include = ["2-page"]
+publish = true
+
 [one-page]
 description = "One-page CV, the strongest and most quantified points"
 include = []
@@ -42,11 +47,6 @@ publish = true
 "--size-company" = "9.6pt"
 "--size-title" = "9.2pt"
 "--size-meta" = "8pt"
-
-[2-page]
-description = "Two-page CV, older and niche entries dropped"
-include = ["2-page"]
-publish = true
 
 [full]
 description = "Complete CV, every entry"

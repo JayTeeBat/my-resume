@@ -6,7 +6,7 @@ Accepted. 2026-10-31.
 
 ## Context
 
-A concise primary CV and fuller alternatives share one factual source in this
+A two-page primary CV, a one-page and a full alternative share one factual source in this
 [content-only repository](0004-content-only-repository.md). The owner chooses
 coverage and readability over fitting by silently dropping whole roles.
 
@@ -14,7 +14,7 @@ coverage and readability over fitting by silently dropping whole roles.
 
 | Owner decision and rationale | Enforcement |
 |---|---|
-| Publish `one-page`, `2-page`, `full` in HTML/PDF/JSON/Markdown; one-page first, primary for `/resume.json` and llms.txt, so readers start concise | `variants.toml` order and `publish`; toolkit site defaults; exact three-cut policy not mechanically enforced |
+| Publish `2-page`, `one-page`, `full` in HTML/PDF/JSON/Markdown; 2-page first, primary for `/resume.json` and llms.txt, as the default read for 15+ years of experience; one-page for applications that ask for one page | `variants.toml` order and `publish`; toolkit site defaults; exact three-cut policy not mechanically enforced |
 | Rename `short` to `2-page`; old `resume-short.*` links may break because little has been shared | No redirects; not mechanically enforced |
 | One-page = 1 page, 2-page = 2, full unbounded, preserving a complete archive | `page_budget` per-variant table (full omitted) |
 | Keep companies whole; if taller than a page, break between roles, never inside one, preserving reading context | `page_breaks` |

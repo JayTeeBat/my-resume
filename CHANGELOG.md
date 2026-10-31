@@ -8,7 +8,7 @@
   format policy, enforced by `required_sections` and `role_highlights` coverage.
 - Standards register and CI pin-drift check.
 
-- Publish three cuts: `one-page` (new, primary), `2-page` and `full`. The
+- Publish three cuts: `2-page` (primary), `one-page` (new) and `full`. The
   one-page cut is selected with `x-tags`/`x-highlights` only (tag `2-page`).
   Depends on resume-toolkit v0.2.0 (pagination, running footer, per-variant
   page budgets and styles).

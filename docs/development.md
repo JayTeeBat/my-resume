@@ -9,8 +9,8 @@ schema and the check rules belong to
 
 [`resume.json`](../resume.json) holds every CV fact.
 [`variants.toml`](../variants.toml) selects the cuts; only `publish = true`
-variants reach the public site. All three cuts are published: `one-page`
-(the primary cut, first on the site and served as `/resume.json`), `2-page`
+variants reach the public site. All three cuts are published: `2-page`
+(the primary cut, first on the site and served as `/resume.json`), `one-page`
 and `full`. File order sets the site order. Tag entries with `x-tags` or
 `x-highlights` as described in the toolkit's [variants
 section][toolkit-variants]: `full` marks what only the complete CV keeps,
