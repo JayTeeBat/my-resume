@@ -1,5 +1,7 @@
 # AGENTS.md
 
+See the [standards register](docs/standards.md) for scope and enforcement.
+
 ## Repository Purpose
 
 Hold Jacques Thomazo’s CV as JSON Resume content and publish it as HTML, PDF,

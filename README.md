@@ -1,5 +1,7 @@
 # my-resume
 
+See the [standards register](docs/standards.md) for scope and enforcement.
+
 **[View my CV →](https://jayteebat.github.io/my-resume/)**
 
 ## Overview

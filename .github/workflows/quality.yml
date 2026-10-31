@@ -38,6 +38,23 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked
 
+      - name: Check standards pins
+        run: |
+          uv run python - <<'PYTHON'
+          import json, re, tomllib
+          from pathlib import Path
+          register = Path("docs/standards.md").read_text()
+          row = next(line for line in register.splitlines() if "| JSON Resume |" in line)
+          dependency = tomllib.loads(Path("pyproject.toml").read_text())["project"]["dependencies"][0]
+          pin = dependency.rsplit("@", 1)[1]
+          assert "toolkit v0.2.0" in row and (pin == "v0.2.0" or re.fullmatch(r"[a-f0-9]{40}", pin)), "toolkit pin drift"
+          schema = json.loads(Path("resume.json").read_text())["$schema"]
+          assert schema.split("/")[-2] in row, "schema pin drift"
+          kit_row = next(line for line in register.splitlines() if "| repo-standard-kit |" in line)
+          pins = [pin for path in Path(".").rglob("*.md") if not any(part.startswith(".") for part in path.parts) for pin in re.findall(r"repo-standard-kit(?:\.git)?(?:@|/(?:tree|blob)/)(v[\d.]+)", path.read_text())]
+          assert pins and all(pin in kit_row for pin in pins), "kit pin drift"
+          PYTHON
+
       # Chromium is ~150MB; without this every run re-downloads it.
       - name: Resolve Playwright version
         id: pw

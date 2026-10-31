@@ -4,10 +4,10 @@ enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
   "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
   "tags", "chronology", "overlaps", "gaps", "skills", "required_fields",
-  "dates", "codespell", "page_budget", "header", "page_breaks",
+  "required_sections", "role_highlights", "dates", "codespell", "page_budget", "header", "page_breaks",
 ]
 spelling = "en-GB"
-# Variant rules (quantified, page_budget, header, page_breaks) check every
+# Variant rules, including content coverage and layout, check every
 # published cut: one-page, 2-page and full. The complete CV has no page budget.
 page_budget = { "one-page" = 1, "2-page" = 2 }
 print_content_width = 688
@@ -44,3 +44,12 @@ publications = ["name", "publisher", "releaseDate", "url"]
 [variant_exemptions]
 # The complete cut retains unquantified internships.
 full = ["quantified"]
+
+# Owner decision — see ADR 0005
+[required_sections]
+"*" = ["basics", "work", "skills", "education"]
+one-page = ["education", "languages"]
+
+# Owner decision — see ADR 0005
+[role_highlights]
+one-page = { min = 1, since = "2010-06" }
