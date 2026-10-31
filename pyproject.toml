@@ -8,7 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "resume-toolkit @ git+https://github.com/JayTeeBat/resume-toolkit@80f5ae38c8cf476812018a79838b2f2bb0f30fab",
+    "resume-toolkit @ git+https://github.com/JayTeeBat/resume-toolkit@1ed0c7c5b2f365fa40c01f7617ed8b1403b53ffa",
 ]
 
 [dependency-groups]
