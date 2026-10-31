@@ -38,6 +38,26 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked
 
+      - name: Check standards pins
+        run: |
+          uv run python - <<'PYTHON'
+          import json, re, tomllib
+          from pathlib import Path
+          register = Path("docs/standards.md").read_text()
+          row = next(line for line in register.splitlines() if "| JSON Resume |" in line)
+          dependency = tomllib.loads(Path("pyproject.toml").read_text())["project"]["dependencies"][0]
+          pin = dependency.rsplit("@", 1)[1]
+          assert re.fullmatch(r"v\d+\.\d+\.\d+", pin) and f"toolkit {pin}" in row, "toolkit pin drift"
+          docs = [*Path(".").rglob("*.md"), Path("resume-checks.toml")]
+          links = [v for path in docs if not any(part.startswith(".") for part in path.parts) for v in re.findall(r"resume-toolkit/(?:tree|blob)/(v[\d.]+)", path.read_text())]
+          assert links and set(links) == {pin}, f"toolkit doc links {sorted(set(links))} != {pin}"
+          schema = json.loads(Path("resume.json").read_text())["$schema"]
+          assert schema.split("/")[-2] in row, "schema pin drift"
+          kit_row = next(line for line in register.splitlines() if "| repo-standard-kit |" in line)
+          pins = [pin for path in Path(".").rglob("*.md") if not any(part.startswith(".") for part in path.parts) for pin in re.findall(r"repo-standard-kit(?:\.git)?(?:@|/(?:tree|blob)/)(v[\d.]+)", path.read_text())]
+          assert pins and all(pin in kit_row for pin in pins), "kit pin drift"
+          PYTHON
+
       # Chromium is ~150MB; without this every run re-downloads it.
       - name: Resolve Playwright version
         id: pw

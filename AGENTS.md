@@ -1,5 +1,7 @@
 # AGENTS.md
 
+See the [standards register](docs/standards.md) for scope and enforcement.
+
 ## Repository Purpose
 
 Hold Jacques Thomazo’s CV as JSON Resume content and publish it as HTML, PDF,
@@ -161,7 +163,7 @@ Use trunk-based development with pull requests.
 ## Quality Gates
 
 Install Chromium once with `uv run playwright install chromium`.
-Preview edits with `uv run resume serve` (or `-v short`); build what Pages
+Preview edits with `uv run resume serve` (or `-v one-page`, `-v 2-page`); build what Pages
 publishes with `uv run resume site`.
 
 Run from repo root:

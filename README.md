@@ -1,5 +1,7 @@
 # my-resume
 
+See the [standards register](docs/standards.md) for scope and enforcement.
+
 **[View my CV →](https://jayteebat.github.io/my-resume/)**
 
 ## Overview
@@ -31,7 +33,7 @@ uv run resume check    # run the content checks
 Editing, checks, publishing and toolkit upgrades are in
 [docs/development.md](docs/development.md); contributor and agent rules are in
 [AGENTS.md](AGENTS.md). Rendering and check rules are documented in the
-[resume-toolkit docs](https://github.com/JayTeeBat/resume-toolkit/tree/v0.1.0/docs).
+[resume-toolkit docs](https://github.com/JayTeeBat/resume-toolkit/tree/v0.2.1/docs).
 
 ## License
 

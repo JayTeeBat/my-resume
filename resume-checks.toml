@@ -1,14 +1,15 @@
 # Editorial policy for this CV. Rule defaults:
-# https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/checks.md
+# https://github.com/JayTeeBat/resume-toolkit/blob/v0.2.1/docs/checks.md
 enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
   "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
   "tags", "chronology", "overlaps", "gaps", "skills", "required_fields",
-  "dates", "codespell", "page_budget", "header",
+  "required_sections", "role_highlights", "dates", "codespell", "page_budget", "header", "page_breaks",
 ]
 spelling = "en-GB"
-published_variant = "short"
-page_budget = 2
+# Variant rules, including content coverage and layout, check every
+# published cut: one-page, 2-page and full. The complete CV has no page budget.
+page_budget = { "one-page" = 1, "2-page" = 2 }
 print_content_width = 688
 screen_width = 1280
 max_gap_months = 3
@@ -39,3 +40,16 @@ publications = ["name", "publisher", "releaseDate", "url"]
 # EDF R&D — IRDEP (ends 2010-08) → Renault (starts 2011-04), 7 months.
 # Pending the owner's decision on how to account for it (issue #18).
 "2010-08..2011-04" = "EDF R&D — IRDEP → Renault"
+
+[variant_exemptions]
+# The complete cut retains unquantified internships.
+full = ["quantified"]
+
+# Owner decision — see ADR 0005
+[required_sections]
+"*" = ["basics", "work", "skills", "education"]
+one-page = ["education", "languages"]
+
+# Owner decision — see ADR 0005
+[role_highlights]
+one-page = { min = 1, since = "2010-06" }

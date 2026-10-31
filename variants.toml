@@ -14,12 +14,41 @@
 # It defaults to false, so a new cut — e.g. a CV tailored to one employer — is
 # never published by accident. Only variants with publish = true go public.
 # `resume build` ignores this flag: you can always build any variant locally.
+#
+# Order matters for the site: the first published variant is the primary cut,
+# shown first on the landing page and served as /resume.json; the others
+# follow as alternatives.
+#
+# Tags in use: "full" marks entries only the complete CV keeps; "2-page" marks
+# entries the two-page cut keeps but the one-page cut drops.
+
+[2-page]
+description = "Two-page CV, older and niche entries dropped"
+include = ["2-page"]
+publish = true
+
+[one-page]
+description = "One-page CV, the strongest and most quantified points"
+include = []
+publish = true
+
+[one-page.style]
+"--size-base" = "9pt"
+"--leading" = "1.2"
+"--section-gap" = "3pt"
+"--entry-gap" = "1.5pt"
+"--heading-gap" = "2pt"
+"--heading-padding" = "1.5pt"
+"--role-gap" = "1.5pt"
+"--summary-gap" = "1pt"
+"--highlights-gap" = "1pt"
+"--bullet-gap" = "0pt"
+"--skills-gap" = "1pt"
+"--size-company" = "9.6pt"
+"--size-title" = "9.2pt"
+"--size-meta" = "8pt"
 
 [full]
 description = "Complete CV, every entry"
 include = ["*"]
-
-[short]
-description = "Two-page highlights, older and niche entries dropped"
-include = []
 publish = true

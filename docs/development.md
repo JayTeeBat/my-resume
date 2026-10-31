@@ -9,15 +9,19 @@ schema and the check rules belong to
 
 [`resume.json`](../resume.json) holds every CV fact.
 [`variants.toml`](../variants.toml) selects the cuts; only `publish = true`
-variants reach the public site. Tag entries with `x-tags` or `x-highlights`
-as described in the toolkit's [variants section][toolkit-variants].
+variants reach the public site. All three cuts are published: `2-page`
+(the primary cut, first on the site and served as `/resume.json`), `one-page`
+and `full`. File order sets the site order. Tag entries with `x-tags` or
+`x-highlights` as described in the toolkit's [variants
+section][toolkit-variants]: `full` marks what only the complete CV keeps,
+`2-page` what the two-page cut keeps but the one-page cut drops.
 
 ## Content checks
 
 ```sh
 uv run resume validate        # schema
 uv run resume check --fast    # prose and structure, no Chromium
-uv run resume check           # also page budget and contact header
+uv run resume check           # also page budgets, contact header and page breaks
 ```
 
 [`resume-checks.toml`](../resume-checks.toml) is this CV's editorial policy:
@@ -30,7 +34,7 @@ runs the fast check when content or policy changes.
 ## Previewing
 
 ```sh
-uv run resume serve           # live preview at localhost:8000; -v short for the short cut
+uv run resume serve           # live preview at localhost:8000; -v one-page or -v 2-page
 uv run resume site            # build exactly what Pages publishes into dist/
 ```
 
@@ -53,6 +57,6 @@ touched `resume.json`.
    tag; explain any new ones in the pull request.
 4. Run `uv run resume site` and review the rendered PDF before merging.
 
-[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/development.md
-[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/development.md#variants
-[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.1.0/docs/checks.md
+[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.2.1/docs/development.md
+[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.2.1/docs/development.md#variants
+[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.2.1/docs/checks.md

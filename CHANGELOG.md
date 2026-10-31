@@ -4,6 +4,15 @@
 
 ### Added
 
+- [ADR 0005](docs/adr/0005-published-versions-and-page-layout.md) records owner
+  format policy, enforced by `required_sections` and `role_highlights` coverage.
+- Standards register and CI pin-drift check.
+
+- Publish three cuts: `2-page` (primary), `one-page` (new) and `full`. The
+  one-page cut is selected with `x-tags`/`x-highlights` only (tag `2-page`).
+  Depends on resume-toolkit v0.2.1 (pagination, running footer, per-variant
+  page budgets and styles).
+
 - Config-driven `resume check` with actionable text/JSON diagnostics, fast and
   strict modes, and fixture-based rule tests ahead of toolkit extraction.
 
@@ -13,6 +22,14 @@
   with CV content and derived outputs reserved to Jacques Thomazo.
 
 ### Changed
+
+- Rename the published `short` cut to `2-page`; `resume-short.*` URLs no
+  longer exist after deploy.
+- Depend on resume-toolkit 0.2.0: per-variant page budgets, the
+  `page_breaks` check, running PDF footer with page numbers, full profile
+  addresses and a "Skills" heading.
+- The PDF footer is identical on every cut (theme default 7.5pt, no one-page
+  override) and shows the build as `2026-10-31 · rev 39140c4`.
 
 - Rename the build workflow to quality, add standard gates, and pin actions
   while preserving Chromium tests, artifacts, and main-only Pages deployment.
