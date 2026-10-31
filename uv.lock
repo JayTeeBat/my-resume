@@ -502,7 +502,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "resume-toolkit", git = "https://github.com/JayTeeBat/resume-toolkit?rev=1ed0c7c5b2f365fa40c01f7617ed8b1403b53ffa" }]
+requires-dist = [{ name = "resume-toolkit", git = "https://github.com/JayTeeBat/resume-toolkit?rev=b4a8f6472abc6aa850482d3375b88a1638e42ab9" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -823,7 +823,7 @@ wheels = [
 [[package]]
 name = "resume-toolkit"
 version = "0.2.0"
-source = { git = "https://github.com/JayTeeBat/resume-toolkit?rev=1ed0c7c5b2f365fa40c01f7617ed8b1403b53ffa#1ed0c7c5b2f365fa40c01f7617ed8b1403b53ffa" }
+source = { git = "https://github.com/JayTeeBat/resume-toolkit?rev=b4a8f6472abc6aa850482d3375b88a1638e42ab9#b4a8f6472abc6aa850482d3375b88a1638e42ab9" }
 dependencies = [
     { name = "codespell" },
     { name = "jinja2" },
