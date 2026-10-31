@@ -92,9 +92,7 @@
         "Delivered five in-house manufactured prototype packs (17 kWh, 800 V, LTO) for a key railway project."
       ],
       "x-highlights": {
-        "hybrid fuel-cell": ["2-page"],
-        "next-generation": ["2-page"],
-        "Delivered five": ["2-page"]
+        "hybrid fuel-cell": ["2-page"]
       }
     },
     {
@@ -124,7 +122,6 @@
         "Led functional safety implementation across all three products."
       ],
       "x-highlights": {
-        "Led functional safety analysis": ["2-page"],
         "implementation across": ["2-page"]
       }
     },
@@ -140,7 +137,6 @@
         "Owned testing and validation across the same systems."
       ],
       "x-highlights": {
-        "Owned requirements": ["2-page"],
         "Owned testing and validation": ["2-page"]
       }
     },
@@ -156,7 +152,6 @@
         "Built the bench's continuous data monitoring pipelines."
       ],
       "x-highlights": {
-        "Implemented a long-term": ["2-page"],
         "continuous data monitoring": ["2-page"]
       }
     },
@@ -174,7 +169,6 @@
       ],
       "x-highlights": {
         "Sized and selected": ["2-page"],
-        "small batch": ["2-page"],
         "immersion cooling": ["2-page"]
       }
     },
@@ -190,8 +184,7 @@
         "Validated the battery systems of Twizy, Fluence, Kangoo, ZOE Gen 1 & 2 and a 48 V LTO mild-hybrid battery."
       ],
       "x-highlights": {
-        "Built, led and owned": ["2-page"],
-        "Validated the battery": ["2-page"]
+        "Built, led and owned": ["2-page"]
       }
     },
     {
@@ -256,8 +249,7 @@
       "area": "Renewable Energy, Chemistry, Electrochemistry, Physical Chemistry and Semiconductors",
       "studyType": "French Engineering Diploma (Diplôme d’Ingénieur)",
       "startDate": "2007-09",
-      "endDate": "2010-06",
-      "x-tags": ["2-page"]
+      "endDate": "2010-06"
     },
     {
       "institution": "Lycée Louis Barthou",
@@ -271,13 +263,11 @@
   "languages": [
     {
       "language": "French",
-      "fluency": "Native",
-      "x-tags": ["2-page"]
+      "fluency": "Native"
     },
     {
       "language": "English",
-      "fluency": "Fluent (5 years in the UK)",
-      "x-tags": ["2-page"]
+      "fluency": "Fluent (5 years in the UK)"
     }
   ],
   "publications": [

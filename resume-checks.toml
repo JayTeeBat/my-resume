@@ -42,8 +42,5 @@ publications = ["name", "publisher", "releaseDate", "url"]
 "2010-08..2011-04" = "EDF R&D — IRDEP → Renault"
 
 [variant_exemptions]
-# Owner decision: the one-page cut shows ARRIVAL (Lead Battery Engineer) and
-# Vantage Power by title, dates and summary only, and the complete cut keeps the
-# internships; neither carries a figure. The 2-page cut stays fully quantified.
-one-page = ["quantified"]
+# The complete cut retains unquantified internships.
 full = ["quantified"]
