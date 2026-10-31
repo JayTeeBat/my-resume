@@ -26,6 +26,8 @@
 - Depend on resume-toolkit 0.2.0: per-variant page budgets, the
   `page_breaks` check, running PDF footer with page numbers, full profile
   addresses and a "Skills" heading.
+- The PDF footer is identical on every cut (theme default 7.5pt, no one-page
+  override) and shows the build as `2026-10-31 · rev 39140c4`.
 
 - Rename the build workflow to quality, add standard gates, and pin actions
   while preserving Chromium tests, artifacts, and main-only Pages deployment.

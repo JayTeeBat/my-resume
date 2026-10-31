@@ -14,5 +14,5 @@ Tool behavior and schema provenance: [toolkit register](https://github.com/JayTe
 ## Deliberate deviations
 
 - Exempt from compliance profiles: [ADR 0004](adr/0004-content-only-repository.md).
-- Old short URLs may break; compact floors are reviewed manually, and unchanged
-  alternatives keep their historic footer: [ADR 0005](adr/0005-published-versions-and-page-layout.md).
+- Old short URLs may break, and compact floors are reviewed manually:
+  [ADR 0005](adr/0005-published-versions-and-page-layout.md).
