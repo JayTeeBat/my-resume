@@ -10,7 +10,7 @@
 
 - Publish three cuts: `2-page` (primary), `one-page` (new) and `full`. The
   one-page cut is selected with `x-tags`/`x-highlights` only (tag `2-page`).
-  Depends on resume-toolkit v0.2.0 (pagination, running footer, per-variant
+  Depends on resume-toolkit v0.2.1 (pagination, running footer, per-variant
   page budgets and styles).
 
 - Config-driven `resume check` with actionable text/JSON diagnostics, fast and
