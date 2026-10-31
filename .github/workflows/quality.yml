@@ -47,7 +47,10 @@ jobs:
           row = next(line for line in register.splitlines() if "| JSON Resume |" in line)
           dependency = tomllib.loads(Path("pyproject.toml").read_text())["project"]["dependencies"][0]
           pin = dependency.rsplit("@", 1)[1]
-          assert "toolkit v0.2.0" in row and (pin == "v0.2.0" or re.fullmatch(r"[a-f0-9]{40}", pin)), "toolkit pin drift"
+          assert re.fullmatch(r"v\d+\.\d+\.\d+", pin) and f"toolkit {pin}" in row, "toolkit pin drift"
+          docs = [*Path(".").rglob("*.md"), Path("resume-checks.toml")]
+          links = [v for path in docs if not any(part.startswith(".") for part in path.parts) for v in re.findall(r"resume-toolkit/(?:tree|blob)/(v[\d.]+)", path.read_text())]
+          assert links and set(links) == {pin}, f"toolkit doc links {sorted(set(links))} != {pin}"
           schema = json.loads(Path("resume.json").read_text())["$schema"]
           assert schema.split("/")[-2] in row, "schema pin drift"
           kit_row = next(line for line in register.splitlines() if "| repo-standard-kit |" in line)
