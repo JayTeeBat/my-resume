@@ -56,7 +56,7 @@
     },
     {
       "name": "Backend platforms & software delivery",
-      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Git", "Testing & CI/CD", "Agentic development workflow"]
+      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Testing & CI/CD", "Agentic development workflow"]
     }
   ],
   "work": [

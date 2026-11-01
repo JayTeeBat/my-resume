@@ -33,7 +33,7 @@ uv run resume check    # run the content checks
 Editing, checks, publishing and toolkit upgrades are in
 [docs/development.md](docs/development.md); contributor and agent rules are in
 [AGENTS.md](AGENTS.md). Rendering and check rules are documented in the
-[resume-toolkit docs](https://github.com/JayTeeBat/resume-toolkit/tree/v0.2.1/docs).
+[resume-toolkit docs](https://github.com/JayTeeBat/resume-toolkit/tree/423aa197f2827a08477dc0d75d1c5d3470bb9a0b/docs).
 
 ## License
 
