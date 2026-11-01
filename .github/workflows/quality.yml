@@ -47,9 +47,9 @@ jobs:
           row = next(line for line in register.splitlines() if "| JSON Resume |" in line)
           dependency = tomllib.loads(Path("pyproject.toml").read_text())["project"]["dependencies"][0]
           pin = dependency.rsplit("@", 1)[1]
-          assert re.fullmatch(r"v\d+\.\d+\.\d+", pin) and f"toolkit {pin}" in row, "toolkit pin drift"
+          assert re.fullmatch(r"(?:v\d+\.\d+\.\d+|[a-f0-9]{40})", pin) and f"toolkit {pin}" in row, "toolkit pin drift"
           docs = [*Path(".").rglob("*.md"), Path("resume-checks.toml")]
-          links = [v for path in docs if not any(part.startswith(".") for part in path.parts) for v in re.findall(r"resume-toolkit/(?:tree|blob)/(v[\d.]+)", path.read_text())]
+          links = [v for path in docs if not any(part.startswith(".") for part in path.parts) for v in re.findall(r"resume-toolkit/(?:tree|blob)/([^/\s)]+)", path.read_text())]
           assert links and set(links) == {pin}, f"toolkit doc links {sorted(set(links))} != {pin}"
           schema = json.loads(Path("resume.json").read_text())["$schema"]
           assert schema.split("/")[-2] in row, "schema pin drift"
@@ -91,10 +91,20 @@ jobs:
       - name: Build the site
         run: uv run resume site
 
+      - name: Build all versions
+        run: uv run resume build --out resume-all-versions
+
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: resume
           path: dist/
+          if-no-files-found: error
+
+      - name: Upload all versions
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: resume-all-versions
+          path: resume-all-versions/
           if-no-files-found: error
 
       # Only main gets published; every other branch just proves it builds.

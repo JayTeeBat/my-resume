@@ -13,11 +13,12 @@
 # `publish` controls what `resume site` puts on the public GitHub Pages page.
 # It defaults to false, so a new cut — e.g. a CV tailored to one employer — is
 # never published by accident. Only variants with publish = true go public.
-# `resume build` ignores this flag: you can always build any variant locally.
+# `resume build` ignores this flag: CI builds all cuts in a separate artifact.
+# Only 2-page is public; one-page and full remain built and fully checked.
 #
 # Order matters for the site: the first published variant is the primary cut,
-# shown first on the landing page and served as /resume.json; the others
-# follow as alternatives.
+# served as /resume.json and shown without a version label in its colophons.
+# Other cuts keep their labels, including the private one-page and full cuts.
 #
 # Tags in use: "full" marks entries only the complete CV keeps; "2-page" marks
 # entries the two-page cut keeps but the one-page cut drops.
@@ -30,7 +31,7 @@ publish = true
 [one-page]
 description = "One-page CV, the strongest and most quantified points"
 include = []
-publish = true
+publish = false
 
 [one-page.style]
 "--size-base" = "9pt"
@@ -51,4 +52,4 @@ publish = true
 [full]
 description = "Complete CV, every entry"
 include = ["*"]
-publish = true
+publish = false

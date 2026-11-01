@@ -1,5 +1,5 @@
 # Editorial policy for this CV. Rule defaults:
-# https://github.com/JayTeeBat/resume-toolkit/blob/v0.2.1/docs/checks.md
+# https://github.com/JayTeeBat/resume-toolkit/blob/v0.3.0/docs/checks.md
 enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
   "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
@@ -7,8 +7,9 @@ enabled = [
   "required_sections", "role_highlights", "dates", "codespell", "page_budget", "header", "page_breaks",
 ]
 spelling = "en-GB"
-# Variant rules, including content coverage and layout, check every
-# published cut: one-page, 2-page and full. The complete CV has no page budget.
+# These variants are checked, not deployed: content coverage and layout still
+# cover all three cuts. The complete CV has no page budget.
+published_variants = ["2-page", "one-page", "full"]
 page_budget = { "one-page" = 1, "2-page" = 2 }
 print_content_width = 688
 screen_width = 1280

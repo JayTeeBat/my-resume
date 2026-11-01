@@ -23,6 +23,11 @@
 
 ### Changed
 
+- PDF downloads carry the person's name; see the dated amendment in ADR 0005.
+  Pin the toolkit PR commit pending v0.3.0, with matching documentation links
+  and SHA-aware standards drift checking.
+- Remove `Git` from the backend skills group; retain its work-history mention.
+
 - Rename the published `short` cut to `2-page`; `resume-short.*` URLs no
   longer exist after deploy.
 - Depend on resume-toolkit 0.2.0: per-variant page budgets, the
