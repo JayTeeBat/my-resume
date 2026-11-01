@@ -27,6 +27,8 @@
 description = "Two-page CV, older and niche entries dropped"
 include = ["2-page"]
 publish = true
+# Owner decision 2026-11-01: no Markdown on the public site; the CI artifact keeps every format.
+formats = ["pdf", "html", "json"]
 
 [one-page]
 description = "One-page CV, the strongest and most quantified points"
