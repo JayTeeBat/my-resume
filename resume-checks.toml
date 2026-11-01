@@ -46,6 +46,9 @@ publications = ["name", "publisher", "releaseDate", "url"]
 [variant_exemptions]
 # The complete cut retains unquantified internships.
 full = ["quantified"]
+# Owner decision 2026-11-01: one-page keeps the skills but drops the bullets
+# that evidence them; it is private, and 2-page/full check the same skills.
+one-page = ["skill_evidence"]
 
 # Owner decision — see ADR 0005
 [required_sections]
