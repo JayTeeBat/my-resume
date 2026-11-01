@@ -1,7 +1,8 @@
 # Editorial policy for this CV. Rule defaults:
-# https://github.com/JayTeeBat/resume-toolkit/blob/9cd24f998df7d0c0d7a709cadc424d2c96723af1/docs/checks.md
+# https://github.com/JayTeeBat/resume-toolkit/blob/f5158508d97959bd17f6401cb043451dbeb24c6b/docs/checks.md
 enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
+  "skill_evidence", "weak_phrases",
   "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
   "tags", "chronology", "overlaps", "gaps", "skills", "required_fields",
   "required_sections", "role_highlights", "dates", "codespell", "page_budget", "header", "page_breaks",
@@ -54,3 +55,7 @@ one-page = ["education", "languages"]
 # Owner decision — see ADR 0005
 [role_highlights]
 one-page = { min = 1, since = "2010-06" }
+
+# Owner decision 2026-11-01: unevidenced skills stay as soft warnings until the #35 content rewrite.
+[skill_evidence]
+aliases = { "Gateway configuration" = ["configure gateways"], "Telemetry pipelines" = ["telemetry"], "Power/energy simulation" = ["simulation"] }
