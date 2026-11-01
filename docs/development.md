@@ -60,6 +60,6 @@ touched `resume.json`.
    tag; explain any new ones in the pull request.
 4. Run `uv run resume site` and review the rendered PDF before merging.
 
-[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/fe8b62f6eebaa72ee6fcf17f7937ae691e560711/docs/development.md
-[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/fe8b62f6eebaa72ee6fcf17f7937ae691e560711/docs/development.md#variants
-[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/fe8b62f6eebaa72ee6fcf17f7937ae691e560711/docs/checks.md
+[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/development.md
+[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/development.md#variants
+[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/checks.md
