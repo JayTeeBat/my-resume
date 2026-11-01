@@ -1,5 +1,5 @@
 # Editorial policy for this CV. Rule defaults:
-# https://github.com/JayTeeBat/resume-toolkit/blob/9cd24f998df7d0c0d7a709cadc424d2c96723af1/docs/checks.md
+# https://github.com/JayTeeBat/resume-toolkit/blob/v0.3.0/docs/checks.md
 enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
   "tense", "verb_led", "quantified", "lengths", "highlights", "locations",
