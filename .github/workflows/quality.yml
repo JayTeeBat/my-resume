@@ -91,10 +91,20 @@ jobs:
       - name: Build the site
         run: uv run resume site
 
+      - name: Build all versions
+        run: uv run resume build --out resume-all-versions
+
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: resume
           path: dist/
+          if-no-files-found: error
+
+      - name: Upload all versions
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: resume-all-versions
+          path: resume-all-versions/
           if-no-files-found: error
 
       # Only main gets published; every other branch just proves it builds.

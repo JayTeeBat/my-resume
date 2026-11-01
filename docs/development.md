@@ -9,9 +9,9 @@ schema and the check rules belong to
 
 [`resume.json`](../resume.json) holds every CV fact.
 [`variants.toml`](../variants.toml) selects the cuts; only `publish = true`
-variants reach the public site. All three cuts are published: `2-page`
-(the primary cut, first on the site and served as `/resume.json`), `one-page`
-and `full`. File order sets the site order. Tag entries with `x-tags` or
+variants reach the public site. Only `2-page` is public, the primary cut served
+as `/resume.json`. The `one-page` and `full` cuts are built and fully checked
+in CI, downloadable from the workflow run, and never deployed. Tag entries with `x-tags` or
 `x-highlights` as described in the toolkit's [variants
 section][toolkit-variants]: `full` marks what only the complete CV keeps,
 `2-page` what the two-page cut keeps but the one-page cut drops.
@@ -42,7 +42,9 @@ uv run resume site            # build exactly what Pages publishes into dist/
 
 The `quality` workflow runs on every pull request and on `main`. It runs the
 hygiene hooks, validation, the full check and the site build, then uploads
-`dist/` as the `resume` artifact. Only `main` deploys to
+`dist/` as the `resume` artifact. A separate `resume build --out resume-all-versions`
+builds all three cuts in all four formats for the `resume-all-versions` artifact,
+outside `dist/`. Only `main` deploys `dist/` to
 [GitHub Pages](https://jayteebat.github.io/my-resume/). The checkout keeps
 full history because the colophon dates the CV from the last commit that
 touched `resume.json`.
@@ -57,6 +59,6 @@ touched `resume.json`.
    tag; explain any new ones in the pull request.
 4. Run `uv run resume site` and review the rendered PDF before merging.
 
-[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/423aa197f2827a08477dc0d75d1c5d3470bb9a0b/docs/development.md
-[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/423aa197f2827a08477dc0d75d1c5d3470bb9a0b/docs/development.md#variants
-[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/423aa197f2827a08477dc0d75d1c5d3470bb9a0b/docs/checks.md
+[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/9cd24f998df7d0c0d7a709cadc424d2c96723af1/docs/development.md
+[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/9cd24f998df7d0c0d7a709cadc424d2c96723af1/docs/development.md#variants
+[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/9cd24f998df7d0c0d7a709cadc424d2c96723af1/docs/checks.md

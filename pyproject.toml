@@ -8,7 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "resume-toolkit @ git+https://github.com/JayTeeBat/resume-toolkit@423aa197f2827a08477dc0d75d1c5d3470bb9a0b",
+    "resume-toolkit @ git+https://github.com/JayTeeBat/resume-toolkit@9cd24f998df7d0c0d7a709cadc424d2c96723af1",
 ]
 
 [dependency-groups]
@@ -25,4 +25,4 @@ package = false
 
 [tool.codespell]
 # Generated or vendored files are not ours to spell-check.
-skip = "./.git,./.venv,./dist,./uv.lock"
+skip = "./.git,./.venv,./dist,./resume-all-versions,./uv.lock"
