@@ -23,6 +23,15 @@
 
 ### Changed
 
+- Reposition the CV for backend software roles with battery depth; reorder
+  evidenced skills and focus older roles on one highlight in the two-page cut.
+  [ADR 0006](docs/adr/0006-backend-repositioning.md) records the owner decisions
+  and date-banded highlight policy.
+- Retire the private one-page cut (amended ADR 0005); untag `2-page` content,
+  which now appears in both remaining cuts unchanged.
+- Pin the resume-toolkit v0.4.1 PR commit, which accepts present-tense
+  "Configure", pending the v0.4.1 tag.
+
 - PDF downloads carry the person's name; see the dated amendment in ADR 0005.
   Pin the toolkit PR commit pending v0.3.0, with matching documentation links
   and SHA-aware standards drift checking.

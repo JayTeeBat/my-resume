@@ -11,11 +11,11 @@ schema and the check rules belong to
 [`variants.toml`](../variants.toml) selects the cuts; only `publish = true`
 variants reach the public site. Only `2-page` is public, the primary cut served
 as `/resume.json`. Its `formats` selects PDF/HTML/JSON for the public site;
-Markdown remains in the private CI artifact. The `one-page` and `full` cuts are built and fully checked
+Markdown remains in the private CI artifact. The `full` cut is built and fully checked
 in CI, downloadable from the workflow run, and never deployed. Tag entries with `x-tags` or
 `x-highlights` as described in the toolkit's [variants
-section][toolkit-variants]: `full` marks what only the complete CV keeps,
-`2-page` what the two-page cut keeps but the one-page cut drops.
+section][toolkit-variants]: `full` marks what only the complete CV keeps;
+untagged content appears in both cuts.
 
 ## Content checks
 
@@ -35,7 +35,7 @@ runs the fast check when content or policy changes.
 ## Previewing
 
 ```sh
-uv run resume serve           # live preview at localhost:8000; -v one-page or -v 2-page
+uv run resume serve           # live preview at localhost:8000; -v 2-page or -v full
 uv run resume site            # build exactly what Pages publishes into dist/
 ```
 
@@ -44,7 +44,7 @@ uv run resume site            # build exactly what Pages publishes into dist/
 The `quality` workflow runs on every pull request and on `main`. It runs the
 hygiene hooks, validation, the full check and the site build, then uploads
 `dist/` as the `resume` artifact. A separate `resume build --out resume-all-versions`
-builds all three cuts in all four formats for the `resume-all-versions` artifact,
+builds every cut in all four formats for the `resume-all-versions` artifact,
 outside `dist/`. Only `main` deploys `dist/` to
 [GitHub Pages](https://jayteebat.github.io/my-resume/). The checkout keeps
 full history because the colophon dates the CV from the last commit that
@@ -60,6 +60,6 @@ touched `resume.json`.
    tag; explain any new ones in the pull request.
 4. Run `uv run resume site` and review the rendered PDF before merging.
 
-[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/development.md
-[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/development.md#variants
-[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/checks.md
+[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/26cb34ad33a2a7538c886e3aed925f3a9bb45c22/docs/development.md
+[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/26cb34ad33a2a7538c886e3aed925f3a9bb45c22/docs/development.md#variants
+[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/26cb34ad33a2a7538c886e3aed925f3a9bb45c22/docs/checks.md
