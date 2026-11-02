@@ -15,7 +15,7 @@ Tool behavior and schema provenance: [toolkit register](https://github.com/JayTe
 The toolkit pin may be a release tag or a full 40-character commit SHA while
 waiting for a release. The JSON Resume row and every toolkit documentation
 link must match the dependency in `pyproject.toml`; the quality workflow checks
-both forms. Re-pin to v0.4.1 after the toolkit PR merges and the tag exists.
+both forms.
 
 ## Deliberate deviations
 
