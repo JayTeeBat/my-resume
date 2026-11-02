@@ -17,7 +17,8 @@ JSON, Markdown and a GitHub Pages site, rendered and checked by
 - Repository type: CV content and static site publishing
 - Toolkit: rendering, themes, the schema, check rules and their tests live in
   [resume-toolkit]; change them there, not here
-- Standards: hygiene subset of [repo-standard-kit]; see
+- Standards: hygiene subset of [repo-standard-kit] (version in the
+  [register](docs/standards.md)); see
   [ADR 0004](docs/adr/0004-content-only-repository.md)
 - Key directories:
   - `docs/`: durable repository knowledge
@@ -190,7 +191,9 @@ Branch protection must require the `quality` status check.
 
 - Keep `README.md` lean and visitor-facing; put editing, checks, publishing
   and upgrade detail in `docs/development.md`
-- Link to the [resume-toolkit] docs for toolkit behavior instead of restating it
+- Link to the [resume-toolkit] docs for toolkit behavior instead of restating it;
+  the only version-pinned toolkit link lives in
+  [docs/standards.md](docs/standards.md#toolkit-documentation)
 - Update `AGENTS.md` when operating rules change
 - Add ADRs for significant repository decisions
 
@@ -213,5 +216,5 @@ Only `main` deploys Pages; all branches upload preview artifacts. Open PRs again
 without owner authorization. Changes to CV facts require owner confirmation.
 The MIT grant excludes CV content and its derived outputs; see [LICENSE](LICENSE).
 
-[repo-standard-kit]: https://github.com/JayTeeBat/repo-standard-kit/tree/v2.0.0
+[repo-standard-kit]: https://github.com/JayTeeBat/repo-standard-kit
 [resume-toolkit]: https://github.com/JayTeeBat/resume-toolkit

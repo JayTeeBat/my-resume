@@ -26,12 +26,12 @@ coverage and readability over fitting by silently dropping whole roles.
 | 2-page = 2 pages, full unbounded, preserving a complete archive | `page_budget` per-variant table (full omitted) |
 | Keep companies whole; if taller than a page, break between roles, never inside one, preserving reading context | `page_breaks` |
 | Every PDF page repeats build stamp · latest-at link and page number; the public primary version has no version label, while all other cuts keep it. HTML and Markdown colophons follow the same rule; stamp shown as `YYYY-MM-DD · rev <hash>` | Toolkit build primary selection and shared theme footer (7.5pt default); toolkit PDF text, colophon and parity regression tests |
-| Respect body ≥9pt, small text ≥7.5pt, leading ≥1.2, side margins ≥12 mm, bottom margin 15 mm; retain at least one body line of spare space | Toolkit [authoring floors](https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/development.md#per-variant-design-tokens); not mechanically enforced |
+| Respect body ≥9pt, small text ≥7.5pt, leading ≥1.2, side margins ≥12 mm, bottom margin 15 mm; retain at least one body line of spare space | Toolkit authoring floors (per-variant design tokens in the [toolkit docs](../standards.md#toolkit-documentation)); not mechanically enforced |
 | Use “Skills” and print profile URL addresses for ATS readability | Toolkit theme defaults (addresses omit scheme and `www`); not a content check |
 | Select content only with `x-tags`/`x-highlights`; never fork wording per version, avoiding factual drift | One `resume.json`, toolkit filtering; editorial policy not mechanically enforced |
 
 ## Consequences
 
-[Toolkit checks](https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/checks.md)
+Toolkit checks (see the [toolkit docs](../standards.md#toolkit-documentation))
 enforce coverage and layout. Visual review still owns readability. Baseline sections
 `basics`, `work`, `skills`, `education` are required in every checked cut, including the private full variant.
