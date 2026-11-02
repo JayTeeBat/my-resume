@@ -23,6 +23,10 @@
 
 ### Changed
 
+- Pin the resume-toolkit v0.5.0 PR commit, pending the v0.5.0 tag: the
+  primary `2-page` cut is now served at `/resume.html` and `/resume.json`, and
+  the former `resume-2-page.*` URLs no longer exist (amended ADR 0005). Its
+  `llms.txt` description no longer mentions page count.
 - Reposition the CV for backend software roles with battery depth; reorder
   evidenced skills and focus older roles on one highlight in the two-page cut.
   [ADR 0006](docs/adr/0006-backend-repositioning.md) records the owner decisions
