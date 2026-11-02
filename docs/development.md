@@ -43,10 +43,11 @@ uv run resume site            # build exactly what Pages publishes into dist/
 ## Publishing
 
 The `quality` workflow runs on every pull request and on `main`. It runs the
-hygiene hooks, validation, the full check and the site build, then uploads
-`dist/` as the `resume` artifact. A separate `resume build --out resume-all-versions`
-builds every cut in all four formats for the `resume-all-versions` artifact,
-outside `dist/`. Only `main` deploys `dist/` to
+pre-commit hooks (file hygiene, the toolkit pin check, `actionlint` and
+`zizmor`), validation, the full check and the site build. One `resume`
+artifact holds `site/` (a copy of `dist/`) and `all-versions/` (every cut in
+all four formats, from `resume build --out artifact/all-versions`, outside
+`dist/`). Only `main` deploys `dist/` to
 [GitHub Pages](https://jayteebat.github.io/my-resume/). The checkout keeps
 full history because the colophon dates the CV from the last commit that
 touched `resume.json`.

@@ -10,6 +10,8 @@ Amended 2026-11-02: the one-page cut is retired for now. It was private, and its
 
 Amended 2026-11-02 (toolkit 0.5.0): the primary cut publishes at the unsuffixed `resume.html` and `resume.json`; the former `resume-2-page.*` URLs break, without redirects.
 
+Amended 2026-11-02 (CI hygiene): CI artifact renamed/merged — the `resume` artifact now holds `site/` (the Pages build) and `all-versions/` (every cut, every format); `resume-all-versions` no longer exists. Toolkit doc links point to the [register](../standards.md#toolkit-documentation).
+
 ## Context
 
 A two-page primary CV and a full alternative share one factual source in this
@@ -20,7 +22,7 @@ coverage and readability over fitting by silently dropping whole roles.
 
 | Owner decision and rationale | Enforcement |
 |---|---|
-| One public version (`2-page`) in PDF/HTML/JSON, including the landing page, sitemap, llms.txt, `/resume.html` and `/resume.json`; full built and fully checked in CI, downloadable from the workflow run, not deployed | `variants.toml` order, `publish` and `formats`; `resume-checks.toml` explicitly checks both; quality workflow builds `resume-all-versions/` and uploads `resume-all-versions`, while Pages uploads only `dist/` |
+| One public version (`2-page`) in PDF/HTML/JSON, including the landing page, sitemap, llms.txt, `/resume.html` and `/resume.json`; full built and fully checked in CI, downloadable from the workflow run, not deployed | `variants.toml` order, `publish` and `formats`; `resume-checks.toml` explicitly checks both; the quality workflow's `resume` artifact holds `site/` and `all-versions/`, while Pages uploads only `dist/` |
 | PDFs use `Jacques-Thomazo-Resume.pdf` for the primary cut and `Jacques-Thomazo-Resume-Full.pdf` for the full cut; old PDF URLs may break | Toolkit PDF naming and site-link tests; no redirects |
 | Rename `short` to `2-page`; old `resume-short.*` links may break because little has been shared | No redirects; not mechanically enforced |
 | 2-page = 2 pages, full unbounded, preserving a complete archive | `page_budget` per-variant table (full omitted) |
