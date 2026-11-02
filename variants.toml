@@ -17,14 +17,15 @@
 # Only 2-page is public; full remains built and fully checked.
 #
 # Order matters for the site: the first published variant is the primary cut,
-# served as /resume.json and shown without a version label in its colophons.
+# served at the unsuffixed /resume.html and /resume.json (toolkit 0.5.0) and
+# shown without a version label in its colophons.
 # Other cuts keep their labels, including the private full cut.
 #
 # Tags in use: "full" marks entries only the complete CV keeps. The one-page cut
 # was retired on 2026-11-02 (ADR 0005), so 2-page keeps every untagged entry.
 
 [2-page]
-description = "Two-page CV, older and niche entries dropped"
+description = "Primary CV: recent roles in detail, earlier roles with one highlight"
 include = []
 publish = true
 # Owner decision 2026-11-01: no Markdown on the public site; the CI artifact keeps every format.
