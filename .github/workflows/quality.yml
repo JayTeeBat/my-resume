@@ -56,8 +56,8 @@ jobs:
         # cache does not cover, so it must run on a cache hit too.
         run: uv run playwright install --with-deps chromium
 
-      # File hygiene and the toolkit pin check. The fast content hook is
-      # skipped because the full check runs below.
+      # File hygiene, the toolkit pin check and the workflow linters. The fast
+      # content hook is skipped because the full check runs below.
       - name: Run pre-commit
         env:
           SKIP: resume-gates
@@ -102,8 +102,8 @@ jobs:
       group: pages
       cancel-in-progress: false
     permissions:
-      pages: write
-      id-token: write
+      pages: write # deploy-pages publishes the site
+      id-token: write # deploy-pages authenticates to Pages with OIDC
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
