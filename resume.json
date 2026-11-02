@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "Backend Software Engineer — EV Battery Fleet Telemetry Platforms",
+    "label": "Backend Software Engineer — EV Battery Telematics Platforms",
     "email": "jacques.thomazo@gmail.com",
     "url": "https://jayteebat.github.io/my-resume/",
     "summary": "Python backend engineer building telemetry, diagnostics and data platforms for connected EV fleets. Backed by 15 years of battery engineering, from cell chemistry to battery systems design.",
