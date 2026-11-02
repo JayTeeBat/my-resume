@@ -10,7 +10,7 @@ schema and the check rules belong to
 [`resume.json`](../resume.json) holds every CV fact.
 [`variants.toml`](../variants.toml) selects the cuts; only `publish = true`
 variants reach the public site. Only `2-page` is public, the primary cut served
-as `/resume.json`. Its `formats` selects PDF/HTML/JSON for the public site;
+at the unsuffixed `/resume.html` and `/resume.json`. Its `formats` selects PDF/HTML/JSON for the public site;
 Markdown remains in the private CI artifact. The `full` cut is built and fully checked
 in CI, downloadable from the workflow run, and never deployed. Tag entries with `x-tags` or
 `x-highlights` as described in the toolkit's [variants
@@ -60,6 +60,6 @@ touched `resume.json`.
    tag; explain any new ones in the pull request.
 4. Run `uv run resume site` and review the rendered PDF before merging.
 
-[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.1/docs/development.md
-[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.1/docs/development.md#variants
-[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.1/docs/checks.md
+[toolkit-dev]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/development.md
+[toolkit-variants]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/development.md#variants
+[toolkit-checks]: https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/checks.md
