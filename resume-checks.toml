@@ -1,5 +1,5 @@
 # Editorial policy for this CV. Rule defaults:
-# https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.0/docs/checks.md
+# https://github.com/JayTeeBat/resume-toolkit/blob/v0.4.1/docs/checks.md
 enabled = [
   "punctuation", "spelling", "proper_names", "typography", "unit_spacing",
   "skill_evidence", "weak_phrases",
@@ -8,15 +8,13 @@ enabled = [
   "required_sections", "role_highlights", "dates", "codespell", "page_budget", "header", "page_breaks",
 ]
 spelling = "en-GB"
-# These variants are checked, not deployed: content coverage and layout still
-# cover all three cuts. The complete CV has no page budget.
-published_variants = ["2-page", "one-page", "full"]
-page_budget = { "one-page" = 1, "2-page" = 2 }
+# These variants are checked, not only the deployed one: content coverage and
+# layout cover both cuts. The complete CV has no page budget.
+published_variants = ["2-page", "full"]
+page_budget = { "2-page" = 2 }
 print_content_width = 688
 screen_width = 1280
 max_gap_months = 3
-# Python is used differently in modelling and backend, kept in both by owner decision.
-shared_skill_keywords = ["Python"]
 date_format = "YYYY-MM"
 summary_sentences = 1
 summary_soft_max = 25
@@ -46,19 +44,11 @@ publications = ["name", "publisher", "releaseDate", "url"]
 [variant_exemptions]
 # The complete cut retains unquantified internships.
 full = ["quantified"]
-# Owner decision 2026-11-01: one-page keeps the skills but drops the bullets
-# that evidence them; it is private, and 2-page/full check the same skills.
-one-page = ["skill_evidence"]
 
 # Owner decision — see ADR 0005
 [required_sections]
 "*" = ["basics", "work", "skills", "education"]
-one-page = ["education", "languages"]
 
-# Owner decision — see ADR 0005
+# Owner decision — see ADR 0006
 [role_highlights]
-one-page = { min = 1, since = "2010-06" }
-
-# Owner decision 2026-11-01: unevidenced skills stay as soft warnings until the #35 content rewrite.
-[skill_evidence]
-aliases = { "Gateway configuration" = ["configure gateways"], "Telemetry pipelines" = ["telemetry"], "Power/energy simulation" = ["simulation"] }
+2-page = [{ since = "2020-11", min = 3, max = 6 }, { since = "2010-06", before = "2020-11", min = 1, max = 1 }]

@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Jacques Thomazo",
-    "label": "Battery Systems & Data Platform Technical Lead",
+    "label": "Backend Software Engineer — EV Battery Telematics Platforms",
     "email": "jacques.thomazo@gmail.com",
     "url": "https://jayteebat.github.io/my-resume/",
-    "summary": "15+ years of experience from cell chemistry to connected-fleet diagnostics. I design and build the telemetry, diagnostic and engineering-data systems that turn vehicle data into battery decisions.",
+    "summary": "Python backend engineer building telemetry, diagnostics and data platforms for connected EV fleets. Backed by 15 years of battery engineering, from cell chemistry to battery systems design.",
     "location": {
       "city": "Poitiers",
       "region": "Nouvelle-Aquitaine",
@@ -26,56 +26,65 @@
   },
   "skills": [
     {
-      "name": "Battery system design",
+      "name": "Backend",
       "keywords": [
-        "Requirements & duty-cycle analysis",
-        "System sizing",
-        "Ragone analysis",
-        "Cell selection",
-        "Series/parallel architecture"
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "REST/WebSocket APIs",
+        "MongoDB",
+        "Docker",
+        "Linux"
       ]
     },
     {
-      "name": "Battery modelling & analytics",
+      "name": "Quality & delivery",
       "keywords": [
-        "SOH estimation & prediction",
+        "uv",
+        "ruff",
+        "ty",
+        "pytest",
+        "pre-commit",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "name": "Vehicle data integration",
+      "keywords": [
+        "CAN",
+        "UDS",
+        "J1939",
+        "Telematics gateways"
+      ]
+    },
+    {
+      "name": "Domain",
+      "keywords": [
+        "Battery systems",
+        "SOH/SOC estimation algorithms",
         "Energy management strategies",
-        "Power/energy simulation",
         "MATLAB/Simulink/Simscape",
-        "Python"
+        "ISO 26262",
+        "HARA",
+        "FMEA"
       ]
-    },
-    {
-      "name": "Functional safety",
-      "keywords": ["ISO 26262", "HARA", "FMEA", "ASIL C/D"],
-      "x-tags": ["2-page"]
-    },
-    {
-      "name": "Vehicle diagnostics & IoT",
-      "keywords": ["CAN", "ISO-TP", "UDS", "OBD-II", "J1939", "Gateway configuration", "Telemetry pipelines"]
-    },
-    {
-      "name": "Backend platforms & software delivery",
-      "keywords": ["Python", "FastAPI", "Pydantic/OpenAPI", "REST/WebSocket APIs", "MongoDB", "Docker/Linux", "Testing & CI/CD", "Agentic development workflow"]
     }
   ],
   "work": [
     {
       "name": "Forsee Power",
-      "position": "Senior Battery Data Scientist",
+      "position": "Senior Battery Data Scientist (Backend & Platform Engineering)",
       "location": "Chasseneuil-du-Poitou, France",
       "startDate": "2024-05",
-      "summary": "Build an IoT telemetry service and data platform end-to-end.",
+      "summary": "Creator and maintainer of the fleet data platform: 8 repositories and 13 Python packages, from telematics gateways to the reporting API.",
       "highlights": [
         "Automate remote diagnostic reporting for telemetry-equipped vehicles, cutting per-report turnaround from 1 day to 200 seconds and cost from €1,000 to €0.50.",
-        "Build the IoT backend in Python and FastAPI: REST and WebSocket APIs, Pydantic/OpenAPI models, MongoDB persistence, and resilient external API integrations.",
-        "Define CAN diagnostic strategy (UDS, J1939, OBD-II, DID/DTC) and configure gateways for 100 vehicles across 8 customers, 7 products and 2 generations.",
-        "Architect and deliver a versioned, multi-repository IoT platform as the primary developer in a two-person team, using CI-gated AI workflows to preserve service compatibility and software quality.",
+        "Build the IoT backend in Python and FastAPI (REST and WebSocket APIs, Pydantic models, MongoDB), deployed on-prem with Docker on Linux.",
+        "Configure telematics gateways to monitor CAN/UDS/J1939 traffic for 100 vehicles across 8 customers, 7 products and 2 generations.",
+        "Architect a versioned multi-repository platform as primary developer in a two-person team, with every repository gated in GitHub Actions by a shared standard (uv, ruff, ty, pytest, pre-commit).",
         "Lead a cross-functional team of 5 managers and 19 departmental ambassadors to implement a company-wide SharePoint service containing 100+ resources."
       ],
       "x-highlights": {
-        "Build the IoT backend": ["2-page"],
-        "Architect and deliver": ["2-page"],
         "SharePoint": ["full"]
       }
     },
@@ -86,14 +95,14 @@
       "startDate": "2020-11",
       "endDate": "2024-05",
       "highlights": [
-        "Reworked SOH estimation and prediction algorithms for the embedded application, bringing accuracy to ±3 %.",
-        "Built a hybrid fuel-cell battery system model to explore optimised energy management strategies (MATLAB/Simulink/Simscape, Git).",
-        "Led development of a next-generation, high-cell-integration-density battery platform (cell-to-pack mass ratio >80 %).",
+        "Reworked the embedded SOH estimation algorithms, bringing accuracy to ±3 %.",
+        "Led development of a next-generation, high-cell-integration-density battery platform (cell-to-pack mass ratio >80 %) as functional lead of a 5-person team across 2 sites.",
+        "Built Python tooling to extract, filter and analyse gigabytes of UDS/CAN logs from pack-level SOH test campaigns.",
+        "Quantified fluxgate vs shunt current-sensor drift and its impact on SOC/SOH estimation accuracy.",
+        "Built a hybrid fuel-cell battery system model to explore energy management strategies (MATLAB/Simulink/Simscape).",
         "Delivered five in-house manufactured prototype packs (17 kWh, 800 V, LTO) for a key railway project."
       ],
-      "x-highlights": {
-        "hybrid fuel-cell": ["2-page"]
-      }
+      "summary": "Battery system development, from embedded algorithms to prototype packs."
     },
     {
       "name": "McLaren Applied",
@@ -103,11 +112,11 @@
       "endDate": "2020-08",
       "summary": "Technical lead on a top-tier, high-performance racing EV battery concept.",
       "highlights": [
-        "Simulated and optimised battery system sizing against tender requirements — 43 kWh, 600 kW, 284 kg, 220 L, 800 V.",
+        "Simulated and optimised battery system sizing in MATLAB/Simulink against tender requirements: 43 kWh, 600 kW, 284 kg, 220 L, 800 V.",
         "Defined, tracked and analysed results of a cell performance test plan."
       ],
       "x-highlights": {
-        "cell performance test plan": ["2-page"]
+        "cell performance test plan": ["full"]
       }
     },
     {
@@ -122,7 +131,7 @@
         "Led functional safety implementation across all three products."
       ],
       "x-highlights": {
-        "implementation across": ["2-page"]
+        "implementation across": ["full"]
       }
     },
     {
@@ -137,7 +146,7 @@
         "Owned testing and validation across the same systems."
       ],
       "x-highlights": {
-        "Owned testing and validation": ["2-page"]
+        "Owned testing and validation": ["full"]
       }
     },
     {
@@ -149,10 +158,10 @@
       "summary": "Cell-level test bench for performance and durability testing.",
       "highlights": [
         "Implemented a long-term (6 months) cell-level test bench (0–5 V and 25 A/channel × 16 channels), from specifications onwards.",
-        "Built the bench's continuous data monitoring pipelines."
+        "Built the continuous data monitoring pipelines for a 6-month, 16-channel cell-level test bench."
       ],
       "x-highlights": {
-        "continuous data monitoring": ["2-page"]
+        "Implemented a long-term": ["full"]
       }
     },
     {
@@ -168,8 +177,8 @@
         "Simulated immersion cooling for a dual 15 kWh pack system."
       ],
       "x-highlights": {
-        "Sized and selected": ["2-page"],
-        "immersion cooling": ["2-page"]
+        "Sized and selected": ["full"],
+        "Produced a small batch": ["full"]
       }
     },
     {
@@ -184,7 +193,7 @@
         "Validated the battery systems of Twizy, Fluence, Kangoo, ZOE Gen 1 & 2 and a 48 V LTO mild-hybrid battery."
       ],
       "x-highlights": {
-        "Built, led and owned": ["2-page"]
+        "Built, led and owned": ["full"]
       }
     },
     {
@@ -247,7 +256,7 @@
     {
       "institution": "École Nationale Supérieure de Chimie de Paris (Chimie ParisTech)",
       "area": "Renewable Energy, Chemistry, Electrochemistry, Physical Chemistry and Semiconductors",
-      "studyType": "French Engineering Diploma (Diplôme d’Ingénieur)",
+      "studyType": "Master’s degree (French Diplôme d’Ingénieur)",
       "startDate": "2007-09",
       "endDate": "2010-06"
     },
