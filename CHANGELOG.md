@@ -4,6 +4,14 @@
 
 ### Added
 
+- `check-pins` pre-commit hook (`scripts/check_pins.py`): the one pinned
+  toolkit docs link in `docs/standards.md` must match the `resume-toolkit`
+  pin in `pyproject.toml`, and no other file may add one. It replaces the
+  inline "Check standards pins" workflow step.
+- `actionlint` and `zizmor` (offline) pre-commit hooks for the workflow.
+- Dependabot for `uv` alongside GitHub Actions, in one multi-ecosystem group:
+  at most one update pull request per week.
+
 - [ADR 0005](docs/adr/0005-published-versions-and-page-layout.md) records owner
   format policy, enforced by `required_sections` and `role_highlights` coverage.
 - Standards register and CI pin-drift check.
@@ -22,6 +30,15 @@
   with CV content and derived outputs reserved to Jacques Thomazo.
 
 ### Changed
+
+- The standards register points to `pyproject.toml` and `resume.json` for the
+  toolkit and schema versions instead of repeating them; every other toolkit
+  docs link points to its toolkit documentation section.
+- Quality workflow: `main` runs are never cancelled and Pages deploys queue;
+  job timeouts; checkout without persisted credentials; the Playwright cache
+  keys on `uv.lock`. The `resume` artifact now holds `site/` and
+  `all-versions/`; the `resume-all-versions` artifact is gone (amended
+  ADR 0005).
 
 - Pin the resume-toolkit v0.5.0 PR commit, pending the v0.5.0 tag: the
   primary `2-page` cut is now served at `/resume.html` and `/resume.json`, and

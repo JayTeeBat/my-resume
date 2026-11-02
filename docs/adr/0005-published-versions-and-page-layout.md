@@ -10,6 +10,8 @@ Amended 2026-11-02: the one-page cut is retired for now. It was private, and its
 
 Amended 2026-11-02 (toolkit 0.5.0): the primary cut publishes at the unsuffixed `resume.html` and `resume.json`; the former `resume-2-page.*` URLs break, without redirects.
 
+Amended 2026-11-02 (CI hygiene): CI artifact renamed/merged — the `resume` artifact now holds `site/` (the Pages build) and `all-versions/` (every cut, every format); `resume-all-versions` no longer exists. Toolkit doc links point to the [register](../standards.md#toolkit-documentation).
+
 ## Context
 
 A two-page primary CV and a full alternative share one factual source in this
@@ -20,18 +22,18 @@ coverage and readability over fitting by silently dropping whole roles.
 
 | Owner decision and rationale | Enforcement |
 |---|---|
-| One public version (`2-page`) in PDF/HTML/JSON, including the landing page, sitemap, llms.txt, `/resume.html` and `/resume.json`; full built and fully checked in CI, downloadable from the workflow run, not deployed | `variants.toml` order, `publish` and `formats`; `resume-checks.toml` explicitly checks both; quality workflow builds `resume-all-versions/` and uploads `resume-all-versions`, while Pages uploads only `dist/` |
+| One public version (`2-page`) in PDF/HTML/JSON, including the landing page, sitemap, llms.txt, `/resume.html` and `/resume.json`; full built and fully checked in CI, downloadable from the workflow run, not deployed | `variants.toml` order, `publish` and `formats`; `resume-checks.toml` explicitly checks both; the quality workflow's `resume` artifact holds `site/` and `all-versions/`, while Pages uploads only `dist/` |
 | PDFs use `Jacques-Thomazo-Resume.pdf` for the primary cut and `Jacques-Thomazo-Resume-Full.pdf` for the full cut; old PDF URLs may break | Toolkit PDF naming and site-link tests; no redirects |
 | Rename `short` to `2-page`; old `resume-short.*` links may break because little has been shared | No redirects; not mechanically enforced |
 | 2-page = 2 pages, full unbounded, preserving a complete archive | `page_budget` per-variant table (full omitted) |
 | Keep companies whole; if taller than a page, break between roles, never inside one, preserving reading context | `page_breaks` |
 | Every PDF page repeats build stamp · latest-at link and page number; the public primary version has no version label, while all other cuts keep it. HTML and Markdown colophons follow the same rule; stamp shown as `YYYY-MM-DD · rev <hash>` | Toolkit build primary selection and shared theme footer (7.5pt default); toolkit PDF text, colophon and parity regression tests |
-| Respect body ≥9pt, small text ≥7.5pt, leading ≥1.2, side margins ≥12 mm, bottom margin 15 mm; retain at least one body line of spare space | Toolkit [authoring floors](https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/development.md#per-variant-design-tokens); not mechanically enforced |
+| Respect body ≥9pt, small text ≥7.5pt, leading ≥1.2, side margins ≥12 mm, bottom margin 15 mm; retain at least one body line of spare space | Toolkit authoring floors (per-variant design tokens in the [toolkit docs](../standards.md#toolkit-documentation)); not mechanically enforced |
 | Use “Skills” and print profile URL addresses for ATS readability | Toolkit theme defaults (addresses omit scheme and `www`); not a content check |
 | Select content only with `x-tags`/`x-highlights`; never fork wording per version, avoiding factual drift | One `resume.json`, toolkit filtering; editorial policy not mechanically enforced |
 
 ## Consequences
 
-[Toolkit checks](https://github.com/JayTeeBat/resume-toolkit/blob/v0.5.0/docs/checks.md)
+Toolkit checks (see the [toolkit docs](../standards.md#toolkit-documentation))
 enforce coverage and layout. Visual review still owns readability. Baseline sections
 `basics`, `work`, `skills`, `education` are required in every checked cut, including the private full variant.

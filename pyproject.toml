@@ -13,10 +13,12 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "actionlint-py>=1.7.12.25",
     "detect-secrets>=1.5.0",
     "pre-commit>=4.0.0",
     "pre-commit-hooks>=5.0.0",
     "pymarkdownlnt>=0.9.39",
+    "zizmor>=1.31.1",
 ]
 
 [tool.uv]
@@ -25,4 +27,4 @@ package = false
 
 [tool.codespell]
 # Generated or vendored files are not ours to spell-check.
-skip = "./.git,./.venv,./dist,./resume-all-versions,./uv.lock"
+skip = "./.git,./.venv,./dist,./artifact,./uv.lock"

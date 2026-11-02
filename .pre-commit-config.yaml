@@ -56,3 +56,22 @@ repos:
         entry: uv run pymarkdown --config .pymarkdown.json scan
         language: system
         types: [markdown]
+      - id: check-pins
+        name: toolkit docs link matches the pin
+        entry: uv run python scripts/check_pins.py
+        language: system
+        files: ^(pyproject\.toml|docs/.*\.md|README\.md|AGENTS\.md|resume-checks\.toml)$
+        pass_filenames: false
+      - id: actionlint
+        name: actionlint
+        entry: uv run actionlint
+        language: system
+        files: ^\.github/workflows/
+      # Offline: no GitHub API calls, so the hook needs no token and gives the
+      # same result locally and in CI.
+      - id: zizmor
+        name: zizmor
+        entry: uv run zizmor --offline .github/workflows
+        language: system
+        files: ^\.github/workflows/
+        pass_filenames: false

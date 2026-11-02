@@ -1,6 +1,6 @@
 # Build output
 /dist/
-/resume-all-versions/
+/artifact/
 
 # LinkedIn data exports. These carry far more personal data than a CV needs
 # (birth date, contacts, messages, ad targeting) and must never be committed.
