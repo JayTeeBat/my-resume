@@ -10,9 +10,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Superseded pull request runs are cancelled; main runs never are, because a
+# newer push could otherwise cancel a Pages deploy half-way through.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -20,6 +22,7 @@ permissions:
 jobs:
   quality:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -28,6 +31,8 @@ jobs:
           # so that lookup would silently fall back to whatever HEAD is and
           # stamp every build with today's date -- wrong, and wrong quietly.
           fetch-depth: 0
+          # Nothing pushes back, so the token need not stay in .git/config.
+          persist-credentials: false
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -38,25 +43,21 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked
 
-      # Chromium is ~150MB; without this every run re-downloads it.
-      - name: Resolve Playwright version
-        id: pw
-        run: echo "version=$(uv run python -c 'from importlib.metadata import version; print(version(\"playwright\"))')" >> "$GITHUB_OUTPUT"
-
+      # Chromium is ~150MB; without this every run re-downloads it. uv.lock
+      # pins the Playwright version exactly, so it keys the browser build.
       - name: Cache Playwright browsers
-        id: pw-cache
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}
+          key: playwright-${{ runner.os }}-${{ hashFiles('uv.lock') }}
 
       - name: Install Chromium
         # --with-deps installs the system libraries Chromium needs, which the
         # cache does not cover, so it must run on a cache hit too.
         run: uv run playwright install --with-deps chromium
 
-      # File hygiene. The fast content hook is skipped because the full
-      # check runs below.
+      # File hygiene and the toolkit pin check. The fast content hook is
+      # skipped because the full check runs below.
       - name: Run pre-commit
         env:
           SKIP: resume-gates
@@ -71,20 +72,17 @@ jobs:
       - name: Build the site
         run: uv run resume site
 
+      # One download per run: site/ is exactly what Pages serves, and
+      # all-versions/ adds the private cuts and Markdown that never deploy.
       - name: Build all versions
-        run: uv run resume build --out resume-all-versions
+        run: |
+          uv run resume build --out artifact/all-versions
+          cp -R dist artifact/site
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: resume
-          path: dist/
-          if-no-files-found: error
-
-      - name: Upload all versions
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: resume-all-versions
-          path: resume-all-versions/
+          path: artifact/
           if-no-files-found: error
 
       # Only main gets published; every other branch just proves it builds.
@@ -98,6 +96,11 @@ jobs:
     needs: quality
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # GitHub's Pages guidance: deploys queue, and none is cancelled mid-way.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write

@@ -25,4 +25,4 @@ package = false
 
 [tool.codespell]
 # Generated or vendored files are not ours to spell-check.
-skip = "./.git,./.venv,./dist,./resume-all-versions,./uv.lock"
+skip = "./.git,./.venv,./dist,./artifact,./uv.lock"
